@@ -56,8 +56,10 @@ function initHeader() {
     document.body.appendChild(header);
 }
 
-function initMain() {
+function initWeather() {
     let main = document.createElement('main');
+    let weatherWrapper = document.createElement('div');
+    weatherWrapper.classList.add('weatherWrapper');
     let weather = document.createElement('section');
     weather.classList.add('weather');
 
@@ -110,14 +112,15 @@ function initMain() {
     weather.appendChild(dateTime);
     weather.appendChild(weatherProp);
     weatherPropDetails.appendChild(weatherList);
-    main.appendChild(weather);
+    weatherWrapper.appendChild(weather);
+    main.appendChild(weatherWrapper);
     document.body.appendChild(main);
 }
 
 function initForecast() {
     let forecast = document.createElement('div');
     forecast.classList.add('forecast');
-    document.getElementsByTagName('main')[0].appendChild(forecast);
+    document.getElementsByClassName('weatherWrapper')[0].appendChild(forecast);
 
     let today = document.createElement('div'); // create today forecast block
     today.classList.add('today');
@@ -159,14 +162,27 @@ function initForecast() {
     document.getElementsByClassName('forecast')[0].appendChild(dayAfterTomorrow);
 }
 
-// function initLocation() {
+function initLocation() {
+    let locationWrapper = document.createElement('div');
+    locationWrapper.classList.add('locationWrapper');
 
-// }
+    let map = document.createElement('div');
+    map.classList.add('map');
+
+    let gps = document.createElement('div');
+    gps.classList.add('gps');
+    gps.innerHTML = 'Latitude: 53°54 <br> Longitude: 27°34';
+    // gps.innerHTML = 'Longitude: 27°34';
+    locationWrapper.appendChild(map);
+    locationWrapper.appendChild(gps);
+    document.getElementsByTagName('main')[0].appendChild(locationWrapper);
+}
 
 
 initHeader();
-initMain();
+initWeather();
 initForecast();
+initLocation();
 
 
 

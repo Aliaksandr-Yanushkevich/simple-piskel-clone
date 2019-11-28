@@ -48,10 +48,22 @@ $border: red solid 1px;
     height: 100%;
 }
 
-.weather {
+main {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border: $border;
+}
+
+.weatherWrapper {
     width: 30%;
     border: $border;
     margin-left: 6.5%;
+}
+
+.weather {
+    width: 100%;
+    // border: $border;
 }
 
 .dateTime {
@@ -59,7 +71,7 @@ $border: red solid 1px;
     flex-direction: row;
     width: 50%;
     justify-content: space-between;
-    border: $border;
+    // border: $border;
 }
 
 .weatherProp{
@@ -72,12 +84,29 @@ $border: red solid 1px;
 }
 
 .forecast {
-    width: 30%;
-    margin-left: 6.5%;
+    width: 100%;
+    // margin-left: 6.5%;
     margin-top: 10px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     // flex-grow: 1;
+    // border: $border;
+}
+
+.locationWrapper {
+    width: 30%;
     border: $border;
+    margin-right: 6.5%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.map {
+    width: 250px;
+    height: 250px;
+    background-color: green;
+    
 }
