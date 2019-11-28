@@ -1,5 +1,6 @@
 * {
     box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
 }
 
 .control {
@@ -34,6 +35,7 @@
 .button-changeBackground {
     background: url('/fancy-weather/src/change-img.png');
     background-size: cover;
+    background-color: rgb(114, 110, 110);
 }
 
 .searchForm {

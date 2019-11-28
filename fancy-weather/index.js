@@ -1,4 +1,7 @@
-function init() {
+const createIconHTML = function (icon_name) { // create icon for button
+    return `<i class="material-icons">${icon_name}</i>`;
+};
+function initHeader() {
     let control = document.createElement('section'); // create header
     control.classList.add('control');
 
@@ -6,15 +9,15 @@ function init() {
     buttBlock.className = 'buttBlock';
     control.appendChild(buttBlock);
 
-    const createIconHTML = function (icon_name) { // create icon for button
-        return `<i class="material-icons">${icon_name}</i>`;
-    };
+    // const createIconHTML = function (icon_name) { // create icon for button
+    //     return `<i class="material-icons">${icon_name}</i>`;
+    // };
 
     const changeBackground = document.createElement('button'); // create button for random bg
     changeBackground.classList.add("button");
     changeBackground.classList.add("button-changeBackground");
     changeBackground.innerHTML = createIconHTML('autorenew');
-    
+
     buttBlock.appendChild(changeBackground);
 
     const lang = document.createElement('select'); // create lang list
@@ -29,9 +32,9 @@ function init() {
     }
     buttBlock.appendChild(lang);
 
-    const tempVal = ['C', 'F']; // create temperature buttons
 
-    const tempCels = document.createElement('button');
+
+    const tempCels = document.createElement('button'); // create temperature buttons
     tempCels.innerText = '℃';
     tempCels.classList.add('temp');
     buttBlock.appendChild(tempCels);
@@ -57,13 +60,69 @@ function init() {
     control.appendChild(searchForm);
 
     document.body.appendChild(control);
-
-    // document.getElementsByClassName('control')[0].style.border = '1px solid #0000FF';
-    // document.getElementsByClassName('control')[0].style.width = '100%';
-    // document.getElementsByClassName('control')[0].style.height = '50px';
 }
 
-init();
+function initWeatherToday() {
+    let weatherToday = document.createElement('section'); // create WeatherToday block
+    weatherToday.classList.add('WeatherToday');
+
+    let location = document.createElement('h2');
+    location.classList.add('location');
+    location.classList.add('weatherToday-location');
+    location.innerHTML = 'Minsk, Belarus';
+    weatherToday.appendChild(location);
+
+    let dateTime = document.createElement('div');
+    location.classList.add('dateTime');
+    location.classList.add('weatherToday-dateTime');
+
+    let date = document.createElement('h3');
+    date.classList.add('date');
+    date.classList.add('weatherToday-date');
+    date.innerHTML = 'Mon 28 October';
+    dateTime.appendChild(date);
+
+    let time = document.createElement('h3');
+    time.classList.add('time');
+    time.classList.add('weatherToday-time');
+    time.innerHTML = '10:49';
+    dateTime.appendChild(time);
+
+    let temp = document.createElement('div');
+    temp.classList.add('tempVal');
+    temp.classList.add('weatherToday-tempVal');
+    temp.innerHTML = '10';
+
+    let weatherOptions = document.createElement('div');
+    weatherOptions.classList.add('weatherOptions');
+    weatherOptions.classList.add('weatherToday-weatherOptions');
+    weatherToday.appendChild(weatherOptions);
+
+
+    let weatherImage = document.createElement('div');
+    weatherImage.classList.add('weatherImage');
+    weatherImage.classList.add('weatherToday-weatherImage');
+    weatherImage.innerHTML = createIconHTML('cloud_queue');
+    weatherOptions.appendChild(weatherImage);
+
+    let weatherChar = document.createElement('div');
+    let weatherList = document.createElement('ul');
+    let weatherArr = ['overcast', 'Feels like: 7°', 'Wind: 2 m/s', 'Humidity: 83%']
+    for (let i = 0; i < weatherArr.length; i++) {
+        let li = document.createElement("li");
+        li.appendChild(document.createTextNode(weatherArr[i]));
+        weatherList.appendChild(li);
+    }
+    weatherChar.appendChild(weatherList);
+    weatherOptions.appendChild(weatherChar);
+    weatherToday.appendChild(dateTime);
+    weatherToday.appendChild(temp);
+    document.body.appendChild(weatherToday);
+}
+
+
+initHeader();
+initWeatherToday();
 
 
 
