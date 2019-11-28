@@ -1,5 +1,5 @@
 const createIconHTML = function (icon_name) { // create icon for button
-    return `<i class="material-icons">${icon_name}</i>`;
+    return `<i class="material-icons ${icon_name}">${icon_name}</i>`;
 };
 function initHeader() {
     let header = document.createElement('header');// create header
@@ -69,21 +69,21 @@ function initWeather() {
     location.innerHTML = 'Minsk, Belarus';
     weather.appendChild(location);
 
-    let dateTime = document.createElement('div');
+    // let dateTime = document.createElement('div');
+    // dateTime.classList.add('dateTime');
+    // dateTime.classList.add('weatherToday-dateTime');
+
+    let dateTime = document.createElement('h3');
     dateTime.classList.add('dateTime');
-    dateTime.classList.add('weatherToday-dateTime');
+    // dateTime.classList.add('weatherToday-date');
+    dateTime.innerHTML = 'Mon 28 October 10:49';
+    weather.appendChild(dateTime);
 
-    let date = document.createElement('h3');
-    date.classList.add('date');
-    date.classList.add('weatherToday-date');
-    date.innerHTML = 'Mon 28 October';
-    dateTime.appendChild(date);
-
-    let time = document.createElement('h3');
-    time.classList.add('time');
-    time.classList.add('weatherToday-time');
-    time.innerHTML = '10:49';
-    dateTime.appendChild(time);
+    // let time = document.createElement('h3');
+    // time.classList.add('time');
+    // time.classList.add('weatherToday-time');
+    // time.innerHTML = '10:49';
+    // dateTime.appendChild(time);
 
     let weatherProp = document.createElement('div');
     weatherProp.classList.add('weatherProp');
@@ -103,9 +103,11 @@ function initWeather() {
     weatherPropDetails.appendChild(weatherPropDetailsImage);
 
     let weatherList = document.createElement('ul');
+    weatherList.classList.add('weatherdescription');
     let weatherArr = ['overcast', 'Feels like: 7°', 'Wind: 2 m/s', 'Humidity: 83%']
     for (let i = 0; i < weatherArr.length; i++) {
         let li = document.createElement("li");
+        li.classList.add('li-item');
         li.appendChild(document.createTextNode(weatherArr[i]));
         weatherList.appendChild(li);
     }
@@ -123,7 +125,7 @@ function initForecast() {
     document.getElementsByClassName('weatherWrapper')[0].appendChild(forecast);
 
     let today = document.createElement('div'); // create today forecast block
-    today.classList.add('today');
+    today.classList.add('day');
     let todayTitle = document.createElement('h3');
     todayTitle.innerHTML = 'Tuesday';
     let todayTemp = document.createElement('div');
@@ -136,7 +138,7 @@ function initForecast() {
     document.getElementsByClassName('forecast')[0].appendChild(today);
 
     let tommorow = document.createElement('div'); // create tommorow forecast block
-    tommorow.classList.add('tommorow');
+    tommorow.classList.add('day');
     let tommorowTitle = document.createElement('h3');
     tommorowTitle.innerHTML = 'Wednesday';
     let tommorowTemp = document.createElement('div');
@@ -149,7 +151,7 @@ function initForecast() {
     document.getElementsByClassName('forecast')[0].appendChild(tommorow);
 
     let dayAfterTomorrow = document.createElement('div');
-    dayAfterTomorrow.classList.add('dayAfterTomorrow');
+    dayAfterTomorrow.classList.add('day');
     let dayAfterTomorrowTitle = document.createElement('h3');
     dayAfterTomorrowTitle.innerHTML = 'Thursday';
     let dayAfterTomorrowTemp = document.createElement('div');
@@ -172,7 +174,6 @@ function initLocation() {
     let gps = document.createElement('div');
     gps.classList.add('gps');
     gps.innerHTML = 'Latitude: 53°54 <br> Longitude: 27°34';
-    // gps.innerHTML = 'Longitude: 27°34';
     locationWrapper.appendChild(map);
     locationWrapper.appendChild(gps);
     document.getElementsByTagName('main')[0].appendChild(locationWrapper);

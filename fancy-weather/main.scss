@@ -69,7 +69,7 @@ main {
 .dateTime {
     display: flex;
     flex-direction: row;
-    width: 50%;
+    width: 100%;
     justify-content: space-between;
     // border: $border;
 }
@@ -81,6 +81,30 @@ main {
 
 .weatherPropTemp {
     width: 50%;
+    font-size: 7rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.weatherPropDetails {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+// .weatherPropDetailsImage {
+//     font-size: 2rem;
+// }
+
+.weatherdescription {
+    padding: 0;
+}
+
+.li-item {
+    list-style-type: none;
+    font-size: 1.2rem;
 }
 
 .forecast {
@@ -92,6 +116,14 @@ main {
     justify-content: space-between;
     // flex-grow: 1;
     // border: $border;
+}
+
+.day {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
 }
 
 .locationWrapper {
@@ -108,5 +140,36 @@ main {
     width: 250px;
     height: 250px;
     background-color: green;
+}
+
+.gps {
+    margin-top: 30px;
+}
+
+@media (max-width: 960px) {
+    body {
+        background-color: yellowgreen;
+    }
+
+    .weatherWrapper {
+        width: 45%;
+        border: $border;
+        margin-left: 2%;
+    }
+
+    .dateTime {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        justify-content: space-between;
+        // border: $border;
+    }
+    
+}
+
+@media (max-width: 640px) {
+    body {
+        background-color: yellow;
+    }
     
 }
