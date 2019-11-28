@@ -1,3 +1,5 @@
+$border: red solid 1px;
+
 * {
     box-sizing: border-box;
     font-family: 'Montserrat', sans-serif;
@@ -21,7 +23,7 @@
 }
 
 .button, .language, .temp, .searchForm {
-    height: 64px;
+    height: 44px;
     background-color: rgb(114, 110, 110);
     opacity: 0.5;
     border-radius: 10%;
@@ -29,7 +31,7 @@
 }
 
 .button-changeBackground, .temp {
-    width: 64px;
+    width: 44px;
 }
 
 .button-changeBackground {
@@ -44,5 +46,38 @@
 
 .searchField, .searchSubmit {
     height: 100%;
-    // border-radius: 10%;
+}
+
+.weather {
+    width: 30%;
+    border: $border;
+    margin-left: 6.5%;
+}
+
+.dateTime {
+    display: flex;
+    flex-direction: row;
+    width: 50%;
+    justify-content: space-between;
+    border: $border;
+}
+
+.weatherProp{
+    display: flex;
+    flex-direction: row;
+}
+
+.weatherPropTemp {
+    width: 50%;
+}
+
+.forecast {
+    width: 30%;
+    margin-left: 6.5%;
+    margin-top: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    // flex-grow: 1;
+    border: $border;
 }

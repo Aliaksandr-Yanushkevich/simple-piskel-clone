@@ -2,16 +2,13 @@ const createIconHTML = function (icon_name) { // create icon for button
     return `<i class="material-icons">${icon_name}</i>`;
 };
 function initHeader() {
-    let control = document.createElement('section'); // create header
+    let header = document.createElement('header');// create header
+    let control = document.createElement('section');
     control.classList.add('control');
 
     let buttBlock = document.createElement('div');
     buttBlock.className = 'buttBlock';
     control.appendChild(buttBlock);
-
-    // const createIconHTML = function (icon_name) { // create icon for button
-    //     return `<i class="material-icons">${icon_name}</i>`;
-    // };
 
     const changeBackground = document.createElement('button'); // create button for random bg
     changeBackground.classList.add("button");
@@ -21,7 +18,7 @@ function initHeader() {
     buttBlock.appendChild(changeBackground);
 
     const lang = document.createElement('select'); // create lang list
-    const langArr = ['EN', 'BE', 'RUS'];
+    const langArr = ['EN', 'BE', 'RU'];
     lang.classList.add("language");
 
     for (let i = 0; i < langArr.length; i++) {
@@ -32,8 +29,6 @@ function initHeader() {
     }
     buttBlock.appendChild(lang);
 
-
-
     const tempCels = document.createElement('button'); // create temperature buttons
     tempCels.innerText = '℃';
     tempCels.classList.add('temp');
@@ -43,7 +38,6 @@ function initHeader() {
     tempFar.innerText = '℉';
     tempFar.classList.add('temp');
     buttBlock.appendChild(tempFar);
-
 
     const searchForm = document.createElement('form'); // create search form
     searchForm.classList.add('searchForm');
@@ -58,23 +52,24 @@ function initHeader() {
     searchForm.appendChild(searchField);
     searchForm.appendChild(searchSubmit);
     control.appendChild(searchForm);
-
-    document.body.appendChild(control);
+    header.appendChild(control);
+    document.body.appendChild(header);
 }
 
-function initWeatherToday() {
-    let weatherToday = document.createElement('section'); // create WeatherToday block
-    weatherToday.classList.add('WeatherToday');
+function initMain() {
+    let main = document.createElement('main');
+    let weather = document.createElement('section');
+    weather.classList.add('weather');
 
     let location = document.createElement('h2');
     location.classList.add('location');
-    location.classList.add('weatherToday-location');
+    location.classList.add('weather-location');
     location.innerHTML = 'Minsk, Belarus';
-    weatherToday.appendChild(location);
+    weather.appendChild(location);
 
     let dateTime = document.createElement('div');
-    location.classList.add('dateTime');
-    location.classList.add('weatherToday-dateTime');
+    dateTime.classList.add('dateTime');
+    dateTime.classList.add('weatherToday-dateTime');
 
     let date = document.createElement('h3');
     date.classList.add('date');
@@ -88,24 +83,23 @@ function initWeatherToday() {
     time.innerHTML = '10:49';
     dateTime.appendChild(time);
 
-    let temp = document.createElement('div');
-    temp.classList.add('tempVal');
-    temp.classList.add('weatherToday-tempVal');
-    temp.innerHTML = '10';
+    let weatherProp = document.createElement('div');
+    weatherProp.classList.add('weatherProp');
 
-    let weatherOptions = document.createElement('div');
-    weatherOptions.classList.add('weatherOptions');
-    weatherOptions.classList.add('weatherToday-weatherOptions');
-    weatherToday.appendChild(weatherOptions);
+    let weatherPropTemp = document.createElement('div');
+    weatherPropTemp.classList.add('weatherPropTemp');
+    weatherPropTemp.innerHTML = '10';
+    weatherProp.appendChild(weatherPropTemp);
 
+    let weatherPropDetails = document.createElement('div');
+    weatherPropDetails.classList.add('weatherPropDetails');
+    weatherProp.appendChild(weatherPropDetails);
 
-    let weatherImage = document.createElement('div');
-    weatherImage.classList.add('weatherImage');
-    weatherImage.classList.add('weatherToday-weatherImage');
-    weatherImage.innerHTML = createIconHTML('cloud_queue');
-    weatherOptions.appendChild(weatherImage);
+    let weatherPropDetailsImage = document.createElement('div');
+    weatherPropDetailsImage.classList.add('weatherPropDetailsImage');
+    weatherPropDetailsImage.innerHTML = createIconHTML('cloud_queue');
+    weatherPropDetails.appendChild(weatherPropDetailsImage);
 
-    let weatherChar = document.createElement('div');
     let weatherList = document.createElement('ul');
     let weatherArr = ['overcast', 'Feels like: 7°', 'Wind: 2 m/s', 'Humidity: 83%']
     for (let i = 0; i < weatherArr.length; i++) {
@@ -113,16 +107,67 @@ function initWeatherToday() {
         li.appendChild(document.createTextNode(weatherArr[i]));
         weatherList.appendChild(li);
     }
-    weatherChar.appendChild(weatherList);
-    weatherOptions.appendChild(weatherChar);
-    weatherToday.appendChild(dateTime);
-    weatherToday.appendChild(temp);
-    document.body.appendChild(weatherToday);
+    weather.appendChild(dateTime);
+    weather.appendChild(weatherProp);
+    weatherPropDetails.appendChild(weatherList);
+    main.appendChild(weather);
+    document.body.appendChild(main);
 }
+
+function initForecast() {
+    let forecast = document.createElement('div');
+    forecast.classList.add('forecast');
+    document.getElementsByTagName('main')[0].appendChild(forecast);
+
+    let today = document.createElement('div'); // create today forecast block
+    today.classList.add('today');
+    let todayTitle = document.createElement('h3');
+    todayTitle.innerHTML = 'Tuesday';
+    let todayTemp = document.createElement('div');
+    todayTemp.innerHTML = '7°';
+    let todayImg = document.createElement('div');
+    todayImg.innerHTML = createIconHTML('cloud_queue');
+    today.appendChild(todayTitle);
+    today.appendChild(todayTemp);
+    today.appendChild(todayImg);
+    document.getElementsByClassName('forecast')[0].appendChild(today);
+
+    let tommorow = document.createElement('div'); // create tommorow forecast block
+    tommorow.classList.add('tommorow');
+    let tommorowTitle = document.createElement('h3');
+    tommorowTitle.innerHTML = 'Wednesday';
+    let tommorowTemp = document.createElement('div');
+    tommorowTemp.innerHTML = '6°';
+    let tommorowImg = document.createElement('div');
+    tommorowImg.innerHTML = createIconHTML('cloud_queue');
+    tommorow.appendChild(tommorowTitle);
+    tommorow.appendChild(tommorowTemp);
+    tommorow.appendChild(tommorowImg);
+    document.getElementsByClassName('forecast')[0].appendChild(tommorow);
+
+    let dayAfterTomorrow = document.createElement('div');
+    dayAfterTomorrow.classList.add('dayAfterTomorrow');
+    let dayAfterTomorrowTitle = document.createElement('h3');
+    dayAfterTomorrowTitle.innerHTML = 'Thursday';
+    let dayAfterTomorrowTemp = document.createElement('div');
+    dayAfterTomorrowTemp.innerHTML = '3°';
+    let dayAfterTomorrowImg = document.createElement('div');
+    dayAfterTomorrowImg.innerHTML = createIconHTML('cloud_queue');
+    dayAfterTomorrow.appendChild(dayAfterTomorrowTitle);
+    dayAfterTomorrow.appendChild(dayAfterTomorrowTemp);
+    dayAfterTomorrow.appendChild(dayAfterTomorrowImg);
+    document.getElementsByClassName('forecast')[0].appendChild(dayAfterTomorrow);
+}
+
+// function initLocation() {
+
+// }
 
 
 initHeader();
-initWeatherToday();
+initMain();
+initForecast();
+
 
 
 
