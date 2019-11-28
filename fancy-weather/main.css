@@ -24,6 +24,7 @@
 
 .buttBlock {
   width: 25%;
+  min-width: 190px;
   margin-left: 6.5%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -36,7 +37,7 @@
           align-items: center;
 }
 
-.button, .language, .temp, .searchForm {
+.button, .language, .temp {
   height: 44px;
   background-color: #726e6e;
   opacity: 0.5;
@@ -55,11 +56,24 @@
 }
 
 .searchForm {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   margin-right: 6.5%;
+  height: 44px;
+}
+
+.searchForm ::-webkit-input-placeholder {
+  color: white;
 }
 
 .searchField, .searchSubmit {
   height: 100%;
+  outline: 0;
+  background-color: #726e6e;
+  border: red solid 1px;
+  opacity: 0.5;
+  color: white;
 }
 
 main {
@@ -78,6 +92,8 @@ main {
 
 .weatherWrapper {
   width: 30%;
+  min-width: 320px;
+  max-width: 450px;
   border: red solid 1px;
   margin-left: 6.5%;
 }
@@ -182,6 +198,8 @@ main {
 
 .locationWrapper {
   width: 30%;
+  min-width: 320px;
+  max-width: 450px;
   border: red solid 1px;
   margin-right: 6.5%;
   display: -webkit-box;
@@ -213,29 +231,48 @@ main {
   body {
     background-color: yellowgreen;
   }
+  .buttBlock {
+    margin-left: 2%;
+  }
+  .searchForm {
+    margin-right: 2%;
+  }
   .weatherWrapper {
-    width: 45%;
     border: red solid 1px;
     margin-left: 2%;
   }
-  .dateTime {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: row;
-            flex-direction: row;
-    width: 100%;
-    -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-            justify-content: space-between;
+  .locationWrapper {
+    border: red solid 1px;
+    margin-right: 2%;
   }
 }
 
-@media (max-width: 640px) {
+@media (max-width: 670px) {
   body {
     background-color: yellow;
+  }
+  main {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    border: red solid 1px;
+  }
+  .weatherWrapper {
+    width: 100%;
+    border: red solid 1px;
+    margin: 0 auto;
+  }
+  .locationWrapper {
+    width: 100%;
+    border: red solid 1px;
+    margin: 0 auto;
   }
 }
 /*# sourceMappingURL=main.css.map */

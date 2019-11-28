@@ -16,13 +16,14 @@ $border: red solid 1px;
 
 .buttBlock {
     width: 25%;
+    min-width: 190px;
     margin-left: 6.5%;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-.button, .language, .temp, .searchForm {
+.button, .language, .temp {
     height: 44px;
     background-color: rgb(114, 110, 110);
     opacity: 0.5;
@@ -41,11 +42,19 @@ $border: red solid 1px;
 }
 
 .searchForm {
+    display: flex;
     margin-right: 6.5%;
+    height: 44px;
+    ::-webkit-input-placeholder {color: white;}
 }
 
 .searchField, .searchSubmit {
     height: 100%;
+    outline: 0;
+    background-color: rgb(114, 110, 110);
+    border: $border;
+    opacity: 0.5;
+    color: white;
 }
 
 main {
@@ -57,6 +66,8 @@ main {
 
 .weatherWrapper {
     width: 30%;
+    min-width: 320px;
+    max-width: 450px;
     border: $border;
     margin-left: 6.5%;
 }
@@ -128,6 +139,8 @@ main {
 
 .locationWrapper {
     width: 30%;
+    min-width: 320px;
+    max-width: 450px;
     border: $border;
     margin-right: 6.5%;
     display: flex;
@@ -151,25 +164,50 @@ main {
         background-color: yellowgreen;
     }
 
+    .buttBlock {
+        margin-left: 2%;
+    }
+
+    .searchForm {
+        margin-right: 2%;
+    }
+
     .weatherWrapper {
-        width: 45%;
+        // width: 45%;
         border: $border;
         margin-left: 2%;
     }
 
-    .dateTime {
-        display: flex;
-        flex-direction: row;
-        width: 100%;
-        justify-content: space-between;
-        // border: $border;
+    .locationWrapper {
+        // width: 45%;
+        border: $border;
+        margin-right: 2%;
     }
     
 }
 
-@media (max-width: 640px) {
+@media (max-width: 670px) {
     body {
         background-color: yellow;
+    }
+
+    main {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        border: $border;
+    }
+    
+    .weatherWrapper {
+        width: 100%;
+        border: $border;
+        margin: 0 auto;
+    }
+
+    .locationWrapper {
+        width: 100%;
+        border: $border;
+        margin: 0 auto;
     }
     
 }

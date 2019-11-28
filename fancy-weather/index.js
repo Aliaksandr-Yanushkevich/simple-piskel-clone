@@ -42,13 +42,13 @@ function initHeader() {
     const searchForm = document.createElement('form'); // create search form
     searchForm.classList.add('searchForm');
     const searchField = document.createElement('input');
-    searchField.setAttribute('type', 'text');
+    searchField.setAttribute('type', 'search');
     searchField.classList.add('searchField');
     searchField.placeholder = "Search city or ZIP";
-    const searchSubmit = document.createElement('input')
+    const searchSubmit = document.createElement('button');
     searchSubmit.setAttribute('type', 'submit');
     searchSubmit.classList.add('searchSubmit');
-    searchSubmit.value = "SEARCH";
+    searchSubmit.innerHTML = createIconHTML('search');
     searchForm.appendChild(searchField);
     searchForm.appendChild(searchSubmit);
     control.appendChild(searchForm);
@@ -69,21 +69,10 @@ function initWeather() {
     location.innerHTML = 'Minsk, Belarus';
     weather.appendChild(location);
 
-    // let dateTime = document.createElement('div');
-    // dateTime.classList.add('dateTime');
-    // dateTime.classList.add('weatherToday-dateTime');
-
     let dateTime = document.createElement('h3');
     dateTime.classList.add('dateTime');
-    // dateTime.classList.add('weatherToday-date');
     dateTime.innerHTML = 'Mon 28 October 10:49';
     weather.appendChild(dateTime);
-
-    // let time = document.createElement('h3');
-    // time.classList.add('time');
-    // time.classList.add('weatherToday-time');
-    // time.innerHTML = '10:49';
-    // dateTime.appendChild(time);
 
     let weatherProp = document.createElement('div');
     weatherProp.classList.add('weatherProp');
