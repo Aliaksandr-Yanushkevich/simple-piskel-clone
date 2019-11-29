@@ -15,8 +15,6 @@ $border: red solid 1px;
 }
 
 .buttBlock {
-    width: 25%;
-    min-width: 190px;
     margin-left: 6.5%;
     display: flex;
     justify-content: space-between;
@@ -210,4 +208,43 @@ main {
         margin: 0 auto;
     }
     
+}
+
+@media (max-width: 670px) {
+    .control {
+        flex-direction: column;
+        min-width: 320px;
+        max-width: 450px;
+        margin: 0 auto;
+    }
+
+    .buttBlock {
+        width: 100%;
+        // min-width: 190px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .button, .language, .temp {
+        height: 32px;
+        flex-grow: 1;
+    }
+
+    .searchForm {
+        display: flex;
+        margin: 0 auto;
+        width: 100%;
+        // height: 44px;
+        ::-webkit-input-placeholder {color: white;}
+    }
+
+    .searchField {
+       flex-grow: 1;
+    }
+
+    .searchSubmit {
+        flex-grow: 1;
+    }
 }

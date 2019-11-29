@@ -23,8 +23,6 @@
 }
 
 .buttBlock {
-  width: 25%;
-  min-width: 190px;
   margin-left: 6.5%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -273,6 +271,57 @@ main {
     width: 100%;
     border: red solid 1px;
     margin: 0 auto;
+  }
+}
+
+@media (max-width: 670px) {
+  .control {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    min-width: 320px;
+    max-width: 450px;
+    margin: 0 auto;
+  }
+  .buttBlock {
+    width: 100%;
+    margin: 0 auto;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .button, .language, .temp {
+    height: 32px;
+    -webkit-box-flex: 1;
+        -ms-flex-positive: 1;
+            flex-grow: 1;
+  }
+  .searchForm {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    margin: 0 auto;
+    width: 100%;
+  }
+  .searchForm ::-webkit-input-placeholder {
+    color: white;
+  }
+  .searchField {
+    -webkit-box-flex: 1;
+        -ms-flex-positive: 1;
+            flex-grow: 1;
+  }
+  .searchSubmit {
+    -webkit-box-flex: 1;
+        -ms-flex-positive: 1;
+            flex-grow: 1;
   }
 }
 /*# sourceMappingURL=main.css.map */
