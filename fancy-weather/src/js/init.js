@@ -1,7 +1,14 @@
-const createIconHTML = function (icon_name) { // create icon for button
+
+createIconHTML = function (icon_name) { // create icon for button
     return `<i class="material-icons ${icon_name}">${icon_name}</i>`;
 };
-function initHeader() {
+initHeader = function () {
+    let mainWrapper = document.createElement('div');
+    mainWrapper.classList.add('wrapper');
+    let copyright = document.createElement('div');
+    copyright.classList.add('copyright');
+    let developer = document.createElement('h1');
+    developer.innerHTML = 'Fancy-Weather. Created by Aliaksandr Yanushkevich RS Schooll 2019Q3';
     let header = document.createElement('header');// create header
     let control = document.createElement('section');
     control.classList.add('control');
@@ -53,10 +60,13 @@ function initHeader() {
     searchForm.appendChild(searchSubmit);
     control.appendChild(searchForm);
     header.appendChild(control);
-    document.body.appendChild(header);
+    copyright.appendChild(developer);
+    mainWrapper.appendChild(copyright);
+    mainWrapper.appendChild(header);
+    document.body.appendChild(mainWrapper)
 }
 
-function initWeather() {
+initWeather = function () {
     let main = document.createElement('main');
     let weatherWrapper = document.createElement('div');
     weatherWrapper.classList.add('weatherWrapper');
@@ -105,10 +115,10 @@ function initWeather() {
     weatherPropDetails.appendChild(weatherList);
     weatherWrapper.appendChild(weather);
     main.appendChild(weatherWrapper);
-    document.body.appendChild(main);
+    document.getElementsByClassName('wrapper')[0].appendChild(main);
 }
 
-function initForecast() {
+initForecast = function () {
     let forecast = document.createElement('div');
     forecast.classList.add('forecast');
     document.getElementsByClassName('weatherWrapper')[0].appendChild(forecast);
@@ -153,7 +163,7 @@ function initForecast() {
     document.getElementsByClassName('forecast')[0].appendChild(dayAfterTomorrow);
 }
 
-function initLocation() {
+initLocation = function () {
     let locationWrapper = document.createElement('div');
     locationWrapper.classList.add('locationWrapper');
 
@@ -168,12 +178,32 @@ function initLocation() {
     document.getElementsByTagName('main')[0].appendChild(locationWrapper);
 }
 
-
+getBackground = function () {
+    const myAccessKey = 'afffcf1ba9d09bbf9c8e8cd906017aa648eebfb7c897450305d5060f57c89497'; // developer api key
+    const searchQuery = function () {
+        return 'london night';
+    }
+    const url = `https://api.unsplash.com/photos/random?query=${searchQuery}&client_id=${myAccessKey}`;
+    fetch(url)
+        .then((res) => res.json())
+        .then((data) => {
+            const backgroundImage = new Image();
+            backgroundImage.crossOrigin = 'Anonymous';
+            backgroundImage.src = data.urls.regular;
+            backgroundImage.onload = function () {
+                document.getElementsByClassName('wrapper')[0].style.background = `#f3f3f3 url(${backgroundImage.src}) no-repeat`;
+                document.getElementsByClassName('wrapper')[0].style.backgroundSize = 'cover';
+            }
+        })
+}
 initHeader();
 initWeather();
 initForecast();
 initLocation();
+getBackground();
 
+
+// export { initHeader, initWeather, initForecast, initLocation, getBackground };
 
 
 

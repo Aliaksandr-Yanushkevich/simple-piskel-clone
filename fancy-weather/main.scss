@@ -5,6 +5,22 @@ $border: red solid 1px;
     font-family: 'Montserrat', sans-serif;
 }
 
+.copyright {
+    display: none;
+    justify-content: center;
+}
+
+h1 {
+    color: yellowgreen;
+}
+
+.wrapper {
+    max-width: 1440px;
+    min-width: 320px;
+    height: 100vh;
+    margin: 0 auto;
+}
+
 .control {
     display: flex;
     flex-direction: row;
