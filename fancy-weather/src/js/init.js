@@ -1,4 +1,5 @@
-
+const ipInfo = require("ipinfo");
+const ipInfoToken = '5a82c3c01a87ab';
 createIconHTML = function (icon_name) { // create icon for button
     return `<i class="material-icons ${icon_name}">${icon_name}</i>`;
 };
@@ -163,7 +164,7 @@ initForecast = function () {
     document.getElementsByClassName('forecast')[0].appendChild(dayAfterTomorrow);
 }
 
-initLocation = function () {
+initLocation = function () { //create location block
     let locationWrapper = document.createElement('div');
     locationWrapper.classList.add('locationWrapper');
 
@@ -172,7 +173,17 @@ initLocation = function () {
 
     let gps = document.createElement('div');
     gps.classList.add('gps');
-    gps.innerHTML = 'Latitude: 53°54 <br> Longitude: 27°34';
+
+    // let a = New Promise(function(resolve, reject) {
+        
+    // })
+        ipInfo('loc', ipInfoToken, (err,Loc) => {
+            if (err) { throw err; };
+            console.log(Loc);
+           return Loc
+        })
+        // console.log(lat);
+    // gps.innerHTML = `Latitude: ${lat} <br> Longitude: 27°34`;
     locationWrapper.appendChild(map);
     locationWrapper.appendChild(gps);
     document.getElementsByTagName('main')[0].appendChild(locationWrapper);
@@ -181,7 +192,7 @@ initLocation = function () {
 getBackground = function () {
     const myAccessKey = 'afffcf1ba9d09bbf9c8e8cd906017aa648eebfb7c897450305d5060f57c89497'; // developer api key
     const searchQuery = function () {
-        return 'london night';
+        return 'winter';
     }
     const url = `https://api.unsplash.com/photos/random?query=${searchQuery}&client_id=${myAccessKey}`;
     fetch(url)
