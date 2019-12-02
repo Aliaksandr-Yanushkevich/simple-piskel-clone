@@ -77,7 +77,17 @@ initWeather = function () {
     let location = document.createElement('h2');
     location.classList.add('location');
     location.classList.add('weather-location');
-    location.innerHTML = 'Minsk, Belarus';
+
+    ipInfo('city', ipInfoToken, (err,Loc) => { // send request on ipinfo and extract city
+        if (err) { throw err; };
+        location.insertAdjacentHTML('afterbegin', `${Loc}, `);
+    })
+    
+    ipInfo('country', ipInfoToken, (err,Loc) => { // send request on ipinfo and extract country
+        if (err) { throw err; };
+        location.insertAdjacentHTML('beforeend', `${Loc}`);
+    })
+    
     weather.appendChild(location);
 
     let dateTime = document.createElement('h3');
@@ -173,17 +183,12 @@ initLocation = function () { //create location block
 
     let gps = document.createElement('div');
     gps.classList.add('gps');
-
-    // let a = New Promise(function(resolve, reject) {
-        
-    // })
-        ipInfo('loc', ipInfoToken, (err,Loc) => {
+    
+   ipInfo('loc', ipInfoToken, (err,Loc) => { // send request on ipinfo and extract location
             if (err) { throw err; };
-            console.log(Loc);
-           return Loc
+           gps.innerHTML = `Latitude: ${Loc.split(",")[0]} <br> Longitude: ${Loc.split(",")[1]}`;
         })
-        // console.log(lat);
-    // gps.innerHTML = `Latitude: ${lat} <br> Longitude: 27°34`;
+
     locationWrapper.appendChild(map);
     locationWrapper.appendChild(gps);
     document.getElementsByTagName('main')[0].appendChild(locationWrapper);
@@ -191,13 +196,12 @@ initLocation = function () { //create location block
 
 getBackground = function () {
     const myAccessKey = 'afffcf1ba9d09bbf9c8e8cd906017aa648eebfb7c897450305d5060f57c89497'; // developer api key
-    const searchQuery = function () {
-        return 'winter';
-    }
-    const url = `https://api.unsplash.com/photos/random?query=${searchQuery}&client_id=${myAccessKey}`;
-    fetch(url)
-        .then((res) => res.json())
-        .then((data) => {
+    ipInfo('city', ipInfoToken, (err,Loc) => { // send request on ipinfo and extract location
+        if (err) { throw err; };
+        const url = `https://api.unsplash.com/photos/random?query=${Loc}&client_id=${myAccessKey}`;
+        fetch(url)
+            .then((res) => res.json())
+            .then((data) => {
             const backgroundImage = new Image();
             backgroundImage.crossOrigin = 'Anonymous';
             backgroundImage.src = data.urls.regular;
@@ -206,6 +210,8 @@ getBackground = function () {
                 document.getElementsByClassName('wrapper')[0].style.backgroundSize = 'cover';
             }
         })
+    })
+    
 }
 initHeader();
 initWeather();
