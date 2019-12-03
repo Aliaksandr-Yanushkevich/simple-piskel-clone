@@ -85,7 +85,11 @@ initWeather = function () {
     
     ipInfo('country', ipInfoToken, (err,Loc) => { // send request on ipinfo and extract country
         if (err) { throw err; };
-        location.insertAdjacentHTML('beforeend', `${Loc}`);
+            fetch(`https://cors-anywhere.herokuapp.com/http://country.io/names.json`) // get full name and avoid cors mode with https://cors-anywhere.herokuapp.com/
+            .then((data) => data.json())
+            .then((val) => {
+                location.insertAdjacentHTML('beforeend', `${val[Loc.trim()]}`);
+            })
     })
     
     weather.appendChild(location);
@@ -213,12 +217,12 @@ getBackground = function () {
     })
     
 }
+    
 initHeader();
 initWeather();
 initForecast();
 initLocation();
 getBackground();
-
 
 // export { initHeader, initWeather, initForecast, initLocation, getBackground };
 
