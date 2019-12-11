@@ -11,6 +11,7 @@ import './js/initWeather';
 import './js/initForecast';
 import './js/initLocation';
 import './js/getBackground';
+import './js/initMap';
 
 
 
@@ -25,6 +26,28 @@ async function renderPage(){
     initWeather(fullName, city);
     initForecast();
     initLocation(latitude, longitude);
+    initMap(longitude, latitude);
     getBackground(city);   
 }
+
+var options = {
+    enableHighAccuracy: true,
+    timeout: 5000,
+    maximumAge: 0
+  };
+  
+  function success(pos) {
+    var crd = pos.coords;
+  
+    console.log('Ваше текущее метоположение:');
+    console.log(`Широта: ${crd.latitude}`);
+    console.log(`Долгота: ${crd.longitude}`);
+    console.log(`Плюс-минус ${crd.accuracy} метров.`);
+  };
+  
+  function error(err) {
+    console.warn(`ERROR(${err.code}): ${err.message}`);
+  };
+  
+  navigator.geolocation.getCurrentPosition(success, error, options);
 renderPage();

@@ -4,6 +4,7 @@ initLocation = function (latitude, longitude) { //create location block
 
     let map = document.createElement('div');
     map.classList.add('map');
+    map.id = 'map';
 
     let gps = document.createElement('div');
     gps.classList.add('gps');
