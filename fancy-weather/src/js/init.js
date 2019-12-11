@@ -77,12 +77,10 @@ initWeather = function () {
     let location = document.createElement('h2');
     location.classList.add('location');
     location.classList.add('weather-location');
-
-    ipInfo('city', ipInfoToken, (err,Loc) => { // send request on ipinfo and extract city
-        if (err) { throw err; };
-        location.insertAdjacentHTML('afterbegin', `${Loc}, `);
-    })
-    
+    let locationData = sessionStorage.getItem('location');
+    console.log(locationData.city);
+    location.insertAdjacentHTML('afterbegin', locationData.city);
+        
     ipInfo('country', ipInfoToken, (err,Loc) => { // send request on ipinfo and extract country
         if (err) { throw err; };
             fetch(`https://cors-anywhere.herokuapp.com/http://country.io/names.json`) // get full name and avoid cors mode with https://cors-anywhere.herokuapp.com/
@@ -217,13 +215,30 @@ getBackground = function () {
     })
     
 }
-    
-initHeader();
-initWeather();
-initForecast();
-initLocation();
-getBackground();
-
+getIpinfo = function() {
+    const ipInfoToken = '5a82c3c01a87ab';
+    const url = `https://ipinfo.io/json?token=${ipInfoToken}`
+    fetch(url)
+        .then((response) => response.json())
+        .then((toString) => JSON.stringify(toString))
+        .then((data) => sessionStorage.setItem('location', data))
+}
+async function myOrder() {
+   const data = await getLocation();
+//    console.log(data)
+    // initHeader();
+    // initWeather();
+    // initForecast();
+    // initLocation();
+    // getBackground();
+}    
+// myOrder();
+// getLocation();
+// initHeader();
+// initWeather();
+// initForecast();
+// initLocation();
+// getBackground();
 // export { initHeader, initWeather, initForecast, initLocation, getBackground };
 
 
