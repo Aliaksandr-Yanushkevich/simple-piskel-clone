@@ -12,6 +12,7 @@ import './js/initForecast';
 import './js/initLocation';
 import './js/getBackground';
 import './js/initMap';
+import './js/forecast'
 
 
 
@@ -22,12 +23,17 @@ async function renderPage(){
     const fullName = await countryName(country);
     const latitude = data.loc.split(',')[0];
     const longitude = data.loc.split(',')[1];
+    const darksky = await forecast(latitude, longitude);
+    const time = new Date(darksky.currently.time * 1000);
+    let timeOptions = {timeZone: darksky.timezone, weekday: 'short', year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric', hour12: false};
+
+    console.log(time.toLocaleString('en', timeOptions))
     initHeader();
-    initWeather(fullName, city);
-    initForecast();
+    initWeather(fullName, city, time, timeOptions);
+    // forecast(latitude, longitude);
     initLocation(latitude, longitude);
-    initMap(longitude, latitude);
-    getBackground(city);   
+    initMap(latitude, longitude);
+    getBackground(city);
 }
 
 var options = {

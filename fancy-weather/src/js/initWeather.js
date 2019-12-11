@@ -1,4 +1,4 @@
-initWeather = function (fullname, city) {
+initWeather = function (fullname, city, time, timeOptions) {
     let main = document.createElement('main');
     let weatherWrapper = document.createElement('div');
     weatherWrapper.classList.add('weatherWrapper');
@@ -14,7 +14,7 @@ initWeather = function (fullname, city) {
 
     let dateTime = document.createElement('h3');
     dateTime.classList.add('dateTime');
-    dateTime.innerHTML = 'Mon 28 October 10:49';
+    dateTime.innerHTML = `${time.toLocaleString('en', timeOptions)}`;
     weather.appendChild(dateTime);
 
     let weatherProp = document.createElement('div');
