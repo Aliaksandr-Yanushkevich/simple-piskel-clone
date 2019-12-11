@@ -1,4 +1,4 @@
-initWeather = function (fullname, city, time, timeOptions) {
+initWeather = function (fullname, city, time, timeOptions, temp, summary, apparentTemperature, windSpeed, humidity) {
     let main = document.createElement('main');
     let weatherWrapper = document.createElement('div');
     weatherWrapper.classList.add('weatherWrapper');
@@ -22,7 +22,7 @@ initWeather = function (fullname, city, time, timeOptions) {
 
     let weatherPropTemp = document.createElement('div');
     weatherPropTemp.classList.add('weatherPropTemp');
-    weatherPropTemp.innerHTML = '10';
+    weatherPropTemp.innerHTML = `${Math.round(temp)}°`;
     weatherProp.appendChild(weatherPropTemp);
 
     let weatherPropDetails = document.createElement('div');
@@ -36,7 +36,7 @@ initWeather = function (fullname, city, time, timeOptions) {
 
     let weatherList = document.createElement('ul');
     weatherList.classList.add('weatherdescription');
-    let weatherArr = ['overcast', 'Feels like: 7°', 'Wind: 2 m/s', 'Humidity: 83%']
+    let weatherArr = [summary, `Feels like: ${Math.round(apparentTemperature)}°`, `Wind: ${Math.round(windSpeed)} m/s`, `Humidity: ${100*humidity}%`]
     for (let i = 0; i < weatherArr.length; i++) {
         let li = document.createElement("li");
         li.classList.add('li-item');

@@ -12,7 +12,7 @@ import './js/initForecast';
 import './js/initLocation';
 import './js/getBackground';
 import './js/initMap';
-import './js/forecast'
+import './js/darksky'
 
 
 
@@ -23,14 +23,20 @@ async function renderPage(){
     const fullName = await countryName(country);
     const latitude = data.loc.split(',')[0];
     const longitude = data.loc.split(',')[1];
-    const darksky = await forecast(latitude, longitude);
-    const time = new Date(darksky.currently.time * 1000);
+    const weather = await darksky(latitude, longitude);
+    const time = new Date(weather.currently.time * 1000);
+    const temp = weather.currently.temperature;
+    const summary = weather.currently.summary;
+    const apparentTemperature = weather.currently.apparentTemperature;
+    const windSpeed = weather.currently.windSpeed;
+    const humidity = weather.currently.humidity;
+    console.log(weather);
     let timeOptions = {timeZone: darksky.timezone, weekday: 'short', year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric', hour12: false};
 
-    console.log(time.toLocaleString('en', timeOptions))
+    // console.log(time.toLocaleString('en', timeOptions))
     initHeader();
-    initWeather(fullName, city, time, timeOptions);
-    // forecast(latitude, longitude);
+    initWeather(fullName, city, time, timeOptions, temp, summary, apparentTemperature, windSpeed, humidity);
+    initForecast();
     initLocation(latitude, longitude);
     initMap(latitude, longitude);
     getBackground(city);
