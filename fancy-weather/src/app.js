@@ -30,13 +30,18 @@ async function renderPage(){
     const apparentTemperature = weather.currently.apparentTemperature;
     const windSpeed = weather.currently.windSpeed;
     const humidity = weather.currently.humidity;
-    console.log(weather);
+    const dayForecast1 = weather.daily.data[1];
+    const dayForecast2 = weather.daily.data[2];
+    const dayForecast3 = weather.daily.data[3];
     let timeOptions = {timeZone: darksky.timezone, weekday: 'short', year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric', hour12: false};
-
-    // console.log(time.toLocaleString('en', timeOptions))
+    let timeOptionsShort = {timeZone: darksky.timezone, weekday: "long"};
+    console.log( weather);
+    // console.log(dayForecast1.time)
+    console.log(dayForecast1);
+    // console.log(Date(dayForecast3.time))
     initHeader();
     initWeather(fullName, city, time, timeOptions, temp, summary, apparentTemperature, windSpeed, humidity);
-    initForecast();
+    initForecast(dayForecast1, dayForecast2, dayForecast3, timeOptionsShort);
     initLocation(latitude, longitude);
     initMap(latitude, longitude);
     getBackground(city);
