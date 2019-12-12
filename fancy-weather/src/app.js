@@ -14,6 +14,7 @@ import './js/getBackground';
 import './js/initMap';
 import './js/darksky';
 import './js/canvasIcon';
+import './js/buttonHandler';
 
 
 
@@ -47,9 +48,8 @@ async function renderPage(){
     initLocation(latitude, longitude);
     initMap(latitude, longitude);
     getBackground(city);
-    
     canvasIcon(currentlyIcon, dayForecast1, dayForecast2, dayForecast3);
-   
+    handlers(city);
 }
 
 var options = {
