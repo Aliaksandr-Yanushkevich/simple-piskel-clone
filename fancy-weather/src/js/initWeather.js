@@ -31,7 +31,14 @@ initWeather = function (fullname, city, time, timeOptions, temp, summary, appare
 
     let weatherPropDetailsImage = document.createElement('div');
     weatherPropDetailsImage.classList.add('weatherPropDetailsImage');
-    weatherPropDetailsImage.innerHTML = createIconHTML('cloud_queue');
+    // weatherPropDetailsImage.innerHTML = createIconHTML('cloud_queue');
+
+    let canvas = document.createElement("CANVAS");
+    canvas.id = "currentlyWeather";
+    canvas.width = 64;
+    canvas.height = 64;
+    weatherPropDetailsImage.appendChild(canvas);
+
     weatherPropDetails.appendChild(weatherPropDetailsImage);
 
     let weatherList = document.createElement('ul');

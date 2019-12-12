@@ -12,7 +12,8 @@ import './js/initForecast';
 import './js/initLocation';
 import './js/getBackground';
 import './js/initMap';
-import './js/darksky'
+import './js/darksky';
+import './js/canvasIcon';
 
 
 
@@ -25,6 +26,7 @@ async function renderPage(){
     const longitude = data.loc.split(',')[1];
     const weather = await darksky(latitude, longitude);
     const time = new Date(weather.currently.time * 1000);
+    const currentlyIcon = weather.currently.icon;
     const temp = weather.currently.temperature;
     const summary = weather.currently.summary;
     const apparentTemperature = weather.currently.apparentTemperature;
@@ -37,7 +39,7 @@ async function renderPage(){
     let timeOptionsShort = {timeZone: darksky.timezone, weekday: "long"};
     // console.log( weather);
     // console.log(dayForecast1.time)
-    console.log(dayForecast1);
+    // console.log(dayForecast1);
     // console.log(Date(dayForecast3.time))
     initHeader();
     initWeather(fullName, city, time, timeOptions, temp, summary, apparentTemperature, windSpeed, humidity);
@@ -45,6 +47,9 @@ async function renderPage(){
     initLocation(latitude, longitude);
     initMap(latitude, longitude);
     getBackground(city);
+    
+    canvasIcon(currentlyIcon, dayForecast1, dayForecast2, dayForecast3);
+   
 }
 
 var options = {

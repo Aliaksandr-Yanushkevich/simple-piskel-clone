@@ -20,7 +20,14 @@ initForecast = function (dayForecast1, dayForecast2, dayForecast3, timeOptionsSh
     let tommorowTemp = document.createElement('div');
     tommorowTemp.innerHTML = `${avgTemp1}°`;
     let tommorowImg = document.createElement('div');
-    tommorowImg.innerHTML = createIconHTML('cloud_queue');
+
+    let canvas = document.createElement("CANVAS");
+    canvas.id = "icon";
+    canvas.width = 64;
+    canvas.height = 64;
+    tommorowImg.appendChild(canvas);
+
+
     tommorow.appendChild(tommorowTitle);
     tommorow.appendChild(tommorowTemp);
     tommorow.appendChild(tommorowImg);
@@ -33,7 +40,13 @@ initForecast = function (dayForecast1, dayForecast2, dayForecast3, timeOptionsSh
     let tommorow1Temp = document.createElement('div');
     tommorow1Temp.innerHTML = `${avgTemp2}°`;
     let tommorow1Img = document.createElement('div');
-    tommorow1Img.innerHTML = createIconHTML('cloud_queue');
+    
+    let canvas1 = document.createElement("CANVAS");
+    canvas1.id = "icon1";
+    canvas1.width = 64;
+    canvas1.height = 64;
+    tommorow1Img.appendChild(canvas1);
+
     tommorow1.appendChild(tommorow1Title);
     tommorow1.appendChild(tommorow1Temp);
     tommorow1.appendChild(tommorow1Img);
@@ -46,7 +59,13 @@ initForecast = function (dayForecast1, dayForecast2, dayForecast3, timeOptionsSh
     let tommorow2Temp = document.createElement('div');
     tommorow2Temp.innerHTML = `${avgTemp3}°`;
     let tommorow2Img = document.createElement('div');
-    tommorow2Img.innerHTML = createIconHTML('cloud_queue');
+
+    let canvas2 = document.createElement("CANVAS");
+    canvas2.id = "icon2";
+    canvas2.width = 64;
+    canvas2.height = 64;
+    tommorow2Img.appendChild(canvas2);
+
     tommorow2.appendChild(tommorow2Title);
     tommorow2.appendChild(tommorow2Temp);
     tommorow2.appendChild(tommorow2Img);
