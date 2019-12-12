@@ -35,7 +35,7 @@ async function renderPage(){
     const dayForecast3 = weather.daily.data[3];
     let timeOptions = {timeZone: darksky.timezone, weekday: 'short', year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric', hour12: false};
     let timeOptionsShort = {timeZone: darksky.timezone, weekday: "long"};
-    console.log( weather);
+    // console.log( weather);
     // console.log(dayForecast1.time)
     console.log(dayForecast1);
     // console.log(Date(dayForecast3.time))

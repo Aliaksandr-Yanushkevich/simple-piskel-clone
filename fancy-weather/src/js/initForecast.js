@@ -5,7 +5,10 @@ initForecast = function (dayForecast1, dayForecast2, dayForecast3, timeOptionsSh
     const day1 = time1.toLocaleString('en', timeOptionsShort);
     const day2 = time2.toLocaleString('en', timeOptionsShort);
     const day3 = time3.toLocaleString('en', timeOptionsShort);
-    console.log(day1);
+    const avgTemp1 = Math.round((dayForecast1.temperatureHigh + dayForecast1.temperatureLow)/2);
+    const avgTemp2 = Math.round((dayForecast2.temperatureHigh + dayForecast2.temperatureLow)/2);
+    const avgTemp3 = Math.round((dayForecast3.temperatureHigh + dayForecast3.temperatureLow)/2);
+    console.log(avgTemp1);
     let forecast = document.createElement('div');
     forecast.classList.add('forecast');
     document.getElementsByClassName('weatherWrapper')[0].appendChild(forecast);
@@ -15,7 +18,7 @@ initForecast = function (dayForecast1, dayForecast2, dayForecast3, timeOptionsSh
     let tommorowTitle = document.createElement('h3');
     tommorowTitle.innerHTML = `${day1}`;
     let tommorowTemp = document.createElement('div');
-    tommorowTemp.innerHTML = '7°';
+    tommorowTemp.innerHTML = `${avgTemp1}°`;
     let tommorowImg = document.createElement('div');
     tommorowImg.innerHTML = createIconHTML('cloud_queue');
     tommorow.appendChild(tommorowTitle);
@@ -28,7 +31,7 @@ initForecast = function (dayForecast1, dayForecast2, dayForecast3, timeOptionsSh
     let tommorow1Title = document.createElement('h3');
     tommorow1Title.innerHTML = `${day2}`;
     let tommorow1Temp = document.createElement('div');
-    tommorow1Temp.innerHTML = '6°';
+    tommorow1Temp.innerHTML = `${avgTemp2}°`;
     let tommorow1Img = document.createElement('div');
     tommorow1Img.innerHTML = createIconHTML('cloud_queue');
     tommorow1.appendChild(tommorow1Title);
@@ -41,7 +44,7 @@ initForecast = function (dayForecast1, dayForecast2, dayForecast3, timeOptionsSh
     let tommorow2Title = document.createElement('h3');
     tommorow2Title.innerHTML = `${day3}`;
     let tommorow2Temp = document.createElement('div');
-    tommorow2Temp.innerHTML = '3°';
+    tommorow2Temp.innerHTML = `${avgTemp3}°`;
     let tommorow2Img = document.createElement('div');
     tommorow2Img.innerHTML = createIconHTML('cloud_queue');
     tommorow2.appendChild(tommorow2Title);
