@@ -17,7 +17,6 @@ import './js/canvasIcon';
 import './js/buttonHandler';
 
 
-
 async function renderPage(){
     const data = await getIpinfo();
     const city = data.city;
@@ -36,6 +35,9 @@ async function renderPage(){
     const dayForecast1 = weather.daily.data[1];
     const dayForecast2 = weather.daily.data[2];
     const dayForecast3 = weather.daily.data[3];
+    const avgTemp1 = (dayForecast1.temperatureHigh + dayForecast1.temperatureLow)/2;
+    const avgTemp2 = (dayForecast2.temperatureHigh + dayForecast2.temperatureLow)/2;
+    const avgTemp3 = (dayForecast3.temperatureHigh + dayForecast3.temperatureLow)/2;
     let timeOptions = {timeZone: darksky.timezone, weekday: 'short', year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric', hour12: false};
     let timeOptionsShort = {timeZone: darksky.timezone, weekday: "long"};
     // console.log( weather);
@@ -43,33 +45,18 @@ async function renderPage(){
     // console.log(dayForecast1);
     // console.log(Date(dayForecast3.time))
     initHeader();
-    initWeather(fullName, city, time, timeOptions, temp, summary, apparentTemperature, windSpeed, humidity);
-    initForecast(dayForecast1, dayForecast2, dayForecast3, timeOptionsShort);
+    const celsium = localStorage.getItem('celsium');
+    // console.log(unit);
+    initWeather(apparentTemperature, fullName, city, time, timeOptions, temp, celsium, summary, windSpeed, humidity);
+    initForecast(celsium, dayForecast1, dayForecast2, dayForecast3, timeOptionsShort);
     initLocation(latitude, longitude);
     initMap(latitude, longitude);
     getBackground(city);
     canvasIcon(currentlyIcon, dayForecast1, dayForecast2, dayForecast3);
-    handlers(city);
+    imgRefresh(city);
+    tempUnit(apparentTemperature, temp, avgTemp1, avgTemp2, avgTemp3);
 }
 
-var options = {
-    enableHighAccuracy: true,
-    timeout: 5000,
-    maximumAge: 0
-  };
+
   
-  function success(pos) {
-    var crd = pos.coords;
-  
-    console.log('Ваше текущее метоположение:');
-    console.log(`Широта: ${crd.latitude}`);
-    console.log(`Долгота: ${crd.longitude}`);
-    console.log(`Плюс-минус ${crd.accuracy} метров.`);
-  };
-  
-  function error(err) {
-    console.warn(`ERROR(${err.code}): ${err.message}`);
-  };
-  
-  navigator.geolocation.getCurrentPosition(success, error, options);
 renderPage();

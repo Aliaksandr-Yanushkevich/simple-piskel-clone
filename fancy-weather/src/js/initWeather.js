@@ -1,4 +1,8 @@
-initWeather = function (fullname, city, time, timeOptions, temp, summary, apparentTemperature, windSpeed, humidity) {
+initWeather = function (apparentTemperature, fullName, city, time, timeOptions, temp, celsium, summary, windSpeed, humidity) {
+   if (celsium === 'false') {
+        temp = (temp * 9/5) + 32;
+        apparentTemperature = (apparentTemperature* 9/5) + 32;
+   }
     let main = document.createElement('main');
     let weatherWrapper = document.createElement('div');
     weatherWrapper.classList.add('weatherWrapper');
@@ -9,7 +13,7 @@ initWeather = function (fullname, city, time, timeOptions, temp, summary, appare
     location.classList.add('location');
     location.classList.add('weather-location');
     location.insertAdjacentHTML('afterbegin', city);
-    location.insertAdjacentHTML('beforeend', `, ${fullname}`);
+    location.insertAdjacentHTML('beforeend', `, ${fullName}`);
     weather.appendChild(location);
 
     let dateTime = document.createElement('h3');
@@ -45,11 +49,12 @@ initWeather = function (fullname, city, time, timeOptions, temp, summary, appare
     weatherList.classList.add('weatherdescription');
     let weatherArr = [summary, `Feels like: ${Math.round(apparentTemperature)}°`, `Wind: ${Math.round(windSpeed)} m/s`, `Humidity: ${100*humidity}%`]
     for (let i = 0; i < weatherArr.length; i++) {
-        let li = document.createElement("li");
-        li.classList.add('li-item');
-        li.appendChild(document.createTextNode(weatherArr[i]));
-        weatherList.appendChild(li);
-    }
+            let li = document.createElement("li");
+            li.classList.add('li-item');
+            li.appendChild(document.createTextNode(weatherArr[i]));
+            weatherList.appendChild(li);
+        }       
+    
     weather.appendChild(dateTime);
     weather.appendChild(weatherProp);
     weatherPropDetails.appendChild(weatherList);

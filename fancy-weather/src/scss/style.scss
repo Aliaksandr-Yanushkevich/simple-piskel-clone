@@ -172,6 +172,10 @@ main {
     text-align: right;
 }
 
+.active {
+    background-color: orange;
+}
+
 @media (max-width: 960px) {
     body {
         background-color: yellowgreen;

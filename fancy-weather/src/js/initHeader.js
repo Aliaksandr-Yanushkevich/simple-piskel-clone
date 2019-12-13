@@ -32,14 +32,27 @@ initHeader = function () {
     }
     buttBlock.appendChild(lang);
 
+      
+    if (localStorage.getItem('celsium') === null) { // property existence check
+        localStorage.setItem('celsium', true)
+    }
+
     const tempCels = document.createElement('button'); // create temperature buttons
     tempCels.innerText = '℃';
     tempCels.classList.add('temp');
+    tempCels.classList.add('temp-celsium');
+    if (localStorage.getItem('celsium') === 'true') {
+        tempCels.classList.add('active');
+    }
     buttBlock.appendChild(tempCels);
-
+    
     const tempFar = document.createElement('button');
     tempFar.innerText = '℉';
     tempFar.classList.add('temp');
+    tempFar.classList.add('temp-fahrenheit');
+    if (localStorage.getItem('celsium') === 'false') {
+        tempFar.classList.add('active');
+    }
     buttBlock.appendChild(tempFar);
 
     const searchForm = document.createElement('form'); // create search form
