@@ -15,6 +15,8 @@ import './js/initMap';
 import './js/darksky';
 import './js/canvasIcon';
 import './js/buttonHandler';
+// import './js/time';
+import './js/tets'
 
 
 async function renderPage(){
@@ -25,7 +27,10 @@ async function renderPage(){
     const latitude = data.loc.split(',')[0];
     const longitude = data.loc.split(',')[1];
     const weather = await darksky(latitude, longitude);
-    const time = new Date(weather.currently.time * 1000);
+   
+    const timeAPI = new Date(weather.currently.time * 1000);
+    const APItimeZone = weather.timezone
+    console.log(APItimeZone);
     const currentlyIcon = weather.currently.icon;
     const temp = weather.currently.temperature;
     const summary = weather.currently.summary;
@@ -38,8 +43,8 @@ async function renderPage(){
     const avgTemp1 = (dayForecast1.temperatureHigh + dayForecast1.temperatureLow)/2;
     const avgTemp2 = (dayForecast2.temperatureHigh + dayForecast2.temperatureLow)/2;
     const avgTemp3 = (dayForecast3.temperatureHigh + dayForecast3.temperatureLow)/2;
-    let timeOptions = {timeZone: darksky.timezone, weekday: 'short', year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric', hour12: false};
-    let timeOptionsShort = {timeZone: darksky.timezone, weekday: "long"};
+    let timeOptions = {timeZone: weather.timezone, weekday: 'short', year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric', hour12: false};
+    let timeOptionsShort = {timeZone: weather.timezone, weekday: "long"};
     // console.log( weather);
     // console.log(dayForecast1.time)
     // console.log(dayForecast1);
@@ -47,7 +52,7 @@ async function renderPage(){
     initHeader();
     const celsium = localStorage.getItem('celsium');
     // console.log(unit);
-    initWeather(apparentTemperature, fullName, city, time, timeOptions, temp, celsium, summary, windSpeed, humidity);
+    initWeather(apparentTemperature, fullName, city, timeAPI, timeOptions, temp, celsium, summary, windSpeed, humidity);
     initForecast(celsium, dayForecast1, dayForecast2, dayForecast3, timeOptionsShort);
     initLocation(latitude, longitude);
     initMap(latitude, longitude);
@@ -55,8 +60,13 @@ async function renderPage(){
     canvasIcon(currentlyIcon, dayForecast1, dayForecast2, dayForecast3);
     imgRefresh(city);
     tempUnit(apparentTemperature, temp, avgTemp1, avgTemp2, avgTemp3);
+   
+  clock(APItimeZone);
+  
 }
 
 
   
 renderPage();
+// clock(time);
+

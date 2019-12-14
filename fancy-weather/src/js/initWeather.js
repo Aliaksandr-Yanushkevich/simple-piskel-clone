@@ -1,4 +1,4 @@
-initWeather = function (apparentTemperature, fullName, city, time, timeOptions, temp, celsium, summary, windSpeed, humidity) {
+initWeather = function (apparentTemperature, fullName, city, timeAPI, timeOptions, temp, celsium, summary, windSpeed, humidity) {
    if (celsium === 'false') {
         temp = (temp * 9/5) + 32;
         apparentTemperature = (apparentTemperature* 9/5) + 32;
@@ -18,7 +18,7 @@ initWeather = function (apparentTemperature, fullName, city, time, timeOptions, 
 
     let dateTime = document.createElement('h3');
     dateTime.classList.add('dateTime');
-    dateTime.innerHTML = `${time.toLocaleString('en', timeOptions)}`;
+    // dateTime.innerHTML = `${timeAPI.toLocaleString('en', timeOptions)}`;
     weather.appendChild(dateTime);
 
     let weatherProp = document.createElement('div');
