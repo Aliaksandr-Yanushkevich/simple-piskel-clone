@@ -3,6 +3,7 @@ $border: red solid 1px;
 * {
     box-sizing: border-box;
     font-family: 'Montserrat', sans-serif;
+    border: $border;
 }
 
 .copyright {
@@ -94,7 +95,6 @@ main {
     flex-direction: row;
     width: 100%;
     justify-content: space-between;
-    background-color: rgb(209, 113, 49);
     // border: $border;
 }
 
@@ -267,4 +267,8 @@ main {
     .searchSubmit {
         flex-grow: 1;
     }
+}
+
+p, h1, h2, h3, ul, .gps, .tommorowTemp, .tommorow1Temp, .tommorow2Temp {
+    background-color: rgb(209, 113, 49);
 }

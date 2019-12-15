@@ -1,4 +1,4 @@
-initLocation = function (latitude, longitude) { //create location block
+initLocation = function () { //create location block
     let locationWrapper = document.createElement('div');
     locationWrapper.classList.add('locationWrapper');
 
@@ -8,8 +8,12 @@ initLocation = function (latitude, longitude) { //create location block
 
     let gps = document.createElement('div');
     gps.classList.add('gps');
-    
-    gps.innerHTML = `Latitude: ${latitude} <br> Longitude: ${longitude}`;
+    let latitude = document.createElement('p');
+    latitude.classList.add('latitude');
+    let longitude = document.createElement('p');
+    longitude.classList.add('longitude');
+    gps.appendChild(latitude);
+    gps.appendChild(longitude);
 
     locationWrapper.appendChild(map);
     locationWrapper.appendChild(gps);

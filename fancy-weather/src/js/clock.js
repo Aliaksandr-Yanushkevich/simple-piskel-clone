@@ -1,3 +1,4 @@
+
 clock = function(APItimeZone) {
     const clockTimeZone = APItimeZone;
     function myTime() {
@@ -8,15 +9,13 @@ clock = function(APItimeZone) {
         APIMonth = time.toLocaleString('en',{timeZone: clockTimeZone,  month: 'long'});
         APIHour = time.toLocaleString('en',{timeZone: clockTimeZone,  hour: 'numeric', hour12: false});
         APIMinute = time.toLocaleString('en',{timeZone: clockTimeZone,  minute: 'numeric'});
-        // console.log(APIDay);
-        // console.log(clockTimeZone);
-        // h= time.getHours();
-        // m=time.getMinutes();
-        // s=time.getSeconds();
-        // console.log(h + ':' + m + ':' + s);
+
+        if (APIMinute < 10) {
+            APIMinute = '0' + APIMinute;
+        };
+        
         document.getElementsByClassName('dateTime')[0].innerHTML = `${APIWeekDay} ${APIDay} ${APIMonth} ${APIHour}:${APIMinute}`
-        // dateTime.innerHTML = `${timeAPI.toLocaleString('en', timeOptions)}`;
-        setTimeout(myTime, 1000)
+        MyClock = setTimeout(myTime, 1000); // recursive function start https://www.youtube.com/watch?v=puxkpNbCh0w;
     }
-    myTime();    
+    myTime(); 
 }

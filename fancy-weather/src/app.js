@@ -4,69 +4,68 @@ import _ from 'lodash';
 import './scss/style.scss';
 
 import './js/getIpinfo';
-import './js/countryName';
 import './js/createIconHTML';
 import './js/initHeader';
 import './js/initWeather';
+import './js/myLocation';
+import './js/clock';
+import './js/currentlyWeather';
 import './js/initForecast';
+import './js/getCountryFullName';
+import './js/forecast';
 import './js/initLocation';
+import './js/displayLocation';
 import './js/getBackground';
 import './js/initMap';
 import './js/darksky';
-import './js/canvasIcon';
 import './js/buttonHandler';
-// import './js/time';
-import './js/tets'
-
+// import './js/search';
 
 async function renderPage(){
-    const data = await getIpinfo();
-    const city = data.city;
-    const country = data.country;
-    const fullName = await countryName(country);
-    const latitude = data.loc.split(',')[0];
-    const longitude = data.loc.split(',')[1];
-    const weather = await darksky(latitude, longitude);
+  initHeader();
+  initWeather();
+  initForecast();
+  initLocation();
+  const data = await getIpinfo(); // send request and recieve gps from IP
+  const city = data.city;
+  const country = data.country;
+  const countryFullName = await getCountryFullName(country); // transform short coontry name to full
+
+  myLocation(city, countryFullName); // display city and full country name
+
+  const latitude = data.loc.split(',')[0];
+  const longitude = data.loc.split(',')[1];
+  const darkskyData = await darksky(latitude, longitude); //  send request and recieve currently weather from gps
+  const APItimeZone = darkskyData.timezone;
+
+  clock(APItimeZone); // display date, month, weekday and time
    
-    const timeAPI = new Date(weather.currently.time * 1000);
-    const APItimeZone = weather.timezone
-    console.log(APItimeZone);
-    const currentlyIcon = weather.currently.icon;
-    const temp = weather.currently.temperature;
-    const summary = weather.currently.summary;
-    const apparentTemperature = weather.currently.apparentTemperature;
-    const windSpeed = weather.currently.windSpeed;
-    const humidity = weather.currently.humidity;
-    const dayForecast1 = weather.daily.data[1];
-    const dayForecast2 = weather.daily.data[2];
-    const dayForecast3 = weather.daily.data[3];
-    const avgTemp1 = (dayForecast1.temperatureHigh + dayForecast1.temperatureLow)/2;
-    const avgTemp2 = (dayForecast2.temperatureHigh + dayForecast2.temperatureLow)/2;
-    const avgTemp3 = (dayForecast3.temperatureHigh + dayForecast3.temperatureLow)/2;
-    let timeOptions = {timeZone: weather.timezone, weekday: 'short', year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric', hour12: false};
-    let timeOptionsShort = {timeZone: weather.timezone, weekday: "long"};
-    // console.log( weather);
-    // console.log(dayForecast1.time)
-    // console.log(dayForecast1);
-    // console.log(Date(dayForecast3.time))
-    initHeader();
-    const celsium = localStorage.getItem('celsium');
-    // console.log(unit);
-    initWeather(apparentTemperature, fullName, city, timeAPI, timeOptions, temp, celsium, summary, windSpeed, humidity);
-    initForecast(celsium, dayForecast1, dayForecast2, dayForecast3, timeOptionsShort);
-    initLocation(latitude, longitude);
-    initMap(latitude, longitude);
-    getBackground(city);
-    canvasIcon(currentlyIcon, dayForecast1, dayForecast2, dayForecast3);
-    imgRefresh(city);
-    tempUnit(apparentTemperature, temp, avgTemp1, avgTemp2, avgTemp3);
+  const currentlytemp = darkskyData.currently.temperature;
+  const currentlyIcon = darkskyData.currently.icon;
+  const currentlysummary = darkskyData.currently.summary;
+  const apparentTemperature = darkskyData.currently.apparentTemperature;
+  const windSpeed = darkskyData.currently.windSpeed;
+  const humidity = darkskyData.currently.humidity;
+
+  currentlyWeather(currentlytemp, currentlyIcon, currentlysummary, apparentTemperature, windSpeed, humidity); // display currently weather
+    
+    const dayForecast1 = darkskyData.daily.data[1];
+    const dayForecast2 = darkskyData.daily.data[2];
+    const dayForecast3 = darkskyData.daily.data[3];
+
+    forecast(dayForecast1, dayForecast2, dayForecast3, APItimeZone); // display 3 days forecast
+    
+    
+    displayLocation(latitude, longitude) // display target gps coordinate 
+    initMap(latitude, longitude); // init map
+
+    getBackground(city); // display bg
+    backgroundRefresh(city);
+    tempUnit(currentlytemp, dayForecast1, dayForecast2, dayForecast3);
    
-  clock(APItimeZone);
   
+  // search();
 }
-
-
-  
 renderPage();
-// clock(time);
+
 

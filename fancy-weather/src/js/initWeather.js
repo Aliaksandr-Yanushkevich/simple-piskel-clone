@@ -1,8 +1,8 @@
-initWeather = function (apparentTemperature, fullName, city, timeAPI, timeOptions, temp, celsium, summary, windSpeed, humidity) {
-   if (celsium === 'false') {
-        temp = (temp * 9/5) + 32;
-        apparentTemperature = (apparentTemperature* 9/5) + 32;
-   }
+initWeather = function () {
+    if (localStorage.getItem('celsium') === null) {
+        localStorage.setItem('celsium', true);
+    }
+
     let main = document.createElement('main');
     let weatherWrapper = document.createElement('div');
     weatherWrapper.classList.add('weatherWrapper');
@@ -12,13 +12,10 @@ initWeather = function (apparentTemperature, fullName, city, timeAPI, timeOption
     let location = document.createElement('h2');
     location.classList.add('location');
     location.classList.add('weather-location');
-    location.insertAdjacentHTML('afterbegin', city);
-    location.insertAdjacentHTML('beforeend', `, ${fullName}`);
     weather.appendChild(location);
 
     let dateTime = document.createElement('h3');
     dateTime.classList.add('dateTime');
-    // dateTime.innerHTML = `${timeAPI.toLocaleString('en', timeOptions)}`;
     weather.appendChild(dateTime);
 
     let weatherProp = document.createElement('div');
@@ -26,7 +23,6 @@ initWeather = function (apparentTemperature, fullName, city, timeAPI, timeOption
 
     let weatherPropTemp = document.createElement('div');
     weatherPropTemp.classList.add('weatherPropTemp');
-    weatherPropTemp.innerHTML = `${Math.round(temp)}°`;
     weatherProp.appendChild(weatherPropTemp);
 
     let weatherPropDetails = document.createElement('div');
@@ -35,7 +31,6 @@ initWeather = function (apparentTemperature, fullName, city, timeAPI, timeOption
 
     let weatherPropDetailsImage = document.createElement('div');
     weatherPropDetailsImage.classList.add('weatherPropDetailsImage');
-    // weatherPropDetailsImage.innerHTML = createIconHTML('cloud_queue');
 
     let canvas = document.createElement("CANVAS");
     canvas.id = "currentlyWeather";
@@ -47,11 +42,9 @@ initWeather = function (apparentTemperature, fullName, city, timeAPI, timeOption
 
     let weatherList = document.createElement('ul');
     weatherList.classList.add('weatherdescription');
-    let weatherArr = [summary, `Feels like: ${Math.round(apparentTemperature)}°`, `Wind: ${Math.round(windSpeed)} m/s`, `Humidity: ${100*humidity}%`]
-    for (let i = 0; i < weatherArr.length; i++) {
+    for (let i = 0; i < 4; i++) {
             let li = document.createElement("li");
             li.classList.add('li-item');
-            li.appendChild(document.createTextNode(weatherArr[i]));
             weatherList.appendChild(li);
         }       
     
