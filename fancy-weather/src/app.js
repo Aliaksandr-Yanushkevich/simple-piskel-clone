@@ -20,6 +20,8 @@ import './js/initMap';
 import './js/darksky';
 import './js/buttonHandler';
 import './js/search';
+import './js/getDayTime'
+import'./js/getSeason'
 
 async function renderPage(){
   initHeader();
@@ -58,9 +60,10 @@ async function renderPage(){
 
   displayLocation(latitude, longitude) // display target gps coordinate 
   initMap(latitude, longitude); // init map
-
-  getBackground(city); // display bg
-  backgroundRefresh(city);
+  const dayTime = getDayTime(APItimeZone);
+  const season = getSeason(APItimeZone);
+  getBackground(season, dayTime, currentlyIcon); // display bg
+  backgroundRefresh(season, dayTime, currentlyIcon);
   tempUnit(currentlytemp, dayForecast1, dayForecast2, dayForecast3);
   search();
   changeLang();

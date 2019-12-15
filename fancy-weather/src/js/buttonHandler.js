@@ -1,6 +1,6 @@
-backgroundRefresh = function (city) {
+backgroundRefresh = function (season, dayTime, currentlyIcon) {
     let imgRefresh = document.getElementsByClassName('button-changeBackground')[0];
-    imgRefresh.addEventListener('click', () => getBackground(city));
+    imgRefresh.addEventListener('click', () => getBackground(season, dayTime, currentlyIcon));
 }
 
 tempUnit = function (currentlytemp, dayForecast1, dayForecast2, dayForecast3) {
