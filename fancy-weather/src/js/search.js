@@ -14,7 +14,6 @@ getDataFromCity = async function() {
     const url = `https://api.opencagedata.com/geocode/v1/json?q=${place}&key=${apiKey}&language=${lang}`;
     const response = await fetch(url);
     const data = await response.json();
-    console.log(data);
     const gps = data.results[0].geometry;
     const latitude = gps.lat.toFixed(4);
     const longitude = gps.lng.toFixed(4);
@@ -22,9 +21,10 @@ getDataFromCity = async function() {
     document.getElementsByClassName('latitude')[0].innerHTML = `latitude: ${latitude}`; // refresh gps coordinates
     document.getElementsByClassName('longitude')[0].innerHTML = `latitude: ${longitude}`;
 
-    const searchLocation = data.results[0].formatted;
     const city = data.results[0].components.city || data.results[0].components.town || data.results[0].components.village || data.results[0].components.county || data.results[0].components.state;
     const country = data.results[0].components.country;
+    sessionStorage.setItem('city', city);
+    sessionStorage.setItem('country', country);
     myLocation(city, country);// refresh location
       
     const searchDarkskyData = await darksky(latitude, longitude); // send new request to darksky 
@@ -48,7 +48,10 @@ getDataFromCity = async function() {
     forecast(searchDayForecast1, searchDayForecast2, searchDayForecast3, searchAPItimeZone); // display 3 days forecast
     
     initMap(latitude, longitude);
-    // getBackground(city);
+    const season = getSeason(searchAPItimeZone);
+    const dayTime = getDayTime(searchAPItimeZone);
+
+    getBackground(season, dayTime, searchCurrentlyIcon);
  }
 
  

@@ -32,6 +32,8 @@ async function renderPage(){
   const city = data.city;
   const country = data.country;
   const countryFullName = await getCountryFullName(country); // transform short coontry name to full
+  sessionStorage.setItem('city', city);
+  sessionStorage.setItem('country', countryFullName);
 
   myLocation(city, countryFullName); // display city and full country name
 

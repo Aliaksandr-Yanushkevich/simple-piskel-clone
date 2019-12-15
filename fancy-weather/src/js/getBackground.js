@@ -1,6 +1,8 @@
 getBackground = async function (season, dayTime, currentlyIcon) {
+    const city = sessionStorage.getItem('city');
+    const country = sessionStorage.getItem('country');
     const myAccessKey = 'afffcf1ba9d09bbf9c8e8cd906017aa648eebfb7c897450305d5060f57c89497'; // developer api key
-    const url = `https://api.unsplash.com/photos/random?query=${season},${dayTime},${currentlyIcon}&client_id=${myAccessKey}`;
+    const url = `https://api.unsplash.com/photos/random?query=${season}&${dayTime}&${currentlyIcon}&${city}&${country}&client_id=${myAccessKey}`;
     const response = await fetch(url);
     const data = await response.json();
     const backgroundImage = new Image();
