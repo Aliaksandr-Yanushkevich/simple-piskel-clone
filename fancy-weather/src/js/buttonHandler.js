@@ -44,5 +44,6 @@ changeLang = function() {
         localStorage.setItem('lang', document.getElementsByClassName('language')[0].value);
         darksky();
         getCityData();
+        displayLocation();
     }
 }

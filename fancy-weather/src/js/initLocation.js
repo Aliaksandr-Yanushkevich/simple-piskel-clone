@@ -10,6 +10,9 @@ initLocation = function () { //create location block
     gps.classList.add('gps');
     let latitude = document.createElement('p');
     latitude.classList.add('latitude');
+    let latitudeVal = document.createElement('span');
+    latitudeVal.classList.add('latitudeVal');
+    latitude.appendChild(latitudeVal);
     let longitude = document.createElement('p');
     longitude.classList.add('longitude');
     gps.appendChild(latitude);
