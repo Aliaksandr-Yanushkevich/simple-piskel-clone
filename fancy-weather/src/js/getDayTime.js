@@ -1,7 +1,8 @@
-getDayTime = function(APItimeZone) {
+getDayTime = function() {
+    const timeZone = sessionStorage.getItem('timeZone');
     let timesOfDay;
     time = new Date();
-    APIHours = Number(time.toLocaleString('en', {timeZone: APItimeZone, hour: 'numeric', hour12: false}));
+    APIHours = Number(time.toLocaleString('en', {timeZone: timeZone, hour: 'numeric', hour12: false}));
     if (APIHours === 0 || APIHours <= 6) {
         timesOfDay = 'night';
     }
@@ -15,5 +16,4 @@ getDayTime = function(APItimeZone) {
         timesOfDay = 'evening';
     }
     return timesOfDay;
-    
 }

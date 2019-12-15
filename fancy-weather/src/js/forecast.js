@@ -1,5 +1,6 @@
-forecast = function(dayForecast1, dayForecast2, dayForecast3, APItimeZone) {
-    let timeOptions = {timeZone: APItimeZone, weekday: "long"};
+forecast = function(dayForecast1, dayForecast2, dayForecast3) {
+    const timeZone = sessionStorage.getItem('timeZone');
+    let timeOptions = {timeZone: timeZone, weekday: "long"};
     const day1 = new Date(dayForecast1.time*1000).toLocaleString('en', timeOptions);
     const day2 = new Date(dayForecast2.time*1000).toLocaleString('en', timeOptions);
     const day3 = new Date(dayForecast3.time*1000).toLocaleString('en', timeOptions);

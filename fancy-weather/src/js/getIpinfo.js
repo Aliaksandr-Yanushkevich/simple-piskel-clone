@@ -3,6 +3,9 @@ getIpinfo = async function() {
     const url = `https://ipinfo.io/json?token=${ipInfoToken}`;
     const response = await fetch(url);
     const data = await response.json();
-    return data;
+    const latitude = data.loc.split(',')[0];
+    const longitude = data.loc.split(',')[1]
+    sessionStorage.setItem('latitude', latitude);
+    sessionStorage.setItem('longitude', longitude);
+    // return data;
 }
-

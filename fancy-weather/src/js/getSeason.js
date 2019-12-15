@@ -1,7 +1,8 @@
-getSeason = function(APItimeZone) {
+getSeason = function() {
+    const timeZone = sessionStorage.getItem('timeZone');
     let season;
     time = new Date();
-    APISeason = Number(time.toLocaleString('en', {timeZone: APItimeZone, month: 'numeric'}));
+    APISeason = Number(time.toLocaleString('en', {timeZone: timeZone, month: 'numeric'}));
     if (APISeason === 12 || APISeason <= 2) {
         season = 'winter';
     }
