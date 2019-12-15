@@ -32,16 +32,8 @@ async function renderPage(){
   clock(); // display date, month, weekday and time
   const darkskyData = await darksky(); //  send request and recieve currently weather from gps
   console.log(darkskyData);
-  
-   
-  // const currentlytemp = darkskyData.currently.temperature;
   const currentlyIcon = darkskyData.currently.icon;
-  // const currentlysummary = darkskyData.currently.summary;
-  // const apparentTemperature = darkskyData.currently.apparentTemperature;
-  // const windSpeed = darkskyData.currently.windSpeed;
-  // const humidity = darkskyData.currently.humidity;
 
-  // currentlyWeather(currentlytemp, currentlyIcon, currentlysummary, apparentTemperature, windSpeed, humidity); // display currently weather
     
   const dayForecast1 = darkskyData.daily.data[1];
   const dayForecast2 = darkskyData.daily.data[2];

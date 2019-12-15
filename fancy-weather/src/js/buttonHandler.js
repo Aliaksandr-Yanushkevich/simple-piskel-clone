@@ -42,14 +42,7 @@ changeLang = function() {
 
     translate = async function () {
         localStorage.setItem('lang', document.getElementsByClassName('language')[0].value);
-        const apiKey = '685337f4b9c34a078fcd9a0da5516122';
-        const place = sessionStorage.getItem('city');
-        const lang = localStorage.getItem('lang').toLocaleLowerCase();
-        const url = `https://api.opencagedata.com/geocode/v1/json?q=${place}&key=${apiKey}&language=${lang}`;
-        const response = await fetch(url);
-        const data = await response.json();
-        const city = data.results[0].components.city || data.results[0].components.town || data.results[0].components.village || data.results[0].components.county || data.results[0].components.state;
-        const country = data.results[0].components.country;
-        document.getElementsByClassName('weather-location')[0].innerHTML = `${city}, ${country}`
+        darksky();
+        getCityData();
     }
 }
