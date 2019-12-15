@@ -14,38 +14,41 @@ getDataFromCity = async function() {
     const url = `https://api.opencagedata.com/geocode/v1/json?q=${place}&key=${apiKey}&language=${lang}`;
     const response = await fetch(url);
     const data = await response.json();
+    console.log(data);
     const gps = data.results[0].geometry;
-    const latitude = gps.lat;
-    const longitude = gps.lng;
-    const location = data.results[0].formatted;
-    const weather = await darksky(latitude, longitude);
-    const APItimeZone = weather.timezone;
-    const currentlyIcon = weather.currently.icon;
-    const temp = weather.currently.temperature;
-    const summary = weather.currently.summary;
-    const apparentTemperature = weather.currently.apparentTemperature;
-    const windSpeed = weather.currently.windSpeed;
-    const humidity = weather.currently.humidity;
-    const dayForecast1 = weather.daily.data[1];
-    const dayForecast2 = weather.daily.data[2];
-    const dayForecast3 = weather.daily.data[3];
-    const avgTemp1 = (dayForecast1.temperatureHigh + dayForecast1.temperatureLow)/2;
-    const avgTemp2 = (dayForecast2.temperatureHigh + dayForecast2.temperatureLow)/2;
-    const avgTemp3 = (dayForecast3.temperatureHigh + dayForecast3.temperatureLow)/2;
-    const celsium = localStorage.getItem('celsium');
+    const latitude = gps.lat.toFixed(4);
+    const longitude = gps.lng.toFixed(4);
 
-    // initWeather(apparentTemperature, fullName, city, temp, celsium, summary, windSpeed, humidity);
-    initForecast(celsium, dayForecast1, dayForecast2, dayForecast3, APItimeZone);
-    initLocation(latitude, longitude);
+    document.getElementsByClassName('latitude')[0].innerHTML = `latitude: ${latitude}`; // refresh gps coordinates
+    document.getElementsByClassName('longitude')[0].innerHTML = `latitude: ${longitude}`;
+
+    const searchLocation = data.results[0].formatted;
+    const city = data.results[0].components.city || data.results[0].components.town || data.results[0].components.village || data.results[0].components.county || data.results[0].components.state;
+    const country = data.results[0].components.country;
+    myLocation(city, country);// refresh location
+      
+    const searchDarkskyData = await darksky(latitude, longitude); // send new request to darksky 
+    const searchAPItimeZone = searchDarkskyData.timezone;
+    clearTimeout(MyClock); // remove prev clock and execute target clock from search
+    clock(searchAPItimeZone);
+
+    const searchCurrentlytemp = searchDarkskyData.currently.temperature;
+    const searchCurrentlyIcon = searchDarkskyData.currently.icon;
+    const searchCurrentlysummary = searchDarkskyData.currently.summary;
+    const searchApparentTemperature = searchDarkskyData.currently.apparentTemperature;
+    const searchWindSpeed = searchDarkskyData.currently.windSpeed;
+    const searchHumidity = searchDarkskyData.currently.humidity;
+
+    currentlyWeather(searchCurrentlytemp, searchCurrentlyIcon, searchCurrentlysummary, searchApparentTemperature, searchWindSpeed, searchHumidity) 
+
+    const searchDayForecast1 = searchDarkskyData.daily.data[1];
+    const searchDayForecast2 = searchDarkskyData.daily.data[2];
+    const searchDayForecast3 = searchDarkskyData.daily.data[3];
+    
+    forecast(searchDayForecast1, searchDayForecast2, searchDayForecast3, searchAPItimeZone); // display 3 days forecast
+    
     initMap(latitude, longitude);
-    getBackground(city);
-    canvasIcon(currentlyIcon, dayForecast1, dayForecast2, dayForecast3);
-    tempUnit(apparentTemperature, temp, avgTemp1, avgTemp2, avgTemp3);
-   
-    displayLocation(location);
-    displayGPS(latitude, longitude);
-    clearTimeout(MyClock);
-    clock(APItimeZone);
+    // getBackground(city);
  }
 
  

@@ -24,13 +24,29 @@ initHeader = function () {
     const langArr = ['EN', 'BE', 'RU'];
     lang.classList.add("language");
 
+    if  (localStorage.getItem('lang') === null) {
+        localStorage.setItem('lang', 'EN');
+    }
+
+    
+
     for (let i = 0; i < langArr.length; i++) {
         let option = document.createElement('option');
         option.value = langArr[i];
         option.text = langArr[i];
         lang.appendChild(option);
     }
+    if (localStorage.getItem('lang') === 'EN') {
+        lang.selectedIndex = 0;
+    }
+    if (localStorage.getItem('lang') === 'BE') {
+        lang.selectedIndex = 1;
+    }
+    if (localStorage.getItem('lang') === 'RU') {
+        lang.selectedIndex = 2;
+    }
     buttBlock.appendChild(lang);
+
 
       
     if (localStorage.getItem('celsium') === null) { // property existence check
@@ -60,7 +76,7 @@ initHeader = function () {
     const searchField = document.createElement('input');
     searchField.setAttribute('type', 'search');
     searchField.classList.add('searchField');
-    searchField.placeholder = "Search city or ZIP";
+    searchField.placeholder = "Search city";
     const searchSubmit = document.createElement('button');
     searchSubmit.setAttribute('type', 'submit');
     searchSubmit.classList.add('searchSubmit');

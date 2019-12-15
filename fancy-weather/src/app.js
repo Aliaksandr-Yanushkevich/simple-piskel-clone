@@ -19,7 +19,7 @@ import './js/getBackground';
 import './js/initMap';
 import './js/darksky';
 import './js/buttonHandler';
-// import './js/search';
+import './js/search';
 
 async function renderPage(){
   initHeader();
@@ -49,22 +49,21 @@ async function renderPage(){
 
   currentlyWeather(currentlytemp, currentlyIcon, currentlysummary, apparentTemperature, windSpeed, humidity); // display currently weather
     
-    const dayForecast1 = darkskyData.daily.data[1];
-    const dayForecast2 = darkskyData.daily.data[2];
-    const dayForecast3 = darkskyData.daily.data[3];
+  const dayForecast1 = darkskyData.daily.data[1];
+  const dayForecast2 = darkskyData.daily.data[2];
+  const dayForecast3 = darkskyData.daily.data[3];
 
-    forecast(dayForecast1, dayForecast2, dayForecast3, APItimeZone); // display 3 days forecast
-    
-    
-    displayLocation(latitude, longitude) // display target gps coordinate 
-    initMap(latitude, longitude); // init map
+  forecast(dayForecast1, dayForecast2, dayForecast3, APItimeZone); // display 3 days forecast
 
-    getBackground(city); // display bg
-    backgroundRefresh(city);
-    tempUnit(currentlytemp, dayForecast1, dayForecast2, dayForecast3);
-   
-  
-  // search();
+
+  displayLocation(latitude, longitude) // display target gps coordinate 
+  initMap(latitude, longitude); // init map
+
+  getBackground(city); // display bg
+  backgroundRefresh(city);
+  tempUnit(currentlytemp, dayForecast1, dayForecast2, dayForecast3);
+  search();
+  changeLang();
 }
 renderPage();
 
