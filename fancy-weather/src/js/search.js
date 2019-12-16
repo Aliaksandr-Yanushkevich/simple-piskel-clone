@@ -29,39 +29,14 @@ getDataFromCity = async function() {
     sessionStorage.setItem('longitude', longitude);
     document.getElementsByClassName('weather-location')[0].innerHTML = `${city}, ${country}`
     // console.log(data);
-   
-    document.getElementsByClassName('latitude')[0].innerHTML = `latitude: ${latitude}`; // refresh gps coordinates
-    document.getElementsByClassName('longitude')[0].innerHTML = `latitude: ${longitude}`;
-
-    // const city = data.results[0].components.city || data.results[0].components.town || data.results[0].components.village || data.results[0].components.county || data.results[0].components.state;
-    // const country = data.results[0].components.country;
-    // sessionStorage.setItem('city', city);
-    // sessionStorage.setItem('country', country);
-    // getCityCountry(latitude, longitude);// refresh location
-      
-    // const searchDarkskyData = await darksky(latitude, longitude); // send new request to darksky 
-    // const searchAPItimeZone = searchDarkskyData.timezone;
+    displayLocation();  // refresh gps coordinates
+    darksky(); // refresh weather and forecast
     clearTimeout(MyClock); // remove prev clock and execute target clock from search
-    clock();
-
-    const searchCurrentlytemp = searchDarkskyData.currently.temperature;
-    const searchCurrentlyIcon = searchDarkskyData.currently.icon;
-    const searchCurrentlysummary = searchDarkskyData.currently.summary;
-    const searchApparentTemperature = searchDarkskyData.currently.apparentTemperature;
-    const searchWindSpeed = searchDarkskyData.currently.windSpeed;
-    const searchHumidity = searchDarkskyData.currently.humidity;
-
-    currentlyWeather(searchCurrentlytemp, searchCurrentlyIcon, searchCurrentlysummary, searchApparentTemperature, searchWindSpeed, searchHumidity) 
-
-    const searchDayForecast1 = searchDarkskyData.daily.data[1];
-    const searchDayForecast2 = searchDarkskyData.daily.data[2];
-    const searchDayForecast3 = searchDarkskyData.daily.data[3];
-    
-    forecast(searchDayForecast1, searchDayForecast2, searchDayForecast3, searchAPItimeZone); // display 3 days forecast
+    clock();    
     
     initMap();
-    const season = getSeason(searchAPItimeZone);
-    const dayTime = getDayTime(searchAPItimeZone);
+    const season = getSeason();
+    const dayTime = getDayTime();
 
     getBackground(season, dayTime, searchCurrentlyIcon);
  }
