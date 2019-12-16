@@ -1,8 +1,6 @@
 import 'babel-polyfill';
 import _ from 'lodash';
-
 import './scss/style.scss';
-
 import './js/getIpinfo';
 import './js/createIconHTML';
 import './js/initHeader';
@@ -19,14 +17,15 @@ import './js/search';
 import './js/getDayTime'
 import'./js/getSeason';
 import './js/getCityData';
+import './js/speechrecognition';
 
 async function renderPage(){
   initHeader();
   initWeather();
   initForecast();
   initLocation();
-  getIpinfo(); // send request and recieve gps from IP
-  getCityData(); // send gps coordinates and recieve city, country, date and time
+  await getIpinfo(); // send request and recieve gps from IP
+  await getCityData(); // send gps coordinates and recieve city, country, date and time
   clock(); // display date, month, weekday and time
   const darkskyData = await darksky(); //  send request and recieve currently weather from gps
   console.log(darkskyData);
