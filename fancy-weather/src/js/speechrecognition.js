@@ -12,27 +12,27 @@ recognition.addEventListener('result', e => {
     let celsius = document.getElementsByClassName('temp-celsium')[0];
     let fahrenheit = document.getElementsByClassName('temp-fahrenheit')[0];
     let lang = document.getElementsByClassName('language')[0]
-    if (transcript.includes('градусы Цельсия') || transcript.includes('градусы Цэльсія') || transcript.includes('degrees celsius')) { // changing of temperature units
+    if (transcript.toLowerCase().includes('градусы цельсия') || transcript.toLowerCase().includes('градусы Цэльсія') || transcript.toLowerCase().includes('degrees celsius')) { // changing of temperature units
         celsius.click();
         searchField.value = '';
-    } else if (transcript.includes('градусы Фаренгейта') || transcript.includes('градусы Фарэнгейта') || transcript.includes('degrees Fahrenheit')) {
+    } else if (transcript.toLowerCase().includes('градусы фаренгейта') || transcript.toLowerCase().includes('градусы фарэнгейта') || transcript.toLowerCase().includes('degrees fahrenheit')) {
         fahrenheit.click();
         searchField.value = '';
 
-    } else if (transcript.includes('английский язык') || transcript.includes('английская мова') || transcript.includes('English language')) { //changing lang
+    } else if (transcript.toLowerCase().includes('английский язык') || transcript.toLowerCase().includes('английская мова') || transcript.toLowerCase().includes('english language')) { //changing lang
         lang.selectedIndex = 0;
         translate();
         searchField.value = '';
-    } else if (transcript.includes('белорусский язык') || transcript.includes('беларуская мова') || transcript.includes('Belarusian Language')) {
+    } else if (transcript.toLowerCase().includes('белорусский язык') || transcript.toLowerCase().includes('беларуская мова') || transcript.toLowerCase().includes('belarusian Language')) {
         lang.selectedIndex = 1;
         translate();
         searchField.value = '';
-    } else if (transcript.includes('русский язык') || transcript.includes('русская мова') || transcript.includes('Russian Language')) {
+    } else if (transcript.toLowerCase().includes('русский язык') || transcript.toLowerCase().includes('русская мова') || transcript.toLowerCase().includes('russian language')) {
         lang.selectedIndex = 2;
         translate();
         searchField.value = '';
 
-    } else if (transcript.includes('Смени фон') || transcript.includes('Змяні фон') || transcript.includes('change background')) {
+    } else if (transcript.toLowerCase().includes('смени фон') || transcript.toLowerCase().includes('змяні фон') || transcript.toLowerCase().includes('change background')) {
         changeBackground.click();
         searchField.value = '';
     }
