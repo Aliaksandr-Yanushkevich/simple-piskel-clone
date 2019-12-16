@@ -28,7 +28,6 @@ async function renderPage(){
   await getCityData(); // send gps coordinates and recieve city, country, date and time
   clock(); // display date, month, weekday and time
   const darkskyData = await darksky(); //  send request and recieve currently weather from gps
-  console.log(darkskyData);
   const currentlytemp = darkskyData.currently.temperature;
   const currentlyIcon = darkskyData.currently.icon;   
   const dayForecast1 = darkskyData.daily.data[1];
@@ -43,6 +42,7 @@ async function renderPage(){
   tempUnit(currentlytemp, dayForecast1, dayForecast2, dayForecast3);
   search();
   changeLang();
+  voiceRecognition();
 }
 renderPage();
 

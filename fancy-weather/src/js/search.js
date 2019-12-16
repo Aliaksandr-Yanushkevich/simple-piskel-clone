@@ -20,7 +20,6 @@ getDataFromCity = async function() {
     const gps = data.results[0].geometry;
     const latitude = gps.lat.toFixed(4);
     const longitude = gps.lng.toFixed(4);
-    // console.log(data);
     // sessionStorage.setItem('timeZone', data.timezone);
     sessionStorage.setItem('timeZone', timeZone);
     sessionStorage.setItem('city', city);
@@ -28,9 +27,10 @@ getDataFromCity = async function() {
     sessionStorage.setItem('latitude', latitude);
     sessionStorage.setItem('longitude', longitude);
     document.getElementsByClassName('weather-location')[0].innerHTML = `${city}, ${country}`
-    // console.log(data);
     displayLocation();  // refresh gps coordinates
-    darksky(); // refresh weather and forecast
+    const darkskyData = await darksky(); // refresh weather and forecast
+    const searchCurrentlyIcon = darkskyData.currently.icon;
+    // console.log(searchCurrentlyIcon);
     clearTimeout(MyClock); // remove prev clock and execute target clock from search
     clock();    
     

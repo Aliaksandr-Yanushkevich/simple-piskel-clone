@@ -70,7 +70,9 @@ initHeader = function () {
         tempFar.classList.add('active');
     }
     buttBlock.appendChild(tempFar);
-
+    const searchBlock = document.createElement('div');
+    searchBlock.classList.add('searchBlock');
+    
     const searchForm = document.createElement('form'); // create search form
     searchForm.classList.add('searchForm');
     const searchField = document.createElement('input');
@@ -81,9 +83,15 @@ initHeader = function () {
     searchSubmit.setAttribute('type', 'submit');
     searchSubmit.classList.add('searchSubmit');
     searchSubmit.innerHTML = createIconHTML('search');
+   
+    const voice = document.createElement('button');
+    voice.classList.add('voice');
+    voice.innerHTML = createIconHTML('keyboard_voice');
+    searchBlock.appendChild(searchForm);
     searchForm.appendChild(searchField);
     searchForm.appendChild(searchSubmit);
-    control.appendChild(searchForm);
+    searchBlock.appendChild(voice);
+    control.appendChild(searchBlock);
     header.appendChild(control);
     copyright.appendChild(developer);
     mainWrapper.appendChild(copyright);

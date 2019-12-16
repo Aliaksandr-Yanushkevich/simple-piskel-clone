@@ -3,7 +3,7 @@ $border: red solid 1px;
 * {
     box-sizing: border-box;
     font-family: 'Montserrat', sans-serif;
-    border: $border;
+    // border: $border;
 }
 
 .copyright {
@@ -28,7 +28,7 @@ h1 {
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    height: 64px;
+    // height: 64px;
 }
 
 .buttBlock {
@@ -38,15 +38,15 @@ h1 {
     align-items: center;
 }
 
-.button, .language, .temp {
+.button, .language, .temp,  .voice {
     height: 44px;
     background-color: rgb(114, 110, 110);
     opacity: 0.5;
-    border-radius: 10%;
+    // border-radius: 10%;
     color: white;
 }
 
-.button-changeBackground, .temp {
+.button-changeBackground, .temp, .voice, .searchSubmit{
     width: 44px;
 }
 
@@ -54,9 +54,14 @@ h1 {
     background-color: rgb(114, 110, 110);
 }
 
+.searchBlock {
+    display: flex;
+    flex-direction: row;
+    margin-right: 6.5%;
+}
+
 .searchForm {
     display: flex;
-    margin-right: 6.5%;
     height: 44px;
     ::-webkit-input-placeholder {color: white;}
 }
@@ -179,6 +184,7 @@ main {
     background-color: orange;
 }
 
+
 @media (max-width: 960px) {
     body {
         background-color: yellowgreen;
@@ -187,6 +193,10 @@ main {
     .buttBlock {
         margin-left: 2%;
     }
+
+    // .voice {
+    //     // margin-left: px;
+    // }
 
     .searchForm {
         margin-right: 2%;

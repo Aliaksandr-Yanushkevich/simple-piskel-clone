@@ -8,10 +8,10 @@ darksky = async function() {
     const url = `https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/${key}/${latitude},${longitude}?units=si&lang=${lang}`;
     let response = await fetch(url);
     let data = await response.json();
-    const currentlytemp = data.currently.temperature;
+    let currentlytemp = data.currently.temperature;
     const currentlyIcon = data.currently.icon;
     const currentlysummary = data.currently.summary;
-    const apparentTemperature = data.currently.apparentTemperature;
+    let apparentTemperature = data.currently.apparentTemperature;
     const windSpeed = data.currently.windSpeed;
     const humidity = data.currently.humidity;
     const dayForecast1 = data.daily.data[1];
@@ -78,7 +78,7 @@ darksky = async function() {
         document.getElementsByClassName('tommorow-weekday')[0].innerHTML = `${byWeekDayLong[day1]}`;
         document.getElementsByClassName('tommorow1-weekday')[0].innerHTML = `${byWeekDayLong[day2]}`;
         document.getElementsByClassName('tommorow2-weekday')[0].innerHTML = `${byWeekDayLong[day3]}`;
-        console.log(byWeekDayLong[day1])
+        // console.log(byWeekDayLong[day1])
     } else {
         document.getElementsByClassName('tommorow-weekday')[0].innerHTML = `${day1}`;
         document.getElementsByClassName('tommorow1-weekday')[0].innerHTML = `${day2}`;
@@ -95,8 +95,5 @@ darksky = async function() {
     icons.add("weatherTommorow2", dayForecast3.icon);
     icons.play();
 
-   
     return data
-
-    
 }
