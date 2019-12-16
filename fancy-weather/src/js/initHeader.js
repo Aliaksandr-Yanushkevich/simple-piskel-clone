@@ -54,7 +54,7 @@ initHeader = function () {
     }
 
     const tempCels = document.createElement('button'); // create temperature buttons
-    tempCels.innerText = '℃';
+    tempCels.innerText = '°C';
     tempCels.classList.add('temp');
     tempCels.classList.add('temp-celsium');
     if (localStorage.getItem('celsium') === 'true') {
@@ -63,7 +63,7 @@ initHeader = function () {
     buttBlock.appendChild(tempCels);
     
     const tempFar = document.createElement('button');
-    tempFar.innerText = '℉';
+    tempFar.innerText = '°F';
     tempFar.classList.add('temp');
     tempFar.classList.add('temp-fahrenheit');
     if (localStorage.getItem('celsium') === 'false') {

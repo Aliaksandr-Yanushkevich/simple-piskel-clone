@@ -6,6 +6,10 @@ $border: red solid 1px;
     // border: $border;
 }
 
+button {
+    border: 1px solid white;
+}
+
 .copyright {
     display: none;
     justify-content: center;
@@ -20,6 +24,7 @@ h1 {
     min-width: 320px;
     height: 100vh;
     margin: 0 auto;
+    border: $border;
 }
 
 .control {
@@ -36,17 +41,19 @@ h1 {
     display: flex;
     justify-content: space-between;
     align-items: center;
+   
 }
 
 .button, .language, .temp,  .voice {
     height: 44px;
     background-color: rgb(114, 110, 110);
     opacity: 0.5;
-    // border-radius: 10%;
+    border: 1px solid white;
     color: white;
 }
 
 .button-changeBackground, .temp, .voice, .searchSubmit{
+    border: 1px solid white;
     width: 44px;
 }
 
@@ -58,11 +65,16 @@ h1 {
     display: flex;
     flex-direction: row;
     margin-right: 6.5%;
+    width: 45%;
+    min-width: 320px;
+    max-width: 450px;
+    border: $border;
 }
 
 .searchForm {
     display: flex;
     height: 44px;
+    flex-grow: 1;
     ::-webkit-input-placeholder {color: white;}
 }
 
@@ -70,23 +82,27 @@ h1 {
     height: 100%;
     outline: 0;
     background-color: rgb(114, 110, 110);
-    border: $border;
+    border: 1px solid white;
     opacity: 0.5;
     color: white;
+}
+
+.searchField {
+    flex-grow: 1;
 }
 
 main {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    border: $border;
+    // border: $border;
 }
 
 .weatherWrapper {
-    width: 30%;
+    width: 45%;
     min-width: 320px;
     max-width: 450px;
-    border: $border;
+    // border: $border;
     margin-left: 6.5%;
 }
 
@@ -107,11 +123,12 @@ main {
 .weatherProp{
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
 }
 
 .weatherPropTemp {
     width: 50%;
-    font-size: 7rem;
+    font-size: 6.5rem;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -158,20 +175,21 @@ main {
 }
 
 .locationWrapper {
-    width: 30%;
+    width: 45%;
     min-width: 320px;
     max-width: 450px;
-    border: $border;
+    // border: $border;
     margin-right: 6.5%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    border: $border;
 }
 
 .map {
-    width: 250px;
-    height: 250px;
+    width: 100%;
+    height: 100%;
     background-color: green;
 }
 
@@ -184,8 +202,7 @@ main {
     background-color: orange;
 }
 
-
-@media (max-width: 960px) {
+@media (max-width: 1180px) {
     body {
         background-color: yellowgreen;
     }
@@ -194,29 +211,53 @@ main {
         margin-left: 2%;
     }
 
-    // .voice {
-    //     // margin-left: px;
-    // }
-
-    .searchForm {
+    .searchBlock {
         margin-right: 2%;
     }
 
     .weatherWrapper {
         // width: 45%;
-        border: $border;
+        // border: $border;
         margin-left: 2%;
+    }
+
+    .weatherPropTemp {
+        font-size: 6rem; 
     }
 
     .locationWrapper {
         // width: 45%;
-        border: $border;
+        // border: $border;
         margin-right: 2%;
     }
     
 }
+@media (max-width: 810px) {
+    .weatherWrapper {
+        width: 49%;
+        // border: $border;
+        margin-left: 0;
+    }
+    .locationWrapper {
+        width: 49%;
+        // border: $border;
+        margin-right: 0;
+    }
+    .buttBlock {
+        margin-left: 0;
+    }
 
-@media (max-width: 670px) {
+    .searchBlock {
+        margin-right: 0;
+        width: 49%;
+    }
+
+    .weatherPropTemp {
+        width: 40%;
+        font-size: 5rem; 
+    }
+}    
+@media (max-width: 700px) {
     body {
         background-color: yellow;
     }
@@ -225,24 +266,20 @@ main {
         display: flex;
         flex-direction: column;
         justify-content: space-between;
-        border: $border;
+        // border: $border;
     }
     
     .weatherWrapper {
         width: 100%;
-        border: $border;
+        // border: $border;
         margin: 0 auto;
     }
 
     .locationWrapper {
         width: 100%;
-        border: $border;
+        // border: $border;
         margin: 0 auto;
     }
-    
-}
-
-@media (max-width: 670px) {
     .control {
         flex-direction: column;
         min-width: 320px;
@@ -260,11 +297,11 @@ main {
     }
 
     .button, .language, .temp {
-        height: 32px;
+        // height: 32px;
         flex-grow: 1;
     }
 
-    .searchForm {
+    .searchBlock {
         display: flex;
         margin: 0 auto;
         width: 100%;
@@ -272,15 +309,21 @@ main {
         ::-webkit-input-placeholder {color: white;}
     }
 
+    .searchForm {
+        flex-grow: 3;
+    }
+
     .searchField {
-       flex-grow: 1;
+       flex-grow: 2;
     }
 
     .searchSubmit {
         flex-grow: 1;
     }
+    .voice {
+        flex-grow: 1;
+    }
 }
-
 p, h1, h2, h3, ul, .gps, .tommorowTemp, .tommorow1Temp, .tommorow2Temp {
     background-color: rgb(209, 113, 49);
 }
