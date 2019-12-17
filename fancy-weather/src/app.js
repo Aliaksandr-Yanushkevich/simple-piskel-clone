@@ -1,6 +1,7 @@
 import 'babel-polyfill';
 import _ from 'lodash';
 import './scss/style.scss';
+import './scss/reset.scss'
 import './js/getIpinfo';
 import './js/createIconHTML';
 import './js/initHeader';
@@ -29,6 +30,7 @@ async function renderPage(){
   clock(); // display date, month, weekday and time
   const darkskyData = await darksky(); //  send request and recieve currently weather from gps
   const currentlytemp = darkskyData.currently.temperature;
+  const apparentTemperature = darkskyData.currently.apparentTemperature;
   const currentlyIcon = darkskyData.currently.icon;   
   const dayForecast1 = darkskyData.daily.data[1];
   const dayForecast2 = darkskyData.daily.data[2];
@@ -39,7 +41,7 @@ async function renderPage(){
   const season = getSeason();
   getBackground(season, dayTime, currentlyIcon); // display bg
   backgroundRefresh(season, dayTime, currentlyIcon);
-  tempUnit(currentlytemp, dayForecast1, dayForecast2, dayForecast3);
+  tempUnit(currentlytemp, apparentTemperature, dayForecast1, dayForecast2, dayForecast3);
   search();
   changeLang();
   voiceRecognition();
