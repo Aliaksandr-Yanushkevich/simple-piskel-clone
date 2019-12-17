@@ -15,6 +15,6 @@ getSeason = function() {
     if (APISeason >= 9 && APISeason <= 11) {
         season = 'autumn';
     }
-    console.log(season);
+    // console.log(season);
     return season
 }

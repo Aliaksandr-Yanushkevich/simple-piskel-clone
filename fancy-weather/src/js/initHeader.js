@@ -21,11 +21,11 @@ initHeader = function () {
     buttBlock.appendChild(changeBackground);
 
     const lang = document.createElement('select'); // create lang list
-    const langArr = ['EN', 'BE', 'RU'];
+    const langArr = ['en', 'be', 'ru'];
     lang.classList.add("language");
 
     if  (localStorage.getItem('lang') === null) {
-        localStorage.setItem('lang', 'EN');
+        localStorage.setItem('lang', 'en');
     }
 
     
@@ -36,13 +36,13 @@ initHeader = function () {
         option.text = langArr[i];
         lang.appendChild(option);
     }
-    if (localStorage.getItem('lang') === 'EN') {
+    if (localStorage.getItem('lang') === 'en') {
         lang.selectedIndex = 0;
     }
-    if (localStorage.getItem('lang') === 'BE') {
+    if (localStorage.getItem('lang') === 'be') {
         lang.selectedIndex = 1;
     }
-    if (localStorage.getItem('lang') === 'RU') {
+    if (localStorage.getItem('lang') === 'ru') {
         lang.selectedIndex = 2;
     }
     buttBlock.appendChild(lang);
@@ -78,7 +78,19 @@ initHeader = function () {
     const searchField = document.createElement('input');
     searchField.setAttribute('type', 'search');
     searchField.classList.add('searchField');
-    searchField.placeholder = "Search city";
+
+    if (localStorage.getItem('lang') === 'en') {
+        searchField.placeholder = "Search city";
+    }
+
+    if (localStorage.getItem('lang') === 'be') {
+        searchField.placeholder = "Шукаць горад";
+    }
+
+    if (localStorage.getItem('lang') === 'ru') {
+        searchField.placeholder = "Искать город";
+    }
+    
     const searchSubmit = document.createElement('button');
     searchSubmit.setAttribute('type', 'submit');
     searchSubmit.classList.add('searchSubmit');

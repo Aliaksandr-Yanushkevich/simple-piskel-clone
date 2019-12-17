@@ -4,19 +4,36 @@ initWeather = function () {
     }
 
     let main = document.createElement('main');
-    let weatherWrapper = document.createElement('div');
+    let weatherWrapper = document.createElement('section');
     weatherWrapper.classList.add('weatherWrapper');
-    let weather = document.createElement('section');
+    let weather = document.createElement('div');
     weather.classList.add('weather');
+
+    let summary = document.createElement('div');
+    summary.classList.add('summary');
+    weatherWrapper.appendChild(summary);
+
+    let city = document.createElement('div');
+    city.classList.add('city');
+    summary.appendChild(city);
 
     let location = document.createElement('h2');
     location.classList.add('location');
     location.classList.add('weather-location');
-    weather.appendChild(location);
+    city.appendChild(location);
 
-    let dateTime = document.createElement('h3');
+    let dateTime = document.createElement('div');
     dateTime.classList.add('dateTime');
-    weather.appendChild(dateTime);
+
+    let dayMonth = document.createElement('div');
+    dayMonth.classList.add('dayMonth');
+    dateTime.appendChild(dayMonth);
+
+    let clock = document.createElement('div');
+    clock.classList.add('clock');
+    dateTime.appendChild(clock);
+
+    summary.appendChild(dateTime);
 
     let weatherProp = document.createElement('div');
     weatherProp.classList.add('weatherProp');

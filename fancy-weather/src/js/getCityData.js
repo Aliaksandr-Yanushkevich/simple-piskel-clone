@@ -2,8 +2,8 @@ getCityData = async function() {
     let latitude = sessionStorage.getItem('latitude');
     let longitude = sessionStorage.getItem('longitude');
     const apiKey = '685337f4b9c34a078fcd9a0da5516122';
-    const lang = localStorage.getItem('lang').toLocaleLowerCase();
-    console.log(lang)
+    const lang = localStorage.getItem('lang');
+    // console.log(lang)
     const url = `https://api.opencagedata.com/geocode/v1/json?q=${latitude}+${longitude}&key=${apiKey}&language=${lang}`;
     const response = await fetch(url);
     const data = await response.json();

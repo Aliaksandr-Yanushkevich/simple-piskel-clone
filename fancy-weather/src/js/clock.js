@@ -2,7 +2,7 @@
 clock = function() {
         const timeZone = sessionStorage.getItem('timeZone');
         time = new Date();
-        let localeStandart = localStorage.getItem('lang').toLowerCase();
+        let localeStandart = localStorage.getItem('lang');
         if (localeStandart === 'be') {
             const byWeekDay = {
                 'Sun': 'Няд',
@@ -33,10 +33,12 @@ clock = function() {
             APIDay = time.toLocaleString(localeStandart,{timeZone: timeZone, day: 'numeric'});
             APIHour = time.toLocaleString(localeStandart,{timeZone: timeZone,  hour: 'numeric', hour12: false});
             APIMinute = time.toLocaleString(localeStandart,{timeZone: timeZone,  minute: 'numeric'});
+
             if (APIMinute < 10) {
                 APIMinute = '0' + APIMinute;
             };
-            document.getElementsByClassName('dateTime')[0].innerHTML = `${byWeekDay[APIWeekDay]} ${APIDay} ${byMonth[APIMonth]} ${APIHour}:${APIMinute}`;
+
+            document.getElementsByClassName('clock')[0].innerHTML = `${APIDay}, ${APIHour}:${APIMinute}`;
         } else {
             APIWeekDay = time.toLocaleString(localeStandart,{timeZone: timeZone, weekday: 'short'});
             APIDay = time.toLocaleString(localeStandart,{timeZone: timeZone, day: 'numeric'});
@@ -47,7 +49,7 @@ clock = function() {
             if (APIMinute < 10) {
                 APIMinute = '0' + APIMinute;
             };
-            document.getElementsByClassName('dateTime')[0].innerHTML = `${APIWeekDay} ${APIDay} ${APIMonth} ${APIHour}:${APIMinute}`;
+            document.getElementsByClassName('clock')[0].innerHTML = `${APIDay}, ${APIHour}:${APIMinute}`;
         }
         MyClock = setTimeout(clock, 1000); // recursive function start https://www.youtube.com/watch?v=puxkpNbCh0w;
 }

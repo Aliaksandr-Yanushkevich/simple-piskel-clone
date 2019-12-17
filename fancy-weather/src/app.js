@@ -19,6 +19,7 @@ import './js/getDayTime'
 import'./js/getSeason';
 import './js/getCityData';
 import './js/speechrecognition';
+import './js/dayMonth'
 
 async function renderPage(){
   initHeader();
@@ -28,6 +29,7 @@ async function renderPage(){
   await getIpinfo(); // send request and recieve gps from IP
   await getCityData(); // send gps coordinates and recieve city, country, date and time
   clock(); // display date, month, weekday and time
+  dayMonth();
   const darkskyData = await darksky(); //  send request and recieve currently weather from gps
   const currentlytemp = darkskyData.currently.temperature;
   const apparentTemperature = darkskyData.currently.apparentTemperature;

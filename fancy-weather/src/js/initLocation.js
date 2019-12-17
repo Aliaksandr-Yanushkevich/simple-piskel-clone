@@ -1,5 +1,5 @@
 initLocation = function () { //create location block
-    let locationWrapper = document.createElement('div');
+    let locationWrapper = document.createElement('section');
     locationWrapper.classList.add('locationWrapper');
 
     let map = document.createElement('div');

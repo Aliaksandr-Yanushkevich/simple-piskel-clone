@@ -3,7 +3,7 @@ darksky = async function() {
     let longitude = sessionStorage.getItem('longitude');
     const Skycons = require('../../node_modules/skycons/skycons')(window); //  Если работаем с node (локальный сервер и т.п.) то передаем global, а если с браузером то глобальный объект window
     //Эта анонимная функция, вызванная с глобальным объектом, уже возвращает наш класс Skycons
-    const lang = localStorage.getItem('lang').toLowerCase();
+    const lang = localStorage.getItem('lang');
     const key = '8c9668e919cbdfe759fda91c7498ad66';
     const url = `https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/${key}/${latitude},${longitude}?units=si&lang=${lang}`;
     let response = await fetch(url);
@@ -30,19 +30,19 @@ darksky = async function() {
     icons.play();
 
     document.getElementsByClassName('li-item')[0].innerHTML = `${currentlysummary}`;
-    if (localStorage.getItem('lang')==='EN') {
+    if (localStorage.getItem('lang')==='en') {
         document.getElementsByClassName('li-item')[1].innerHTML = `Feels like: ${Math.round(apparentTemperature)}°`; 
         document.getElementsByClassName('li-item')[2].innerHTML = `Wind: ${Math.round(windSpeed)}m/s`;
         document.getElementsByClassName('li-item')[3].innerHTML = `Humidity: ${Math.round(humidity*100)}%`;
     }
 
-    if (localStorage.getItem('lang')==='BE') {
+    if (localStorage.getItem('lang')==='be') {
         document.getElementsByClassName('li-item')[1].innerHTML = `Адчуваецца як: ${Math.round(apparentTemperature)}°`; 
         document.getElementsByClassName('li-item')[2].innerHTML = `Вецер: ${Math.round(windSpeed)}м/с`;
         document.getElementsByClassName('li-item')[3].innerHTML = `Вільготнасць: ${Math.round(humidity*100)}%`;
     }
 
-    if (localStorage.getItem('lang')==='RU') {
+    if (localStorage.getItem('lang')==='ru') {
         document.getElementsByClassName('li-item')[1].innerHTML = `Ощущается как: ${Math.round(apparentTemperature)}°`; 
         document.getElementsByClassName('li-item')[2].innerHTML = `Ветер: ${Math.round(windSpeed)}м/с`;
         document.getElementsByClassName('li-item')[3].innerHTML = `Влажность: ${Math.round(humidity*100)}%`;

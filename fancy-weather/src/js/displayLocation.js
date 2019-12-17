@@ -13,15 +13,15 @@ displayLocation = function() {
     if (longitudeSeconds < 10) {
         longitudeSeconds = `0${longitudeSeconds}`
     }
-    if (localStorage.getItem('lang')==='EN'){
+    if (localStorage.getItem('lang')==='en'){
         document.getElementsByClassName('latitude')[0].innerHTML = `Latitude: ${latitudeDegree}°${latitudeMinutes}'${latitudeSeconds}"`;
         document.getElementsByClassName('longitude')[0].innerHTML = `Longitude: ${longitudeDegree}°${longitudeMinutes}'${longitudeSeconds}"`;
     }
-    if (localStorage.getItem('lang')==='RU'){
+    if (localStorage.getItem('lang')==='ru'){
         document.getElementsByClassName('latitude')[0].innerHTML = `Широта: ${latitudeDegree}°${latitudeMinutes}'${latitudeSeconds}"`;
         document.getElementsByClassName('longitude')[0].innerHTML = `Долгота: ${longitudeDegree}°${longitudeMinutes}'${longitudeSeconds}"`;
     }
-    if (localStorage.getItem('lang')==='BE'){
+    if (localStorage.getItem('lang')==='be'){
         document.getElementsByClassName('latitude')[0].innerHTML = `Шырата: ${latitudeDegree}°${latitudeMinutes}'${latitudeSeconds}"`;
         document.getElementsByClassName('longitude')[0].innerHTML = `Даўгата: ${longitudeDegree}°${longitudeMinutes}'${longitudeSeconds}"`;
     }

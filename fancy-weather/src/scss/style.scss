@@ -3,11 +3,9 @@ $border: red solid 1px;
 * {
     box-sizing: border-box;
     font-family: 'Montserrat', sans-serif;
-    // border: $border;
 }
 
 body {
-    // min-height: 100vh;
     min-height: 100vh;
 }
 
@@ -15,8 +13,6 @@ main {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    height: 100%;
-    // border: $border;
 }
 
 button {
@@ -37,7 +33,6 @@ h1 {
     min-width: 320px;
     height: 100vh;
     margin: 0 auto;
-    border: $border;
 }
 
 .control {
@@ -46,6 +41,7 @@ h1 {
     justify-content: space-between;
     align-items: center;
     width: 100%;
+    margin-bottom: 30px;
     // height: 64px;
 }
 
@@ -59,10 +55,14 @@ h1 {
 
 .button, .language, .temp,  .voice {
     height: 44px;
-    background-color: rgb(114, 110, 110);
-    opacity: 0.5;
+    background-color: rgb(104, 99, 99);
+    opacity: 0.8;
     border: 1px solid white;
     color: white;
+}
+
+.language {
+    text-transform: uppercase;
 }
 
 .button-changeBackground, .temp, .voice, .searchSubmit{
@@ -71,7 +71,7 @@ h1 {
 }
 
 .button-changeBackground {
-    background-color: rgb(114, 110, 110);
+    background-color:rgb(104, 99, 99);
 }
 
 .searchBlock {
@@ -81,7 +81,6 @@ h1 {
     width: 45%;
     min-width: 320px;
     max-width: 450px;
-    border: $border;
 }
 
 .searchForm {
@@ -94,36 +93,56 @@ h1 {
 .searchField, .searchSubmit {
     height: 100%;
     outline: 0;
-    background-color: rgb(114, 110, 110);
+    background-color:rgb(104, 99, 99);
     border: 1px solid white;
-    opacity: 0.5;
+    opacity: 0.8;
     color: white;
 }
 
 .searchField {
     flex-grow: 1;
+    height: 40px;
 }
 
 .weatherWrapper {
     width: 45%;
     min-width: 320px;
     max-width: 450px;
-    // border: $border;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     margin-left: 6.5%;
+    color: white;
+    background-color: rgb(104, 99, 99);
+    opacity: 0.8;
+    padding: 15px;
+    border-radius: 5px;
 }
 
 .weather {
     width: 100%;
-    // border: $border;
+}
+
+.weather-location {
+    font-size: 2rem;
+    font-weight: 600;
+}
+
+.dayMonth {
+    font-size: 1.5rem;
+}
+
+.clock {
+    margin-left: 10px;
 }
 
 .dateTime {
     display: flex;
     flex-direction: row;
     width: 100%;
-    justify-content: space-between;
+    font-size: 1.5rem;
     text-transform: capitalize;
-    // border: $border;
+    margin-top: 10px;
 }
 
 .weatherProp{
@@ -148,7 +167,8 @@ h1 {
 }
 
 // .weatherPropDetailsImage {
-//     font-size: 2rem;
+//   display: flex;
+//   justify-content: flex-start;
 // }
 
 .weatherdescription {
@@ -162,13 +182,10 @@ h1 {
 
 .forecast {
     width: 100%;
-    // margin-left: 6.5%;
-    margin-top: 10px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    // flex-grow: 1;
-    // border: $border;
+    font-size: 1.2rem;
     text-transform: capitalize;
 }
 
@@ -184,13 +201,16 @@ h1 {
     width: 45%;
     min-width: 320px;
     max-width: 450px;
-    // border: $border;
     margin-right: 6.5%;
     display: flex;
     flex-direction: column;
-    // justify-content: center;
     align-items: center;
-    border: $border;
+    background-color: rgb(104, 99, 99);
+    opacity: 0.8;
+    border-radius: 5px;
+    color: white;
+    font-size: 1.2rem;
+    padding: 15px;
 }
 
 .map {
@@ -225,8 +245,6 @@ h1 {
     }
 
     .weatherWrapper {
-        // width: 45%;
-        // border: $border;
         margin-left: 2%;
     }
 
@@ -235,8 +253,6 @@ h1 {
     }
 
     .locationWrapper {
-        // width: 45%;
-        // border: $border;
         margin-right: 2%;
     }
     
@@ -244,12 +260,10 @@ h1 {
 @media (max-width: 810px) {
     .weatherWrapper {
         width: 49%;
-        // border: $border;
         margin-left: 0;
     }
     .locationWrapper {
         width: 49%;
-        // border: $border;
         margin-right: 0;
     }
     .buttBlock {
@@ -275,19 +289,18 @@ h1 {
         display: flex;
         flex-direction: column;
         justify-content: space-between;
-        // border: $border;
     }
     
     .weatherWrapper {
         width: 100%;
-        // border: $border;
         margin: 0 auto;
+        border-radius: 0;
     }
 
     .locationWrapper {
         width: 100%;
-        // border: $border;
         margin: 0 auto;
+        border-radius: 0;
     }
 
     .gps {
@@ -349,7 +362,4 @@ h1 {
     .gps {
         font-size: 0.95rem;
     }
-}
-p, h1, h2, h3, ul, .gps, .tommorowTemp, .tommorow1Temp, .tommorow2Temp {
-    background-color: rgb(209, 113, 49);
 }

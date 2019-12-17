@@ -20,15 +20,15 @@ tempUnit = function (currentlytemp, apparentTemperature, dayForecast1, dayForeca
         let avgTemp3 = Math.round((dayForecast3.temperatureHigh + dayForecast3.temperatureLow)/2 * 9 / 5 + 32);
         document.getElementsByClassName('weatherPropTemp')[0].innerHTML = `${currentlytemp}°`;
 
-        if (localStorage.getItem('lang')==='EN') {
+        if (localStorage.getItem('lang')==='en') {
             document.getElementsByClassName('li-item')[1].innerHTML = `Feels like: ${apparentTemperature}°`; 
         }
     
-        if (localStorage.getItem('lang')==='BE') {
+        if (localStorage.getItem('lang')==='be') {
             document.getElementsByClassName('li-item')[1].innerHTML = `Адчуваецца як: ${apparentTemperature}°`; 
         }
     
-        if (localStorage.getItem('lang')==='RU') {
+        if (localStorage.getItem('lang')==='ru') {
             document.getElementsByClassName('li-item')[1].innerHTML = `Ощущается как: ${apparentTemperature}°`; 
         }
 
@@ -45,15 +45,15 @@ tempUnit = function (currentlytemp, apparentTemperature, dayForecast1, dayForeca
         let avgTemp2 = Math.round((dayForecast2.temperatureHigh + dayForecast2.temperatureLow)/2);
         let avgTemp3 = Math.round((dayForecast3.temperatureHigh + dayForecast3.temperatureLow)/2);
 
-        if (localStorage.getItem('lang')==='EN') {
+        if (localStorage.getItem('lang')==='en') {
             document.getElementsByClassName('li-item')[1].innerHTML = `Feels like: ${apparentTemperature}°`; 
         }
     
-        if (localStorage.getItem('lang')==='BE') {
+        if (localStorage.getItem('lang')==='be') {
             document.getElementsByClassName('li-item')[1].innerHTML = `Адчуваецца як: ${apparentTemperature}°`; 
         }
     
-        if (localStorage.getItem('lang')==='RU') {
+        if (localStorage.getItem('lang')==='ru') {
             document.getElementsByClassName('li-item')[1].innerHTML = `Ощущается как: ${apparentTemperature}°`; 
         }
 
@@ -70,8 +70,20 @@ changeLang = function() {
 
     translate = async function () {
         localStorage.setItem('lang', document.getElementsByClassName('language')[0].value);
+        if (localStorage.getItem('lang') === 'en') {
+            document.getElementsByClassName('searchField')[0].placeholder = "Search city";
+        }
+    
+        if (localStorage.getItem('lang') === 'be') {
+            document.getElementsByClassName('searchField')[0].placeholder = "Шукаць горад";
+        }
+    
+        if (localStorage.getItem('lang') === 'ru') {
+            document.getElementsByClassName('searchField')[0].placeholder = "Искать город";
+        }
         darksky();
         getCityData();
         displayLocation();
+        dayMonth();
     }
 }
