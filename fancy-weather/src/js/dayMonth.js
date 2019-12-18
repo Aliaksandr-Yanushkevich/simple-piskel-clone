@@ -27,8 +27,8 @@ dayMonth = function() {
             'November': 'Лістапад',
             'December': 'Снежань',
         }
-        APIMonth = time.toLocaleString(localeStandart,{timeZone: timeZone,  month: 'long'});
-        APIWeekDay = time.toLocaleString(localeStandart,{timeZone: timeZone, weekday: 'short'});
+        APIMonth = time.toLocaleString('en',{timeZone: timeZone,  month: 'long'});
+        APIWeekDay = time.toLocaleString('en',{timeZone: timeZone, weekday: 'short'});
         console.log(byWeekDay[APIWeekDay]);
         console.log(byMonth[APIMonth]);
     document.getElementsByClassName('dayMonth')[0].innerHTML = `${byWeekDay[APIWeekDay]}, ${byMonth[APIMonth]}`;

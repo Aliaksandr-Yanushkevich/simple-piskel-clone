@@ -34,6 +34,7 @@ getDataFromCity = async function() {
             const searchCurrentlyIcon = darkskyData.currently.icon;
             // console.log(searchCurrentlyIcon);
             clearTimeout(MyClock); // remove prev clock and execute target clock from search
+            dayMonth();
             clock();    
             
             initMap();

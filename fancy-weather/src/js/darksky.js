@@ -52,9 +52,9 @@ darksky = async function() {
     const timeZone = sessionStorage.getItem('timeZone');
     let timeOptions = {timeZone: timeZone, weekday: "long"};
 
-    const day1 = new Date(dayForecast1.time*1000).toLocaleString(lang, timeOptions);
-    const day2 = new Date(dayForecast2.time*1000).toLocaleString(lang, timeOptions);
-    const day3 = new Date(dayForecast3.time*1000).toLocaleString(lang, timeOptions);
+    let day1 = new Date(dayForecast1.time*1000).toLocaleString(lang, timeOptions);
+    let day2 = new Date(dayForecast2.time*1000).toLocaleString(lang, timeOptions);
+    let day3 = new Date(dayForecast3.time*1000).toLocaleString(lang, timeOptions);
 
     let avgTemp1 = (dayForecast1.temperatureHigh + dayForecast1.temperatureLow)/2;
     let avgTemp2 = (dayForecast2.temperatureHigh + dayForecast2.temperatureLow)/2;
@@ -66,6 +66,9 @@ darksky = async function() {
         avgTemp3 = avgTemp3 * 9/5 + 32;
     }
     if (lang === 'be') {
+        let day1 = new Date(dayForecast1.time*1000).toLocaleString('en', timeOptions);
+        let day2 = new Date(dayForecast2.time*1000).toLocaleString('en', timeOptions);
+        let day3 = new Date(dayForecast3.time*1000).toLocaleString('en', timeOptions);
         const byWeekDayLong = {
             'Sunday': 'Нядзеля',
             'Monday': 'Панядзелак',
