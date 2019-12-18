@@ -20,18 +20,18 @@ getBackground = async function (season, dayTime, currentlyIcon) {
         const lang = localStorage.getItem('lang');
         switch (lang) {
             case 'en':
-                alert('Your picture was lost along the way :( Wait a bit and try changing it later. In the meantime, we will lend you our :)');
+                alert('Your background picture was lost along the way :( Wait a bit and try changing it later. In the meantime, we will lend you our :)');
                 break;
             case 'be':
-                alert('Ваша карцінка згубілася па дарозе :( Крыху пачакайце  і паспрабуйце змяніць яе пазней. Ну а пакуль мы пазычым вам сваю :)');
+                alert('Ваша фанавая карцінка згубілася па дарозе :( Крыху пачакайце  і паспрабуйце змяніць яе пазней. Ну а пакуль мы пазычым вам сваю :)');
                 break;
             case 'ru':
-                alert('Ваша картинка потерялась по пути :( Подождите немного и попробуйте сменить её позже. Ну а пока мы одолжим вам свою :)');
+                alert('Ваша фоновая картинка потерялась в пути :( Подождите немного и попробуйте сменить её позже. Ну а пока мы одолжим вам свою :)');
                 break;
         }  
         switch (season) {
             case 'winter':
-                document.getElementsByClassName('wrapper')[0].style.backgroundImage = 'url(https://cdn.pixabay.com/photo/2016/02/19/11/49/snow-1209991_960_720.jpg)';
+                document.body.style.backgroundImage = 'url(https://cdn.pixabay.com/photo/2016/02/19/11/49/snow-1209991_960_720.jpg)';
                 break;
             case 'spring':
                 document.getElementsByClassName('wrapper')[0].style.backgroundImage = 'url(https://cdn.pixabay.com/photo/2018/01/06/01/01/oak-3064187_960_720.jpg)';
@@ -43,6 +43,7 @@ getBackground = async function (season, dayTime, currentlyIcon) {
                 document.getElementsByClassName('wrapper')[0].style.backgroundImage = 'url(https://cdn.pixabay.com/photo/2013/04/03/12/05/tree-99852_960_720.jpg)';
                 break;
         }
-        document.getElementsByClassName('wrapper')[0].style.backgroundSize = 'cover';
+        document.body.style.backgroundSize = 'cover';
+        console.clear() // little trick with 'there are no errors in the console at any stage of the application' requerment
    }
 }

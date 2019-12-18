@@ -70,6 +70,7 @@ changeLang = function() {
 
     translate = async function () {
         localStorage.setItem('lang', document.getElementsByClassName('language')[0].value);
+        
         if (localStorage.getItem('lang') === 'en') {
             document.getElementsByClassName('searchField')[0].placeholder = "Search city";
         }
