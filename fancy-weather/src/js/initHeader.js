@@ -80,15 +80,15 @@ initHeader = function () {
     searchField.classList.add('searchField');
 
     if (localStorage.getItem('lang') === 'en') {
-        searchField.placeholder = "Search city";
+        searchField.placeholder = "Search city or ZIP";
     }
 
     if (localStorage.getItem('lang') === 'be') {
-        searchField.placeholder = "Шукаць горад";
+        searchField.placeholder = "Шукаць горад ці індэкс";
     }
 
     if (localStorage.getItem('lang') === 'ru') {
-        searchField.placeholder = "Искать город";
+        searchField.placeholder = "Искать город или индекс";
     }
     
     const searchSubmit = document.createElement('button');

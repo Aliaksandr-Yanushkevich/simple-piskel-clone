@@ -72,15 +72,15 @@ changeLang = function() {
         localStorage.setItem('lang', document.getElementsByClassName('language')[0].value);
         
         if (localStorage.getItem('lang') === 'en') {
-            document.getElementsByClassName('searchField')[0].placeholder = "Search city";
+            document.getElementsByClassName('searchField')[0].placeholder = "Search city or ZIP";
         }
     
         if (localStorage.getItem('lang') === 'be') {
-            document.getElementsByClassName('searchField')[0].placeholder = "Шукаць горад";
+            document.getElementsByClassName('searchField')[0].placeholder = "Шукаць горад ці індэкс";
         }
     
         if (localStorage.getItem('lang') === 'ru') {
-            document.getElementsByClassName('searchField')[0].placeholder = "Искать город";
+            document.getElementsByClassName('searchField')[0].placeholder = "Искать город или индекс";
         }
         darksky();
         getCityData();
