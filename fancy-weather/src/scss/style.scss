@@ -70,6 +70,15 @@ h1 {
 
 .button-changeBackground {
     background-color:rgb(104, 99, 99);
+    border-right: none;
+}
+
+.language {
+    border-right: none;
+}
+
+.temp-celsium {
+    border-right: none;
 }
 
 .searchBlock {
@@ -93,6 +102,7 @@ h1 {
     outline: 0;
     background-color:rgb(104, 99, 99);
     border: 1px solid white;
+    border-right: none;
     opacity: 0.8;
     color: white;
 }
@@ -115,6 +125,7 @@ h1 {
     opacity: 0.8;
     padding: 15px;
     border-radius: 5px;
+    border: 1px solid white;
 }
 
 .weather {
@@ -204,6 +215,7 @@ h1 {
     color: white;
     font-size: 1.2rem;
     padding: 15px;
+    border: 1px solid white;
 }
 
 .map {
@@ -274,17 +286,24 @@ h1 {
         flex-direction: column;
         justify-content: space-between;
     }
+
+    .button-changeBackground,  .language, .temp {
+        border-bottom: none;
+    }
     
     .weatherWrapper {
         width: 100%;
         margin: 0 auto;
         border-radius: 0;
+        border-top: none;
+        border-bottom: none;
     }
 
     .locationWrapper {
         width: 100%;
         margin: 0 auto;
         border-radius: 0;
+        border-top: none;
     }
 
     .gps {

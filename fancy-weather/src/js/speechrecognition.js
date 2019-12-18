@@ -45,5 +45,12 @@ recognition.addEventListener('end', () => {
 })
 voiceRecognition = function() {
     let myVoice = document.getElementsByClassName('voice')[0];
-    myVoice.addEventListener('click', () => recognition.start());
+    myVoice.addEventListener('click', () => {
+        try {
+            recognition.start();
+        }
+        catch {
+            alert('Пожалуйста, не запускайте распознавание речи ещё раз до окончания сеанса распознавания. Нажмите на кнопку один раз и говорите :)')
+        }
+    });
 }
