@@ -1,19 +1,19 @@
-initLocation = function () { //create location block
-    let locationWrapper = document.createElement('section');
+export function initLocation() { // create location block
+    const locationWrapper = document.createElement('section');
     locationWrapper.classList.add('locationWrapper');
 
-    let map = document.createElement('div');
+    const map = document.createElement('div');
     map.classList.add('map');
     map.id = 'map';
 
-    let gps = document.createElement('div');
+    const gps = document.createElement('div');
     gps.classList.add('gps');
-    let latitude = document.createElement('p');
+    const latitude = document.createElement('p');
     latitude.classList.add('latitude');
-    let latitudeVal = document.createElement('span');
+    const latitudeVal = document.createElement('span');
     latitudeVal.classList.add('latitudeVal');
     latitude.appendChild(latitudeVal);
-    let longitude = document.createElement('p');
+    const longitude = document.createElement('p');
     longitude.classList.add('longitude');
     gps.appendChild(latitude);
     gps.appendChild(longitude);

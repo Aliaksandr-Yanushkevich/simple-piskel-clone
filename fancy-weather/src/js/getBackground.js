@@ -1,4 +1,6 @@
-getBackground = async function (season, dayTime, currentlyIcon) {
+import { getSeason } from './getSeason';
+
+export async function getBackground(season, dayTime, currentlyIcon) {
     try {
         const city = sessionStorage.getItem('city');
         const country = sessionStorage.getItem('country');
@@ -12,10 +14,8 @@ getBackground = async function (season, dayTime, currentlyIcon) {
         backgroundImage.onload = function () {
             document.getElementsByClassName('wrapper')[0].style.background = `url(${backgroundImage.src}) no-repeat`;
             document.getElementsByClassName('wrapper')[0].style.backgroundSize = 'cover';
-        }
-    }      
-
-   catch {
+        };
+    } catch (e) {
         const season = getSeason();
         const lang = localStorage.getItem('lang');
         switch (lang) {
@@ -28,7 +28,9 @@ getBackground = async function (season, dayTime, currentlyIcon) {
             case 'ru':
                 alert('Ваша фоновая картинка потерялась в пути :( Подождите немного и попробуйте сменить её позже. Ну а пока мы одолжим вам свою :)');
                 break;
-        }  
+            default:
+                break;
+        }
         switch (season) {
             case 'winter':
                 document.body.style.backgroundImage = 'url(https://cdn.pixabay.com/photo/2016/02/19/11/49/snow-1209991_960_720.jpg)';
@@ -42,8 +44,10 @@ getBackground = async function (season, dayTime, currentlyIcon) {
             case 'autumn':
                 document.getElementsByClassName('wrapper')[0].style.backgroundImage = 'url(https://cdn.pixabay.com/photo/2013/04/03/12/05/tree-99852_960_720.jpg)';
                 break;
+            default:
+                break;
         }
         document.body.style.backgroundSize = 'cover';
-        console.clear() // little trick with 'there are no errors in the console at any stage of the application' requerment
-   }
+        // console.clear() // little trick with 'there are no errors in the console at any stage of the application' requerment
+    }
 }

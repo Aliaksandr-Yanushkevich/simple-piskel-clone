@@ -6,7 +6,8 @@
   "scripts": {
     "build": "webpack --mode production",
     "dev": "webpack-dev-server --mode development",
-    "lint": "eslint ./src/**/*.js"
+    "lint": "eslint ./src/**/*.js",
+    "lintfix": "eslint --fix ./src/**/*.js"
   },
   "author": "Aliaksandr Yanushkevich",
   "license": "MIT",

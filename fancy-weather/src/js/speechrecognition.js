@@ -1,17 +1,19 @@
+import { translate } from './buttonHandler';
+
 window.SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
 
 const recognition = new SpeechRecognition();
 recognition.interimResults = true;
-recognition.addEventListener('result', e => {
+recognition.addEventListener('result', (e) => {
     const transcript = Array.from(e.results)
-    .map(result => result[0])
-    .map(result => result.transcript)
-    .join('');
-    let changeBackground = document.getElementsByClassName('button-changeBackground')[0];
-    let searchField =  document.getElementsByClassName('searchField')[0];
-    let celsius = document.getElementsByClassName('temp-celsium')[0];
-    let fahrenheit = document.getElementsByClassName('temp-fahrenheit')[0];
-    let lang = document.getElementsByClassName('language')[0]
+        .map((result) => result[0])
+        .map((result) => result.transcript)
+        .join('');
+    const changeBackground = document.getElementsByClassName('button-changeBackground')[0];
+    const searchField = document.getElementsByClassName('searchField')[0];
+    const celsius = document.getElementsByClassName('temp-celsium')[0];
+    const fahrenheit = document.getElementsByClassName('temp-fahrenheit')[0];
+    const lang = document.getElementsByClassName('language')[0];
     if (transcript.toLowerCase().includes('градусы цельсия') || transcript.toLowerCase().includes('градусы Цэльсія') || transcript.toLowerCase().includes('degrees celsius')) { // changing of temperature units
         celsius.click();
         searchField.value = '';
@@ -19,7 +21,7 @@ recognition.addEventListener('result', e => {
         fahrenheit.click();
         searchField.value = '';
 
-    } else if (transcript.toLowerCase().includes('английский язык') || transcript.toLowerCase().includes('английская мова') || transcript.toLowerCase().includes('english language')) { //changing lang
+    } else if (transcript.toLowerCase().includes('английский язык') || transcript.toLowerCase().includes('английская мова') || transcript.toLowerCase().includes('english language')) { // changing lang
         lang.selectedIndex = 0;
         translate();
         searchField.value = '';
@@ -35,22 +37,20 @@ recognition.addEventListener('result', e => {
     } else if (transcript.toLowerCase().includes('смени фон') || transcript.toLowerCase().includes('змяні фон') || transcript.toLowerCase().includes('change background')) {
         changeBackground.click();
         searchField.value = '';
-    }
-     else {
+    } else {
         document.getElementsByClassName('searchField')[0].value = transcript;
     }
-})
+});
 recognition.addEventListener('end', () => {
     document.getElementsByClassName('searchSubmit')[0].click();
-})
-voiceRecognition = function() {
-    let myVoice = document.getElementsByClassName('voice')[0];
+});
+export function voiceRecognition() {
+    const myVoice = document.getElementsByClassName('voice')[0];
     myVoice.addEventListener('click', () => {
         try {
             recognition.start();
-        }
-        catch {
-            alert('Пожалуйста, не запускайте распознавание речи ещё раз до окончания сеанса распознавания. Нажмите на кнопку один раз и говорите :)')
+        } catch (e) {
+            alert('Пожалуйста, не запускайте распознавание речи ещё раз до окончания сеанса распознавания. Нажмите на кнопку один раз и говорите :)');
         }
     });
 }

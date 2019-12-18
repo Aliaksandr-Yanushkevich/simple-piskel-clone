@@ -1,3 +1,3 @@
-createIconHTML = function (icon_name) { // create icon for button
-    return `<i class="material-icons ${icon_name}">${icon_name}</i>`;
-};
+export function createIconHTML(iconName) { // create icon for button
+    return `<i class="material-icons ${iconName}">${iconName}</i>`;
+}

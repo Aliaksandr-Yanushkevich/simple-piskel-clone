@@ -1,6 +1,6 @@
-getCityData = async function() {
-    let latitude = sessionStorage.getItem('latitude');
-    let longitude = sessionStorage.getItem('longitude');
+export async function getCityData() {
+    const latitude = sessionStorage.getItem('latitude');
+    const longitude = sessionStorage.getItem('longitude');
     const apiKey = '685337f4b9c34a078fcd9a0da5516122';
     const lang = localStorage.getItem('lang');
     // console.log(lang)
@@ -13,5 +13,5 @@ getCityData = async function() {
     sessionStorage.setItem('timeZone', timeZone);
     sessionStorage.setItem('city', city);
     sessionStorage.setItem('country', country);
-    document.getElementsByClassName('weather-location')[0].innerHTML = `${city}, ${country}`
+    document.getElementsByClassName('weather-location')[0].innerHTML = `${city}, ${country}`;
 }
