@@ -8,10 +8,8 @@ initForecast = function () {
     tommorow.classList.add('tommorow');
     let tommorowTitle = document.createElement('h3');
     tommorowTitle.classList.add('tommorow-weekday');
-    tommorowTitle.innerHTML = `tommorow`;
     let tommorowTemp = document.createElement('div');
     tommorowTemp.classList.add('tommorowTemp');
-    tommorowTemp.innerHTML = `tommorowtemp°`;
     let tommorowImg = document.createElement('div');
 
     let canvas = document.createElement("CANVAS");
@@ -29,10 +27,8 @@ initForecast = function () {
     tommorow1.classList.add('tommorow1');
     let tommorow1Title = document.createElement('h3');
     tommorow1Title.classList.add('tommorow1-weekday');
-    tommorow1Title.innerHTML = `tommorow1`;
     let tommorow1Temp = document.createElement('div');
     tommorow1Temp.classList.add('tommorow1Temp');
-    tommorow1Temp.innerHTML = `tommorow1Temp°`;
     let tommorow1Img = document.createElement('div');
     
     let canvas1 = document.createElement("CANVAS");
@@ -51,10 +47,8 @@ initForecast = function () {
     tommorow2.classList.add('tommorow2');
     let tommorow2Title = document.createElement('h3');
     tommorow2Title.classList.add('tommorow2-weekday');
-    tommorow2Title.innerHTML = `tommorow2`;
     let tommorow2Temp = document.createElement('div');
     tommorow2Temp.classList.add('tommorow2Temp');
-    tommorow2Temp.innerHTML = `tommorow2Temp°`;
     let tommorow2Img = document.createElement('div');
 
     let canvas2 = document.createElement("CANVAS");

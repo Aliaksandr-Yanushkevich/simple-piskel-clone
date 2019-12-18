@@ -1,8 +1,6 @@
-$border: red solid 1px;
-
 * {
     box-sizing: border-box;
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Montserrat', 'Arial', sans-serif;
 }
 
 body {
@@ -42,7 +40,7 @@ h1 {
     align-items: center;
     width: 100%;
     margin-bottom: 30px;
-    // height: 64px;
+    padding-top: 30px;
 }
 
 .buttBlock {
@@ -166,11 +164,6 @@ h1 {
     flex-direction: column;
 }
 
-// .weatherPropDetailsImage {
-//   display: flex;
-//   justify-content: flex-start;
-// }
-
 .weatherdescription {
     padding: 0;
 }
@@ -219,7 +212,6 @@ h1 {
     max-width: 450px;
     min-height: 300px;
     max-height: 350px;
-    background-color: green;
 }
 
 .gps {
@@ -232,10 +224,6 @@ h1 {
 }
 
 @media (max-width: 1180px) {
-    body {
-        background-color: yellowgreen;
-    }
-
     .buttBlock {
         margin-left: 2%;
     }
@@ -281,10 +269,6 @@ h1 {
     }
 }    
 @media (max-width: 700px) {
-    body {
-        background-color: yellow;
-    }
-
     main {
         display: flex;
         flex-direction: column;
@@ -307,7 +291,6 @@ h1 {
         display: flex;
         flex-direction: row;
         margin-top: 0;
-        // text-align: right;
     }
 
     .longitude {       
@@ -323,7 +306,6 @@ h1 {
 
     .buttBlock {
         width: 100%;
-        // min-width: 190px;
         margin: 0 auto;
         display: flex;
         justify-content: space-between;
@@ -331,7 +313,6 @@ h1 {
     }
 
     .button, .language, .temp {
-        // height: 32px;
         flex-grow: 1;
     }
 
@@ -339,7 +320,6 @@ h1 {
         display: flex;
         margin: 0 auto;
         width: 100%;
-        // height: 44px;
         ::-webkit-input-placeholder {color: white;}
     }
 
