@@ -1,360 +1,395 @@
 * {
-    box-sizing: border-box;
-    font-family: 'Montserrat', 'Arial', sans-serif;
+  box-sizing: border-box;
+
+  font-family: "Montserrat", "Arial", sans-serif;
 }
 
 main {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
 button {
-    border: 1px solid white;
+  border: 1px solid white;
 }
 
 .copyright {
-    display: none;
-    justify-content: center;
+  display: none;
+  justify-content: center;
 }
 
 h1 {
-    color: yellowgreen;
+  color: yellowgreen;
 }
 
 .wrapper {
-    max-width: 1440px;
-    min-width: 320px;
-    min-height: 100vh;
-    margin: 0 auto;
+  min-width: 320px;
+  max-width: 1440px;
+  min-height: 100vh;
+  margin: 0 auto;
 }
 
 .control {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    margin-bottom: 30px;
-    padding-top: 30px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 30px;
+  padding-top: 30px;
 }
 
 .buttBlock {
-    margin-left: 6.5%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-   
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-left: 6.5%;
 }
 
-.button, .language, .temp,  .voice {
-    height: 44px;
-    background-color: rgb(104, 99, 99);
-    opacity: 0.8;
-    border: 1px solid white;
-    color: white;
+.button,
+.language,
+.temp,
+.voice {
+  height: 44px;
+
+  color: white;
+
+  background-color: rgb(104, 99, 99);
+  border: 1px solid white;
+  opacity: 0.8;
 }
 
 .language {
-    text-transform: uppercase;
+  text-transform: uppercase;
+
+  border-right: none;
 }
 
-.button-changeBackground, .temp, .voice, .searchSubmit{
-    border: 1px solid white;
-    width: 44px;
+.button-changeBackground,
+.temp,
+.voice,
+.searchSubmit {
+  width: 44px;
+
+  border: 1px solid white;
 }
 
 .button-changeBackground {
-    background-color:rgb(104, 99, 99);
-    border-right: none;
-}
-
-.language {
-    border-right: none;
+  background-color: rgb(104, 99, 99);
+  border-right: none;
 }
 
 .temp-celsium {
-    border-right: none;
+  border-right: none;
 }
 
 .searchBlock {
-    display: flex;
-    flex-direction: row;
-    margin-right: 6.5%;
-    width: 45%;
-    min-width: 320px;
-    max-width: 450px;
+  display: flex;
+  flex-direction: row;
+  width: 45%;
+  min-width: 320px;
+  max-width: 450px;
+  margin-right: 6.5%;
 }
 
 .searchForm {
-    display: flex;
-    height: 44px;
-    flex-grow: 1;
-    ::-webkit-input-placeholder {color: white;}
+  display: flex;
+  flex-grow: 1;
+  height: 44px;
+
+  ::-webkit-input-placeholder {
+    color: white;
+  }
 }
 
-.searchField, .searchSubmit {
-    height: 100%;
-    outline: 0;
-    background-color:rgb(104, 99, 99);
-    border: 1px solid white;
-    border-right: none;
-    opacity: 0.8;
-    color: white;
+.searchField,
+.searchSubmit {
+  height: 100%;
+
+  color: white;
+
+  background-color: rgb(104, 99, 99);
+  border: 1px solid white;
+  border-right: none;
+  outline: 0;
+  opacity: 0.8;
 }
 
 .searchField {
-    flex-grow: 1;
-    height: 40px;
+  flex-grow: 1;
+  height: 40px;
 }
 
 .weatherWrapper {
-    width: 45%;
-    min-width: 320px;
-    max-width: 450px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    margin-left: 6.5%;
-    color: white;
-    background-color: rgb(104, 99, 99);
-    opacity: 0.8;
-    padding: 15px;
-    border-radius: 5px;
-    border: 1px solid white;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 45%;
+  min-width: 320px;
+  max-width: 450px;
+  margin-left: 6.5%;
+  padding: 15px;
+
+  color: white;
+
+  background-color: rgb(104, 99, 99);
+  border: 1px solid white;
+  border-radius: 5px;
+  opacity: 0.8;
 }
 
 .weather {
-    width: 100%;
+  width: 100%;
 }
 
 .weather-location {
-    font-size: 2rem;
-    font-weight: 600;
+  font-weight: 600;
+  font-size: 2rem;
 }
 
 .dayMonth {
-    font-size: 1.5rem;
+  font-size: 1.5rem;
 }
 
 .clock {
-    margin-left: 10px;
+  margin-left: 10px;
 }
 
 .dateTime {
-    display: flex;
-    flex-direction: row;
-    width: 100%;
-    font-size: 1.5rem;
-    text-transform: capitalize;
-    margin-top: 10px;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  margin-top: 10px;
+
+  font-size: 1.5rem;
+  text-transform: capitalize;
 }
 
-.weatherProp{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+.weatherProp {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
 .weatherPropTemp {
-    width: 50%;
-    font-size: 6.5rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+
+  font-size: 6.5rem;
 }
 
 .weatherPropDetails {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .weatherdescription {
-    padding: 0;
+  padding: 0;
 }
 
 .li-item {
-    list-style-type: none;
-    font-size: 1.2rem;
+  list-style-type: none;
+  font-size: 1.2rem;
 }
 
 .forecast {
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    font-size: 1.2rem;
-    text-transform: capitalize;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+
+  font-size: 1.2rem;
+  text-transform: capitalize;
 }
 
 .day {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .locationWrapper {
-    width: 45%;
-    min-width: 320px;
-    max-width: 450px;
-    margin-right: 6.5%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-color: rgb(104, 99, 99);
-    opacity: 0.8;
-    border-radius: 5px;
-    color: white;
-    font-size: 1.2rem;
-    padding: 15px;
-    border: 1px solid white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 45%;
+  min-width: 320px;
+  max-width: 450px;
+  margin-right: 6.5%;
+  padding: 15px;
+
+  font-size: 1.2rem;
+  color: white;
+
+  background-color: rgb(104, 99, 99);
+  border: 1px solid white;
+  border-radius: 5px;
+  opacity: 0.8;
 }
 
 .map {
-    width: 100%;
-    height: 100%;
-    max-width: 450px;
-    min-height: 300px;
-    max-height: 350px;
+  width: 100%;
+  max-width: 450px;
+  height: 100%;
+  min-height: 300px;
+  max-height: 350px;
 }
 
 .gps {
-    margin-top: 30px;
-    text-align: right;
+  margin-top: 30px;
+
+  text-align: right;
 }
 
 .active {
-    background-color: orange;
+  background-color: orange;
 }
 
 @media (max-width: 1180px) {
-    .buttBlock {
-        margin-left: 2%;
-    }
+  .buttBlock {
+    margin-left: 2%;
+  }
 
-    .searchBlock {
-        margin-right: 2%;
-    }
+  .searchBlock {
+    margin-right: 2%;
+  }
 
-    .weatherWrapper {
-        margin-left: 2%;
-    }
+  .weatherWrapper {
+    margin-left: 2%;
+  }
 
-    .weatherPropTemp {
-        font-size: 6rem; 
-    }
+  .weatherPropTemp {
+    font-size: 6rem;
+  }
 
-    .locationWrapper {
-        margin-right: 2%;
-    }
-    
+  .locationWrapper {
+    margin-right: 2%;
+  }
 }
+
 @media (max-width: 810px) {
-    .weatherWrapper {
-        width: 49%;
-        margin-left: 0;
-    }
-    .locationWrapper {
-        width: 49%;
-        margin-right: 0;
-    }
-    .buttBlock {
-        margin-left: 0;
-    }
+  .weatherWrapper {
+    width: 49%;
+    margin-left: 0;
+  }
 
-    .searchBlock {
-        margin-right: 0;
-        width: 49%;
-    }
+  .locationWrapper {
+    width: 49%;
+    margin-right: 0;
+  }
 
-    .weatherPropTemp {
-        width: 40%;
-        font-size: 5rem; 
-    }
-}    
-@media (max-width: 700px) {
-    main {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-    }
+  .buttBlock {
+    margin-left: 0;
+  }
 
-    .button-changeBackground,  .language, .temp {
-        border-bottom: none;
-    }
-    
-    .weatherWrapper {
-        width: 100%;
-        margin: 0 auto;
-        border-radius: 0;
-        border-top: none;
-        border-bottom: none;
-    }
+  .searchBlock {
+    width: 49%;
+    margin-right: 0;
+  }
 
-    .locationWrapper {
-        width: 100%;
-        margin: 0 auto;
-        border-radius: 0;
-        border-top: none;
-    }
+  .weatherPropTemp {
+    width: 40%;
 
-    .gps {
-        display: flex;
-        flex-direction: row;
-        margin-top: 0;
-    }
-
-    .longitude {       
-        margin-left: 5px;
-    }
-
-    .control {
-        flex-direction: column;
-        min-width: 320px;
-        max-width: 450px;
-        margin: 0 auto;
-    }
-
-    .buttBlock {
-        width: 100%;
-        margin: 0 auto;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
-
-    .button, .language, .temp {
-        flex-grow: 1;
-    }
-
-    .searchBlock {
-        display: flex;
-        margin: 0 auto;
-        width: 100%;
-        ::-webkit-input-placeholder {color: white;}
-    }
-
-    .searchForm {
-        flex-grow: 3;
-    }
-
-    .searchField {
-       flex-grow: 2;
-    }
-
-    .searchSubmit {
-        flex-grow: 1;
-    }
-    .voice {
-        flex-grow: 1;
-    }
+    font-size: 5rem;
+  }
 }
-@media (max-width: 350px) {
-    .gps {
-        font-size: 0.95rem;
+
+@media (max-width: 700px) {
+  main {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .button-changeBackground,
+  .language,
+  .temp {
+    border-bottom: none;
+  }
+
+  .weatherWrapper {
+    width: 100%;
+    margin: 0 auto;
+
+    border-top: none;
+    border-bottom: none;
+    border-radius: 0;
+  }
+
+  .locationWrapper {
+    width: 100%;
+    margin: 0 auto;
+
+    border-top: none;
+    border-radius: 0;
+  }
+
+  .gps {
+    display: flex;
+    flex-direction: row;
+    margin-top: 0;
+  }
+
+  .longitude {
+    margin-left: 5px;
+  }
+
+  .control {
+    flex-direction: column;
+    min-width: 320px;
+    max-width: 450px;
+    margin: 0 auto;
+  }
+
+  .buttBlock {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  .button,
+  .language,
+  .temp {
+    flex-grow: 1;
+  }
+
+  .searchBlock {
+    display: flex;
+    width: 100%;
+    margin: 0 auto;
+
+    ::-webkit-input-placeholder {
+      color: white;
     }
+  }
+
+  .searchForm {
+    flex-grow: 3;
+  }
+
+  .searchField {
+    flex-grow: 2;
+  }
+
+  .searchSubmit {
+    flex-grow: 1;
+  }
+
+  .voice {
+    flex-grow: 1;
+  }
+}
+
+@media (max-width: 350px) {
+  .gps {
+    font-size: 0.95rem;
+  }
 }
