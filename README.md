@@ -10,7 +10,7 @@ Simple web page to show forecast around the world. After first start application
 
 Feel free to get in touch with me for additional information aliaksandr.yanushkevich@gmail.com
 
-Application is available here 
+Application is available [here](https://clever-kilby-1a1bec.netlify.com/)
 
 
 ### Install
