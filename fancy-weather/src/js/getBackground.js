@@ -48,6 +48,6 @@ export async function getBackground(season, dayTime, currentlyIcon) {
                 break;
         }
         document.body.style.backgroundSize = 'cover';
-        // console.clear() // little trick with 'there are no errors in the console at any stage of the application' requerment
+        console.clear() // little trick with 'there are no errors in the console at any stage of the application' requerment
     }
 }

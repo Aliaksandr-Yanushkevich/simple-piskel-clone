@@ -2,24 +2,24 @@ import 'babel-polyfill';
 import _ from 'lodash';
 import './scss/style.scss';
 import './scss/reset.scss';
-import { getIpinfo } from './js/getIpinfo';
-// import './js/createIconHTML';
 import { initHeader } from './js/initHeader';
 import { initWeather } from './js/initWeather';
-import { clock } from './js/clock';
 import { initForecast } from './js/initForecast';
 import { initLocation } from './js/initLocation';
-import { displayLocation } from './js/displayLocation';
-import { getBackground } from './js/getBackground';
-import { initMap } from './js/initMap';
+import { getIpinfo } from './js/getIpinfo';
+import { getCityData } from './js/getCityData';
+import { clock } from './js/clock';
+import { dayMonth } from './js/dayMonth';
 import { darksky } from './js/darksky';
-import { backgroundRefresh, tempUnit, changeLang } from './js/buttonHandler';
-import { search } from './js/search';
+import { displayLocation } from './js/displayLocation';
+import { initMap } from './js/initMap';
 import { getDayTime } from './js/getDayTime';
 import { getSeason } from './js/getSeason';
-import { getCityData } from './js/getCityData';
+import { getBackground } from './js/getBackground';
+import { backgroundRefresh, tempUnit, changeLang } from './js/buttonHandler';
+import { search } from './js/search';
 import { voiceRecognition } from './js/speechrecognition';
-import { dayMonth } from './js/dayMonth';
+
 
 async function renderPage() {
     initHeader();

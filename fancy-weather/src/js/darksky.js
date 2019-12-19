@@ -17,7 +17,6 @@ export async function darksky() {
     const dayForecast1 = data.daily.data[1];
     const dayForecast2 = data.daily.data[2];
     const dayForecast3 = data.daily.data[3];
-    // console.log(data);
     if (localStorage.getItem('celsium') === 'false') { // check temp unit
         currentlytemp = (currentlytemp * 9) / 5 + 32;
         apparentTemperature = ((apparentTemperature * 9) / 5) + 32;
@@ -48,7 +47,6 @@ export async function darksky() {
         document.getElementsByClassName('li-item')[3].innerHTML = `Влажность: ${Math.round(humidity * 100)}%`;
     }
 
-    // display forecast
     const timeZone = sessionStorage.getItem('timeZone');
     const timeOptions = { timeZone, weekday: 'long' };
 
@@ -81,7 +79,6 @@ export async function darksky() {
         document.getElementsByClassName('tommorow-weekday')[0].innerHTML = `${byWeekDayLong[day1]}`;
         document.getElementsByClassName('tommorow1-weekday')[0].innerHTML = `${byWeekDayLong[day2]}`;
         document.getElementsByClassName('tommorow2-weekday')[0].innerHTML = `${byWeekDayLong[day3]}`;
-        // console.log(byWeekDayLong[day1])
     } else {
         document.getElementsByClassName('tommorow-weekday')[0].innerHTML = `${day1}`;
         document.getElementsByClassName('tommorow1-weekday')[0].innerHTML = `${day2}`;
