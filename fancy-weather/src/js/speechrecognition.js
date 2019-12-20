@@ -1,8 +1,6 @@
 import { translate } from './buttonHandler';
 
-window.SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
-
-const recognition = new SpeechRecognition();
+const recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition || window.mozSpeechRecognition || window.msSpeechRecognition)();
 recognition.interimResults = true;
 recognition.addEventListener('result', (e) => {
     const transcript = Array.from(e.results)
