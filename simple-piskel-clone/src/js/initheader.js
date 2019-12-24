@@ -1,8 +1,10 @@
+import {createIconHTML} from './createIconHTML';
 export function initheader() {
     const header = document.createElement('header');
     header.classList.add('header');
     const menuButton = document.createElement('button');
     menuButton.className = 'button header-button';
+    menuButton.innerHTML = createIconHTML('keyboard_arrow_down');
 
     const title = document.createElement('div');
     title.className = 'header-title';
@@ -14,6 +16,7 @@ export function initheader() {
 
     const menuProp = document.createElement('button');
     menuProp.className = 'button header-button';
+    menuProp.innerHTML = createIconHTML('more_vert');
     titleLink.appendChild(linkText);
     title.appendChild(titleLink);
     header.appendChild(menuButton, title, menuProp);

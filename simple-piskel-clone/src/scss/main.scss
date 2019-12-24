@@ -136,6 +136,36 @@ body {
     border: dotted 1px white;
 }
 
+input[type=range] {
+    -webkit-appearance: none;
+    /* margin: 43px 213px; */
+    margin-top: 43px;
+    // margin-left: 213px;
+    width: 100%;
+    border-radius: 10px;
+  }
+  
+  input[type=range]::-webkit-slider-runnable-track {
+    cursor: pointer;
+    background: #424241;
+    border-radius: 10px;
+    border: none;
+  }
+  
+  .slider {
+    display: flex;
+    width: 100%;
+  }
+  
+  input[type=range]::-webkit-slider-thumb {
+    height: 15px;
+    width: 197px;
+    border-radius: 10px;
+    background: white;
+    cursor: pointer;
+    -webkit-appearance: none;
+  }
+
 // .canvas {
 //     justify-content: center;
 //     // border: 3px red solid;

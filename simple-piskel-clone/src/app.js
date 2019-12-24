@@ -1,8 +1,10 @@
 import './scss/main.scss';
-import {initheader} from './js/initheader';
+// import {initheader} from './js/initheader';
+// import {initMain} from './js/initMain';
 
 // SETUP BLOCK
-initheader();
+// initheader();
+// initMain();
 const flags = {
   fillBucket: false,
   chooseColor: false,
