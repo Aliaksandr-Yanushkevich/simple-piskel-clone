@@ -1,15 +1,20 @@
 import './scss/main.scss';
+import './scss/cursor.scss';
+import './scss/font.scss';
 // import {initheader} from './js/initheader';
 import {initMain} from './js/initMain';
 import {canvas} from './js/canvas';
 import {handlers} from './js/handlers';
+import {initTools} from './js/initTools';
 
 
 // SETUP BLOCK
 // initheader();
+initTools();
 initMain();
 canvas();
 handlers();
+
 document.body.style.cursor = 'url("../assets/images/pencil.png"), auto';
 // const flags = {
 //   fillBucket: false,

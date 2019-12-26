@@ -32,7 +32,7 @@ export function drawing() {
 
             const x = Math.floor(event.offsetX / cellSize);
             const y = Math.floor(event.offsetY / cellSize);
-            context.fillRect(x, y, 1, 1);
+            context.fillRect(x, y, 2, 2);
             context.fill();
 
             canvas.onmousemove = function (event) { // drawing with left/right mouse movement

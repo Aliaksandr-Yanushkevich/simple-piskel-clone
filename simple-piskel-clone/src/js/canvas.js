@@ -1,27 +1,9 @@
-export function canvas() {
-    if (localStorage.canvasSlider === undefined) { // checking existence of properties and initialization tools
-        localStorage.canvasSlider = document.querySelector('.canvasSlider').value;
-    }
-    if (localStorage.currColor === undefined) {
-        localStorage.currColor = 'yellow';
-    }
-    if (localStorage.pencil === undefined) {
-        localStorage.pencil = 'true';
-    }
-    if (localStorage.chooseColor === undefined) {
-        localStorage.chooseColor = 'false';
-    }
-    if (localStorage.fillBucket === undefined) {
-        localStorage.fillBucket = 'false';
-    }
 
-    if (localStorage.eraser === undefined) {
-        localStorage.eraser = 'false';
-    }
+export function canvas() {    
     let canvasWidthHeight;
     const currentColor = localStorage.currColor;
     // let previvousColor;
-    switch (document.querySelector('.canvasSlider').value) {
+    switch (localStorage.canvasSlider) {
         case '0': 
             canvasWidthHeight = 32;
             localStorage.canvasSlider = 0;
