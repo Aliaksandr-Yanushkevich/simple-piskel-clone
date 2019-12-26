@@ -35,22 +35,22 @@
         <div class="main">
             <div class="toolbox main-toolbox">
                 <div class="tools toolbox-tools">
-                    <button id="fillBucket" class="button tools-button"><i class="fas fa-paint-roller"></i>Fill
+                    <button id="fillBucket" class="button tools-button"><img src="./assets/images/icon/fillbucket-icon.png" alt="Image is not supported">Fill
                         bucket</button>
-                    <button id="chooseColor" class="button tools-button"><i class="fas fa-eye-dropper"></i>Choose
+                    <button id="chooseColor" class="button tools-button"><img src="./assets/images/icon/choosecolor-icon.png" alt="Image is not supported">Choose
                         color</button>
-                    <button id="pencil" class="button tools-button active"><i
-                            class="fas fa-pencil-alt"></i>Pencil</button>
-                    <!-- <button id="transform" class="button tools-button"><i class="fas fa-retweet"></i>Transform</button> -->
+                    <button id="pencil" class="button tools-button"><img src="./assets/images/icon/pencil-icon.png" alt="Image is not supported">Pencil</button>
+                    <button id="transform" class="button tools-button"><img src="./assets/images/icon/eraser-icon.png" alt="Image is not supported">Eraser</button>
                 </div>
 
                 <div class="colors toolbox-colors">
                     <button id="currentColor" class="button colors-button">
                         <div id="currentColorCircle" class="button-circle"></div>
-                        <input id="color" type="color" value="#008000">Current color
+                        <input id="primaryColor" type="color" value="#008000">Primary color
                     </button>
                     <button id="previousColor" class="button colors-button">
-                        <div id='previousColorCircle' class="button-circle"></div>Previous color
+                        <div id='previousColorCircle' class="button-circle"></div>
+                        <input id="secondaryColor" type="color" value="#008000">Secondary color
                     </button>
                     <button id="red" class="button colors-button">
                         <div class="button-circle button-circle--red"></div>Red
@@ -64,7 +64,7 @@
             <div class="canvas main-canvas">
                 <canvas id="codejam-canvas"></canvas>
                 <div class="slider">
-                    <input type='range' min='1' max='3' step='1' value="1"></input>
+                    <input class="canvasSlider" type='range' min='0' max='2' step='1'></input>
                 </div>
             </div>
             <div class="additional-tool">
