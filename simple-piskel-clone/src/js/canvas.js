@@ -1,7 +1,8 @@
 
 export function canvas() {    
     let canvasWidthHeight;
-    const currentColor = localStorage.currColor;
+    const primaryColor = localStorage.primaryColor;
+    const secondaryColor = localStorage.secondaryColor;
     // let previvousColor;
     switch (localStorage.canvasSlider) {
         case '0': 
@@ -28,5 +29,6 @@ export function canvas() {
     // context.fillStyle = 'green';
     // context.fillRect(0, 0, canvasWidthHeight, canvasWidthHeight);
     
-    document.querySelector('#currentColorCircle').style.backgroundColor = currentColor;
+    document.querySelector('#primaryColorCircle').style.backgroundColor = primaryColor;
+    document.querySelector('#secondaryColorCircle').style.backgroundColor = secondaryColor;
 }

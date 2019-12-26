@@ -15,8 +15,8 @@ export function handlers() {
    document.querySelector('#chooseColor').addEventListener('click', (e) => chooseColor());
    document.querySelector('#pencil').addEventListener('click', (e) => pencil());
    document.querySelector('#canvasSlider').addEventListener('change', (e) => canvasSlider());
-   document.querySelector('#currentColorCircle').addEventListener('click', (e) => primaryColor());
-   document.querySelector('#previousColorCircle').addEventListener('click', (e) => secondaryColor());
+   document.querySelector('#primaryColorCircle').addEventListener('click', (e) => primaryColor());
+   document.querySelector('#secondaryColorCircle').addEventListener('click', (e) => secondaryColor());
    document.querySelector('#eraser').addEventListener('click', (e) => eraser());
    document.querySelector('#stroke').addEventListener('click', (e) => stroke());
 }

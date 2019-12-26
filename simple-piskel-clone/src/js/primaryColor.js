@@ -1,3 +1,8 @@
 export function primaryColor() {
-    document.querySelector('#primaryColor').click();
+    const primaryColor = document.querySelector('#primaryColor');
+    primaryColor.click();
+    primaryColor.addEventListener('change', (e) => {
+        localStorage.primaryColor = primaryColor.value;
+        document.querySelector('#primaryColorCircle').style.backgroundColor = primaryColor.value;
+    })
 }

@@ -23,11 +23,11 @@ export function drawing() {
           canvas.onmousedown = function (event) { // drawing with left/right click
             if (event.which == 1) {
               console.log("left!");
-              context.fillStyle = 'red';
+              context.fillStyle = localStorage.primaryColor;
             } 
             if (event.which == 3) {
               console.log("right!");
-              context.fillStyle = 'yellow';
+              context.fillStyle = localStorage.secondaryColor;
             } 
 
             const x = Math.floor(event.offsetX / cellSize);

@@ -2,9 +2,13 @@ export function initTools() {
     if (localStorage.canvasSlider === undefined) { // checking existence of properties and initialization tools
         localStorage.canvasSlider = '1';
     }
-    if (localStorage.currColor === undefined) {
-        localStorage.currColor = 'yellow';
+    if (localStorage.primaryColor === undefined) {
+        localStorage.primaryColor = 'black';
     }
+    if (localStorage.secondaryColor === undefined) {
+        localStorage.secondaryColor = 'blue';
+    }
+
     if (localStorage.pencil === undefined) {
         localStorage.pencil = 'true';
     }
