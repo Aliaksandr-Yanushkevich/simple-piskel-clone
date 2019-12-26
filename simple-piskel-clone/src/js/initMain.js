@@ -42,5 +42,7 @@ export function initMain() {
     if (localStorage.pencil === 'true') {
         document.querySelector('#pencil').classList.add('active');
     }
-    
+    if (localStorage.eraser === 'true') {
+        document.querySelector('#eraser').classList.add('active');
+    }
 }

@@ -14,6 +14,10 @@ export function canvas() {
     if (localStorage.fillBucket === undefined) {
         localStorage.fillBucket = 'false';
     }
+
+    if (localStorage.eraser === undefined) {
+        localStorage.eraser = 'false';
+    }
     let canvasWidthHeight;
     const currentColor = localStorage.currColor;
     // let previvousColor;
@@ -39,7 +43,8 @@ export function canvas() {
     canvas.style.width = `${canvasSize}px`;
     canvas.style.height = `${canvasSize}px`;
     const context = canvas.getContext('2d');
-    context.fillStyle = 'green';
-    context.fillRect(0, 0, canvasWidthHeight, canvasWidthHeight);
+    // context.fillStyle = 'green';
+    // context.fillRect(0, 0, canvasWidthHeight, canvasWidthHeight);
+    
     document.querySelector('#currentColorCircle').style.backgroundColor = currentColor;
 }

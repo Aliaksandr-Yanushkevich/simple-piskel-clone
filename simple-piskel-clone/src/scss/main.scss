@@ -136,6 +136,8 @@ body {
     border: dotted 1px white;
     image-rendering: pixelated;
     min-width: 512px;
+    background-image: url('../assets/images/canvasbackground.jpg');
+   
 }
 
 input[type=range] {
@@ -234,13 +236,17 @@ input[type=range] {
 }
 
 .pencil {
-    cursor: url("../assets/images/cursor/pencil.png"), auto;
+    cursor: url("../assets/images/cursor/pen.png"), auto;
 }
 
 .pippete {
-    cursor: url("../assets/images/cursor/pippete.png"), auto;
+    cursor: url("../assets/images/cursor/dropper.png"), auto;
 }
 
 .fillBucket {
-    cursor: url("../assets/images/cursor/fillBucket.png"), auto;
+    cursor: url("../assets/images/cursor/paint-bucket.png"), auto;
+}
+
+.eraser {
+    cursor: url("../assets/images/cursor/eraser.png"), auto;
 }

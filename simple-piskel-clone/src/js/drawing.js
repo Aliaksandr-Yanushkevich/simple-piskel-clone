@@ -14,16 +14,13 @@ export function drawing() {
       break;
     } 
 
-      if (localStorage.pencil === 'true') { // drawing with click
-        document.body.style.cursor = 'url("../assets/images/pencil.png"), auto';
-        canvas.onclick = function (event) {
-          context.fillStyle = 'red';
-          const x = Math.floor(event.offsetX / cellSize);
-          const y = Math.floor(event.offsetY / cellSize);
-          context.fillRect(x, y, 1, 1);
-          context.fill();
-        }    
-          canvas.onmousedown = function (event) {
+      if (localStorage.pencil === 'true' || localStorage.eraser === 'true') { // drawing with left click
+        if (localStorage.pencil === 'true') {
+          context.globalCompositeOperation = "source-over"; // switching between pencil/eraser
+        } else {
+          context.globalCompositeOperation = 'destination-out';
+        }
+          canvas.onmousedown = function (event) { // drawing with left/right click
             if (event.which == 1) {
               console.log("left!");
               context.fillStyle = 'red';
@@ -32,7 +29,13 @@ export function drawing() {
               console.log("right!");
               context.fillStyle = 'yellow';
             } 
-            canvas.onmousemove = function (event) {
+
+            const x = Math.floor(event.offsetX / cellSize);
+            const y = Math.floor(event.offsetY / cellSize);
+            context.fillRect(x, y, 1, 1);
+            context.fill();
+
+            canvas.onmousemove = function (event) { // drawing with left/right mouse movement
               const x = Math.floor(event.offsetX / cellSize);
               const y = Math.floor(event.offsetY / cellSize);
               context.fillRect(x, y, 1, 1);
@@ -45,13 +48,12 @@ export function drawing() {
           };
           canvas.oncontextmenu = function (event) {
             event.preventDefault();
-            context.fillStyle = 'yellow';
+            // context.fillStyle = 'yellow';
             const x = Math.floor(event.offsetX / cellSize);
             const y = Math.floor(event.offsetY / cellSize);
             context.fillRect(x, y, 1, 1);
             context.fill();
           }    
         };
-       
       }     
 
