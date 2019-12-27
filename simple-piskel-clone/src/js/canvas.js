@@ -29,6 +29,6 @@ export function canvas() {
     // context.fillStyle = 'green';
     // context.fillRect(0, 0, canvasWidthHeight, canvasWidthHeight);
     
-    document.querySelector('#primaryColorCircle').style.backgroundColor = primaryColor;
-    document.querySelector('#secondaryColorCircle').style.backgroundColor = secondaryColor;
+    document.querySelector('#primaryColorPalette').style.backgroundColor = primaryColor;
+    document.querySelector('#secondaryColorPalette').style.backgroundColor = secondaryColor;
 }

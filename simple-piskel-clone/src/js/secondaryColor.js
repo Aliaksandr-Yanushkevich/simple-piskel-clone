@@ -3,6 +3,6 @@ export function secondaryColor() {
     secondaryColor.click();
     secondaryColor.addEventListener('change', (e) => {
         localStorage.secondaryColor = secondaryColor.value;
-        document.querySelector('#secondaryColorCircle').style.backgroundColor = secondaryColor.value;
+        document.querySelector('#secondaryColorPalette').style.backgroundColor = secondaryColor.value;
     })
 }

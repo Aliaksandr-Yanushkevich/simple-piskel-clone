@@ -34,32 +34,30 @@
     <main>
         <div class="main">
             <div class="toolbox main-toolbox">
+                <div class="pencilProp">
+                    <button id="pencilSize0" class="pencilSize"><div id="pencil0"></div></button>
+                    <button id="pencilSize1" class="pencilSize"><div id="pencil1"></div></button>
+                    <button id="pencilSize2" class="pencilSize"><div id="pencil2"></div></button>
+                    <button id="pencilSize3" class="pencilSize"><div id="pencil3"></div></button>
+                </div>
                 <div class="tools toolbox-tools">
-                    <button id="fillBucket" class="button tools-button"><img src="./assets/images/icon/fillbucket-icon.png" alt="Image is not supported">Fill
-                        bucket</button>
-                    <button id="chooseColor" class="button tools-button"><img src="./assets/images/icon/choosecolor-icon.png" alt="Image is not supported">Choose
-                        color</button>
-                    <button id="pencil" class="button tools-button"><img src="./assets/images/icon/pencil-icon.png" alt="Image is not supported">Pencil</button>
-                    <button id="eraser" class="button tools-button"><img src="./assets/images/icon/eraser-icon.png" alt="Image is not supported">Eraser</button>
-                    <button id="stroke" class="button tools-button"><img src="./assets/images/icon/stroke-icon.png" alt="Image is not supported">Stroke</button>
+                    <button id="fillBucket" class="button tools-button"><img src="./assets/images/icon/fillbucket-icon.png" alt="Image is not supported"></button>
+                    <button id="chooseColor" class="button tools-button"><img src="./assets/images/icon/choosecolor-icon.png" alt="Image is not supported"></button>
+                    <button id="pencil" class="button tools-button"><img src="./assets/images/icon/pencil-icon.png" alt="Image is not supported"></button>
+                    <button id="eraser" class="button tools-button"><img src="./assets/images/icon/eraser-icon.png" alt="Image is not supported"></button>
+                    <button id="stroke" class="button tools-button"><img src="./assets/images/icon/stroke-icon.png" alt="Image is not supported"></button>
                 </div>
 
                 <div class="colors toolbox-colors">
                     <button id="currentColorButton" class="button colors-button">
-                        <div id="primaryColorCircle" class="button-circle"></div>
-                        <input id="primaryColor" type="color" value="#008000">Primary color
+                        <div id="primaryColorPalette" class="button-palette"></div>
+                        <input id="primaryColor" type="color" value="#008000">
                     </button>
                     <button id="secondaryColorButton" class="button colors-button">
-                        <div id='secondaryColorCircle' class="button-circle"></div>
-                        <input id="secondaryColor" type="color" value="#008000">Secondary color
+                        <div id='secondaryColorPalette' class="button-palette"></div>
+                        <input id="secondaryColor" type="color" value="#008000">
                     </button>
-                    <!-- <button id="red" class="button colors-button">
-                        <div class="button-circle button-circle--red"></div>Red
-                    </button>
-                    <button id="white" class="button colors-button">
-                        <div class="button-circle button-circle--white"></div>White
-                    </button> -->
-
+                    
                 </div>
             </div>
             <div class="canvas main-canvas">
