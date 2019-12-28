@@ -1,0 +1,132 @@
+.fillBucketTip,
+.chooseColorTip,
+.pencilTip,
+.eraserTip,
+.strokeTip  {
+    position: absolute;
+    color: white;
+    width: 120px;
+    background-color: black;
+    text-align: center;
+    z-index: 5;
+    visibility: hidden;
+}
+
+.fillBucketTip {
+    top: 188px;
+    left: 97px;
+}
+
+.chooseColorTip {
+    top: 180px;
+    left: 142px;
+}
+
+.pencilTip {
+    left: 97px;
+    top: 232px;
+}
+
+.eraserTip {
+    left: 142px;
+    top: 232px;
+}
+
+.strokeTip {
+    top: 277px;
+    left: 97px;
+}
+
+
+.fillBucketTip::after,
+.chooseColorTip::after,
+.pencilTip::after,
+.eraserTip::after,
+.strokeTip::after {
+    content: "";
+    position: absolute;
+    top: calc(50% - 7px);
+    left: -7px;   
+    border-color: transparent black transparent transparent;
+    border-style: solid;
+    border-width: 7px 7px 7px 0;
+    height: 0px;
+    width: 0px;
+  }
+
+#fillBucket:hover + .fillBucketTip, 
+#chooseColor:hover + .chooseColorTip,
+#pencil:hover + .pencilTip,
+#eraser:hover + .eraserTip,
+#stroke:hover + .strokeTip {
+    visibility: visible;
+}
+
+.pencilPropTip  {
+    position: absolute;
+    color: white;
+    width: 120px;
+    background-color: black;
+    text-align: center;
+    z-index: 5;
+    visibility: hidden;
+    top: 120px;
+    left: 36px;
+}
+
+.pencilPropTip::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -7px;
+    border-width: 7px;
+    border-style: solid;
+    border-color: black transparent transparent transparent;
+}
+
+#pencilSize0:hover + .pencilPropTip,
+#pencilSize1:hover + .pencilPropTip,
+#pencilSize2:hover + .pencilPropTip,
+#pencilSize3:hover + .pencilPropTip {
+    visibility: visible;
+}
+
+.primaryColorTip,  .secondaryColorTip{
+    position: absolute;
+    color: white;
+    width: 120px;
+    background-color: black;
+    text-align: center;
+    z-index: 5;
+    visibility: hidden;
+   
+}
+
+.primaryColorTip {
+    top: 359px;
+    left: 97px;
+}
+
+.secondaryColorTip {
+    left: 113px;
+    top: 366px;
+}
+
+
+.primaryColorTip::after, .secondaryColorTip::after {
+    content: "";
+    position: absolute;
+    top: calc(50% - 7px);
+    left: -7px;   
+    border-color: transparent black transparent transparent;
+    border-style: solid;
+    border-width: 7px 7px 7px 0;
+    height: 0px;
+    width: 0px;
+}
+
+#primaryColorButton:hover + .primaryColorTip,
+#secondaryColorButton:hover + .secondaryColorTip {
+    visibility: visible;
+}

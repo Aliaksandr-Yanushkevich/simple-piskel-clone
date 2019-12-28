@@ -26,6 +26,11 @@ export function canvas() {
     canvas.style.width = `${canvasSize}px`;
     canvas.style.height = `${canvasSize}px`;
     const context = canvas.getContext('2d');
+    const SavedImage = new Image();
+      SavedImage.src = localStorage.canvasData;
+      SavedImage.onload = function () {
+        context.drawImage(SavedImage, 0, 0);
+      };
     // context.fillStyle = 'green';
     // context.fillRect(0, 0, canvasWidthHeight, canvasWidthHeight);
     

@@ -2,6 +2,8 @@ export function drawing() {
     const canvas = document.getElementById('codejam-canvas');
     const context = canvas.getContext('2d');
     let cellSize;
+    let pencilSize;
+
     switch (localStorage.canvasSlider) {
       case '0':
         cellSize = 16;
@@ -11,6 +13,25 @@ export function drawing() {
       break;
       case '2':
         cellSize = 4;
+      break;
+      default:
+      break;
+    } 
+
+    switch (localStorage.pencilSize) {
+      case '0':
+        pencilSize = 1;
+      break;
+      case '1':
+        pencilSize = 2;
+      break;
+      case '2':
+        pencilSize = 3;
+      break;
+      case '3':
+        pencilSize = 4;
+      break;
+      default:
       break;
     } 
 
@@ -32,18 +53,20 @@ export function drawing() {
 
             const x = Math.floor(event.offsetX / cellSize);
             const y = Math.floor(event.offsetY / cellSize);
-            context.fillRect(x, y, 1, 1);
+            context.fillRect(x, y, pencilSize, pencilSize);
             context.fill();
 
             canvas.onmousemove = function (event) { // drawing with left/right mouse movement
               const x = Math.floor(event.offsetX / cellSize);
               const y = Math.floor(event.offsetY / cellSize);
-              context.fillRect(x, y, 1, 1);
+              context.fillRect(x, y, pencilSize, pencilSize);
               // context.fillStyle = 'red';
               context.fill();
             }
             canvas.onmouseup = function () {
               canvas.onmousemove = null;
+              const canvasData = canvas.toDataURL(); // save canvas data
+              localStorage.canvasData = canvasData; 
             };
           };
           canvas.oncontextmenu = function (event) {
@@ -51,7 +74,7 @@ export function drawing() {
             // context.fillStyle = 'yellow';
             const x = Math.floor(event.offsetX / cellSize);
             const y = Math.floor(event.offsetY / cellSize);
-            context.fillRect(x, y, 1, 1);
+            context.fillRect(x, y, pencilSize, pencilSize);
             context.fill();
           }    
         };

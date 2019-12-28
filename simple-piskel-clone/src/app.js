@@ -2,6 +2,7 @@ import './scss/main.scss';
 import './scss/cursor.scss';
 import './scss/font.scss';
 import './scss/buttons.scss';
+import './scss/tips.scss';
 // import {initheader} from './js/initheader';
 import {initMain} from './js/initMain';
 import {canvas} from './js/canvas';
