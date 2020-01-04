@@ -3,11 +3,15 @@ import './scss/cursor.scss';
 import './scss/font.scss';
 import './scss/buttons.scss';
 import './scss/tips.scss';
+import {drawLine} from './js/test2';
+import {penHandler} from './js/floodFill/test3'
 // import {initheader} from './js/initheader';
 import {initMain} from './js/initMain';
 import {canvas} from './js/canvas';
 import {handlers} from './js/handlers';
 import {initTools} from './js/initTools';
+// import './js/floodFill';
+import './js/floodFill/test1';
 
 
 // SETUP BLOCK
@@ -17,28 +21,15 @@ initMain();
 canvas();
 handlers();
 
+document.getElementById('canvas').addEventListener('mouseenter', () => console.log('work!'))
+
+
+
+    // drawLine(135, 220, 150, 200);
+    drawLine(0, 0, 32, 128, {r:255, g:123, b: 84, a:255})
+
+
 document.body.style.cursor = 'url("../assets/images/pencil.png"), auto';
-// const flags = {
-//   fillBucket: false,
-//   chooseColor: false,
-//   pencil: true,
-//   transform: false,
-// };
-
-// let currentColor = 'green';
-// let previvousColor;
-// const canvasWidth = 64;
-// const canvasHeight = 64;
-
-// const cellSize = 512 / canvasWidth;
-// const canvas = document.getElementById('codejam-canvas');
-// canvas.width = canvasWidth;
-// canvas.height = canvasHeight;
-// canvas.style.width = '512px';
-// canvas.style.height = '512px';
-// const context = canvas.getContext('2d');
-// document.getElementById('currentColorCircle').style.backgroundColor = currentColor;
-
 
 // window.onload = function () { // doesn't work
 //   const SavedImage = new Image();

@@ -2,7 +2,9 @@
 .chooseColorTip,
 .pencilTip,
 .eraserTip,
-.strokeTip  {
+.strokeTip,
+.primaryColorTip,
+.secondaryColorTip  {
     position: absolute;
     color: white;
     width: 120px;
@@ -37,12 +39,24 @@
     left: 97px;
 }
 
+.primaryColorTip {
+    top: 359px;
+    left: 97px;
+}
+
+.secondaryColorTip {
+    left: 113px;
+    top: 366px;
+}
+
 
 .fillBucketTip::after,
 .chooseColorTip::after,
 .pencilTip::after,
 .eraserTip::after,
-.strokeTip::after {
+.strokeTip::after,
+.primaryColorTip::after,
+.secondaryColorTip::after {  // левый носик
     content: "";
     position: absolute;
     top: calc(50% - 7px);
@@ -74,7 +88,7 @@
     left: 36px;
 }
 
-.pencilPropTip::after {
+.pencilPropTip::after { // нижний носик
     content: "";
     position: absolute;
     top: 100%;
@@ -85,45 +99,8 @@
     border-color: black transparent transparent transparent;
 }
 
-#pencilSize0:hover + .pencilPropTip,
-#pencilSize1:hover + .pencilPropTip,
-#pencilSize2:hover + .pencilPropTip,
-#pencilSize3:hover + .pencilPropTip {
+.pencilProp:hover > .pencilPropTip {
     visibility: visible;
-}
-
-.primaryColorTip,  .secondaryColorTip{
-    position: absolute;
-    color: white;
-    width: 120px;
-    background-color: black;
-    text-align: center;
-    z-index: 5;
-    visibility: hidden;
-   
-}
-
-.primaryColorTip {
-    top: 359px;
-    left: 97px;
-}
-
-.secondaryColorTip {
-    left: 113px;
-    top: 366px;
-}
-
-
-.primaryColorTip::after, .secondaryColorTip::after {
-    content: "";
-    position: absolute;
-    top: calc(50% - 7px);
-    left: -7px;   
-    border-color: transparent black transparent transparent;
-    border-style: solid;
-    border-width: 7px 7px 7px 0;
-    height: 0px;
-    width: 0px;
 }
 
 #primaryColorButton:hover + .primaryColorTip,

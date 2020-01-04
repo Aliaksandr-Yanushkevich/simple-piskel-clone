@@ -1,10 +1,8 @@
-
 export function canvas() {    
-    let canvasWidthHeight;
+    let canvasWidthHeight; // canvas dimension in inner cells
     const primaryColor = localStorage.primaryColor;
     const secondaryColor = localStorage.secondaryColor;
-    // let previvousColor;
-    switch (localStorage.canvasSlider) {
+    switch (localStorage.canvasSlider) { // setup canvas dimension
         case '0': 
             canvasWidthHeight = 32;
             localStorage.canvasSlider = 0;
@@ -18,21 +16,19 @@ export function canvas() {
             localStorage.canvasSlider = 2;
         break;
     }       
-    const canvasSize = 512;
-    // const cellSize = canvasSize / canvasWidthHeight;
-    const canvas = document.querySelector('#codejam-canvas');
+    const canvasSize = 512; // canvas size in pixels
+    const canvas = document.querySelector('#canvas');
+    const ctx = canvas.getContext('2d');
     canvas.width = canvasWidthHeight;
     canvas.height = canvasWidthHeight;
     canvas.style.width = `${canvasSize}px`;
     canvas.style.height = `${canvasSize}px`;
-    const context = canvas.getContext('2d');
-    const SavedImage = new Image();
-      SavedImage.src = localStorage.canvasData;
-      SavedImage.onload = function () {
-        context.drawImage(SavedImage, 0, 0);
-      };
-    // context.fillStyle = 'green';
-    // context.fillRect(0, 0, canvasWidthHeight, canvasWidthHeight);
+
+    const SavedImage = new Image(); // drawing canvas from localStorage 
+    SavedImage.src = localStorage.canvasData;
+    SavedImage.onload = function () {
+    ctx.drawImage(SavedImage, 0, 0);
+    };
     
     document.querySelector('#primaryColorPalette').style.backgroundColor = primaryColor;
     document.querySelector('#secondaryColorPalette').style.backgroundColor = secondaryColor;

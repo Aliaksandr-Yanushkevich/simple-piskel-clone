@@ -12,21 +12,21 @@ export function initTools() {
         localStorage.secondaryColor = 'blue';
     }
 
-    if (localStorage.pencil === undefined) {
-        localStorage.pencil = 'true';
+    if (localStorage.currentTool === undefined) {
+        localStorage.currentTool = 'pencil';
     }
-    if (localStorage.chooseColor === undefined) {
-        localStorage.chooseColor = 'false';
-    }
-    if (localStorage.fillBucket === undefined) {
-        localStorage.fillBucket = 'false';
-    }
+    // if (localStorage.chooseColor === undefined) {
+    //     localStorage.chooseColor = 'false';
+    // }
+    // if (localStorage.fillBucket === undefined) {
+    //     localStorage.fillBucket = 'false';
+    // }
 
-    if (localStorage.eraser === undefined) {
-        localStorage.eraser = 'false';
-    }
+    // if (localStorage.eraser === undefined) {
+    //     localStorage.eraser = 'false';
+    // }
 
-    if (localStorage.stroke === undefined) {
-        localStorage.stroke = 'false';
-    }
+    // if (localStorage.stroke === undefined) {
+    //     localStorage.stroke = 'false';
+    // }
 }
