@@ -4,6 +4,14 @@ $border: 1px white solid;
 $border-active: 2px #F9D80C solid;
 $border-hover: 2px #888888 solid;
 
+.button {
+    cursor: pointer;
+}
+
+.tools {
+    position: relative;
+}
+
 .tools-button, .colors-button {
     background-color: $buttonbackgroundColor;
     width: 40px;
@@ -21,19 +29,57 @@ $border-hover: 2px #888888 solid;
     }
 }
 
-.header-button {
-    width: 100px;
-    height: 100%;
-    border-bottom: none;
-    border-top: none;
+.button-sign {
+    // width: 100px;
+    height: 24px;
+    border: none;
+    background-color: yellow;
+    position: absolute;
+    right: 20px;
+    color: black;
+    flex-direction: row;
+    align-items: center;
+    opacity: 1;
 }
 
-.fas, .paint-button--logo {
-    font-size: 2rem;
-    color: white;
-    width: 35px;
-    margin-right: 30px;
+#sign-in {
+     display: none;
 }
+
+#sign-out {
+     display: none;
+}
+
+.fa.fa-sign-out {
+    font-size: 16px;
+    color: red;
+    width: 20px;
+}
+
+.user-ico {
+    width: 20px;
+    height: 20px;
+    background-size: 100% 100%;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.exit-icon {
+    height: 20px;
+    width: 20px;
+    font-size: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 10px;
+}
+
+// .fas, .paint-button--logo {
+//     font-size: 2rem;
+//     color: white;
+//     width: 35px;
+//     margin-right: 30px;
+// }
 
 .button-palette {
     height: 32px;
@@ -50,6 +96,7 @@ $border-hover: 2px #888888 solid;
 .pencilSize {
     // border: $border;
     display: flex;
+    height: 100%;
     justify-content: center;
     align-items: center;
     background-color: $buttonbackgroundColor;
@@ -90,16 +137,37 @@ $border-hover: 2px #888888 solid;
         background-color: #F9D80C solid !important;
     }   
 }
+.primaryColorBox {
+    position: relative;
+}
+.secondaryColorBox {
+    position: relative;
+    left: 20px;
+    bottom: 25px;
+}
 
 #primaryColorButton {
-    z-index: 10;
-    position: absolute;
+    z-index: 1;
+   position: relative;
     opacity: 1;
 }
 
 #secondaryColorButton {
-    position: absolute;
-    top: 370px;
-    left: 65px;
-    // z-index: 0;
+    // position: absolute;
+    top: 0;
+    left: 0;
+    position: relative;
+    z-index: 0;
+}
+
+#keyboard {
+    background: url(../assets/images/keyboard.svg) no-repeat;
+    width: 60px;
+    height: 50px;
+    background-position: center center;
+    opacity: 0.6;
+    border: none;
+    &:hover {
+        opacity: 1;
+    }
 }

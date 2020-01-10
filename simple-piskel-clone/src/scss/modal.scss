@@ -1,0 +1,93 @@
+.modal-shortcuts {
+    // display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+.keyboard-shortcuts {
+    left: 0;
+    right: 0;
+    margin: 5% auto; /* 15% from the top and centered */
+  width: 50%; /* Could be more or less, depending on screen size */
+  max-width: 600px;
+}
+
+.keyboard-shortcuts--header,
+.keyboard-shortcuts--footer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    background-color: yellow;
+}
+
+#shortcuts-close {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    background: none;
+    font-weight: 800;
+}
+
+.keyboard-shortcuts--footer {
+    font-weight: 600;
+}
+
+.tool-shortcuts {
+    display: flex;
+    flex-direction: row;
+    height: 40px;
+    align-items: center;
+    margin: 10px 0;
+    cursor: pointer;
+}
+
+.keyboard-shortcuts--content {
+    background-color: black;
+    color: white;
+    padding: 40px;
+}
+
+.tool-icon {
+    background-color:#3A3A3A;
+    margin-right: 20px;
+}
+
+.tool-key {
+    width: 40px;
+    height: 32px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: yellow;
+    border: 2px solid yellow;
+    text-transform: uppercase;
+}
+
+.tool-key--text {
+    margin-left: 10px;
+}
+
+.blink {
+    -webkit-animation: blink 1s linear infinite;
+    animation: blink 1s linear infinite;
+  }
+  @-webkit-keyframes blink {
+    50% { color: rgb(34, 34, 34); }
+    51% { color: rgba(34, 34, 34, 0); }
+    100% { color: rgba(34, 34, 34, 0); }
+  }
+  @keyframes blink {
+    50% { color: rgb(34, 34, 34); }
+    51% { color: rgba(34, 34, 34, 0); }
+    100% { color: rgba(34, 34, 34, 0); }
+  }

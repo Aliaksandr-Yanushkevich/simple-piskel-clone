@@ -1,6 +1,4 @@
 export function pencilorEraser() {
-    // const canvas = document.getElementById('canvas');
-    // const ctx = canvas.getContext('2d');
     let mode;
     switch (localStorage.currentTool) {
         case 'pencil':

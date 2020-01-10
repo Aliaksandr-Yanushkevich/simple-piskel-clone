@@ -4,16 +4,20 @@ $border-focus: 2px white solid;
 
 * {
     box-sizing: border-box;
+    font-family: $font-family;
+    // border: $border;
 }
 
 .header {
-    height: 100px;
+    height: 40px;
     width: 100vw;
     border: $border;
     display: flex;
+    position: relative;
     justify-content: space-between;
-    // align-items: center;
+    align-items: center;
     margin-bottom: 50px;
+    padding: 0 20px;
 }
 
 .header-link {
@@ -25,7 +29,13 @@ $border-focus: 2px white solid;
     }
 }
 
+.header-link--text {
+    display: none;
+}
 
+.header-link--img {
+    height: 24px;
+}
 
 .fas-header {
     margin: 0;
@@ -48,7 +58,12 @@ body {
     justify-content: space-between;
 }
 
-.tools,  .colors, .paint {
+.toolbox {
+    display: flex;
+    flex-direction: column;
+}
+
+.toolbox-tools,  .colors, .paint {
     display: flex;
     flex-direction: column;
     border-collapse: collapse;
@@ -65,6 +80,7 @@ body {
 
 .toolbox-colors {
     margin: 50px 0 50px 50px; 
+    position: relative;
 }
 
 .main-paint {
@@ -109,22 +125,30 @@ input[type=range] {
     -webkit-appearance: none;
   }
 
-// .canvas {
-//     justify-content: center;
-//     // border: 3px red solid;
-// } 
+.main-shortcuts {
+    position: relative;
+} 
+
+.keyboard-shortcuts {
+    position: fixed;
+    top: 100px;
+}
 
 .paint-button--logo {
     font-weight: 900;
 }
 
-.footer-author--name {
-    margin-left: 50px;
-    color: white;
-    font-size: 0.7rem;
-    font-weight: 100;
-    font-family: $font-family;
+.footer {
+    padding-left: 50px;
 }
+
+// .footer-author--name {
+//     margin-left: 50px;
+//     color: white;
+//     font-size: 0.7rem;
+//     font-weight: 100;
+//     font-family: $font-family;
+// }
 
 #primaryColor,  #secondaryColor{
     display: none;
@@ -179,6 +203,10 @@ input[type=range] {
     width: 85px;
     justify-content: space-between;
 
+}
+
+.hide {
+    display: none;
 }
 
 

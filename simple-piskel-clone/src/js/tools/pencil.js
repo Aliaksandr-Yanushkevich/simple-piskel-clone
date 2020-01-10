@@ -1,4 +1,5 @@
-import {drawing} from './drawing'
+import { drawing } from './drawing';
+import { floodFill } from '../floodFill/floodFill';
 export function pencil() {
     localStorage.currentTool = 'pencil';
     document.querySelectorAll('.tools-button').forEach(item => item.classList.remove('active'));
@@ -6,6 +7,6 @@ export function pencil() {
     document.querySelector('#pencil').classList.add('active');
     document.querySelector('#canvas').className = '';
     document.querySelector('#canvas').classList.add('pencil');
-    
-    document.querySelector('#canvas').addEventListener('mouseenter', drawing);
+    canvas.removeEventListener('mousedown', floodFill);
+    drawing();
 }

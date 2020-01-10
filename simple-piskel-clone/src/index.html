@@ -15,16 +15,20 @@
 <body>
     <header>
         <div class="header">
-            <button class="button header-button">
-                <i class="fas fa-caret-down fas-header"></i>
-            </button>
             <div class="header-title">
                 <a class="header-link" href="#">
                     <h1 class="header-link--text">Piskel-clone</h1>
+                    <img class="header-link--img" src="./assets/images/logo_transparent_small_compact.png"
+                        alt="Image is not supported">
                 </a>
             </div>
-            <button class="button header-button">
-                <i class="fas fa-ellipsis-v fas-header"></i>
+            <button id="sign-in" class="button button-sign"> Sign in</button>
+            <button id="sign-out" class="button button-sign">
+                <div class="user-ico"></div>
+                <div class="user-name"></div>
+                <div class="exit-icon">
+                    <i class="fas fa-sign-out-alt"></i>
+                </div>
             </button>
 
         </div>
@@ -35,48 +39,74 @@
         <div class="main">
             <div class="toolbox main-toolbox">
                 <div class="pencilProp">
-                    <button id="pencilSize0" class="pencilSize"><div id="pencil0"></div></button>
-                    <button id="pencilSize1" class="pencilSize"><div id="pencil1"></div></button>
-                    <button id="pencilSize2" class="pencilSize"><div id="pencil2"></div></button>
-                    <button id="pencilSize3" class="pencilSize"><div id="pencil3"></div></button>
+                    <button id="pencilSize0" class="button pencilSize">
+                        <div id="pencil0"></div>
+                    </button>
+                    <button id="pencilSize1" class="button pencilSize">
+                        <div id="pencil1"></div>
+                    </button>
+                    <button id="pencilSize2" class="button pencilSize">
+                        <div id="pencil2"></div>
+                    </button>
+                    <button id="pencilSize3" class="button pencilSize">
+                        <div id="pencil3"></div>
+                    </button>
                     <div class="pencilPropTip">Pencil size</div>
                 </div>
-                <div class="tools toolbox-tools">
-                    <button id="fillBucket" class="button tools-button">
-                        <img src="./assets/images/icon/fillbucket-icon.png" alt="Image is not supported">
-                    </button>
-                    <div class="fillBucketTip">FillBucket tool</div>
-                    <button id="chooseColor" class="button tools-button">
-                        <img src="./assets/images/icon/choosecolor-icon.png" alt="Image is not supported">
-                    </button>
-                    <div class="chooseColorTip">СhooseColor tool</div>
-                    <button id="pencil" class="button tools-button">
-                        <img src="./assets/images/icon/pencil-icon.png" alt="Image is not supported">
-                    </button>
-                    <div class="pencilTip">Pencil tool</div>
-                    <button id="eraser" class="button tools-button">
-                        <img src="./assets/images/icon/eraser-icon.png" alt="Image is not supported">
-                    </button>
-                    <div class="eraserTip">Eraser tool</div>
-                    <button id="stroke" class="button tools-button">
-                        <img src="./assets/images/icon/stroke-icon.png" alt="Image is not supported">
-                    </button>
-                    <div class="strokeTip">Stroke tool</div>
+                <div class="toolbox-tools">
+                    <div class="tools tools-fillBucket">
+                        <button id="fillBucket" class="button tools-button">
+                            <img src="./assets/images/icon/fillbucket-icon.png" alt="Image is not supported">
+                        </button>
+                        <div class="tools-tip">Paint bucket tool</div>
+                    </div>
+                    <div class="tools tools-magicBucket">
+                        <button id="magivBucket" class="button tools-button">
+                            <img src="./assets/images/icon/magicBucket-icon.png" alt="Image is not supported">
+                        </button>
+                        <div class="tools-tip">Magic bucket tool</div>
+                    </div>
+                    <div class="tools tools-chooseColor">
+                        <button id="chooseColor" class="button tools-button">
+                            <img src="./assets/images/icon/choosecolor-icon.png" alt="Image is not supported">
+                        </button>
+                        <div class="tools-tip">Color picker</div>
+                    </div>
+                    <div class="tools tools-pencil">
+                        <button id="pencil" class="button tools-button">
+                            <img src="./assets/images/icon/pencil-icon.png" alt="Image is not supported">
+                        </button>
+                        <div class="tools-tip">Pencil tool</div>
+                    </div>
+                    <div class="tools tools-eraser">
+                        <button id="eraser" class="button tools-button">
+                            <img src="./assets/images/icon/eraser-icon.png" alt="Image is not supported">
+                        </button>
+                        <div class="tools-tip">Eraser tool</div>
+                    </div>
+                    <div class="tools tools-stroke">
+                        <button id="stroke" class="button tools-button">
+                            <img src="./assets/images/icon/stroke-icon.png" alt="Image is not supported">
+                        </button>
+                        <div class="tools-tip">Stroke tool</div>
+                    </div>
                 </div>
 
                 <div class="colors toolbox-colors">
-                    <button id="primaryColorButton" class="button colors-button">
-                        <div id="primaryColorPalette" class="button-palette"></div>
-                        <input id="primaryColor" type="color" value="#008000">
-                    </button>
-                    <div class="primaryColorTip">Primary - left mouse button</div>
-                    
-                    <button id="secondaryColorButton" class="button colors-button">
-                        <div id='secondaryColorPalette' class="button-palette"></div>
-                        <input id="secondaryColor" type="color" value="#008000">
-                    </button>
-                    <div class="secondaryColorTip">Secondary - right mouse button</div>
-                    
+                    <div class="primaryColorBox">
+                        <button id="primaryColorButton" class="button colors-button">
+                            <div id="primaryColorPalette" class="button-palette"></div>
+                            <input id="primaryColor" type="color" value="#008000">
+                        </button>
+                        <div class="color-tip">Primary - left mouse button</div>
+                    </div>
+                    <div class="secondaryColorBox">
+                        <button id="secondaryColorButton" class="button colors-button">
+                            <div id='secondaryColorPalette' class="button-palette"></div>
+                            <input id="secondaryColor" type="color" value="#008000">
+                        </button>
+                        <div class="color-tip">Secondary - right mouse button</div>
+                    </div>
                 </div>
             </div>
             <div class="canvas main-canvas">
@@ -86,23 +116,79 @@
                 </div>
             </div>
             <div class="additional-tool">
-                <form class="searching-form">
+                <!-- <form class="searching-form">
                     <input class="search-field" type="search" name="q" placeholder="Type city here">
                     <input class="button search-button" type="submit" value="Search">
-                </form>
-                <button class="button grayscale-button">B&W</button>
+                </form> -->
+                <!-- <button id="sign-in" class="button sign-button">Sign in</button> -->
             </div>
-           
+
         </div>
     </main>
     <footer>
         <div class="footer">
-            <div class="footer-author">
+            <div class="toolbox-hotkeys">
+                <button id="keyboard" class="button"></button>
+            </div>
+            <!-- <div class="footer-author">
                 <h2 class="footer-author--name">Created by Aliaksandr Yanushkevich </h2>
+            </div> -->
+        </div>
+        <div class="modal-shortcuts hide">
+            <div class="keyboard-shortcuts">
+                <div class="keyboard-shortcuts--header">
+                    <h2>Keyboard shortcuts</h2>
+                    <button id="shortcuts-close" class="button">X</button>
+                </div>
+                <div class="keyboard-shortcuts--content">
+                    <div id="fillbucket-shortcut" class="tool-shortcuts">
+                        <img class="tool-icon" src="./assets/images/icon/fillbucket-icon.png"
+                            alt="Image is not supported">
+                        <div class="tool-key tool-key--bucket"></div>
+                        <p class="tool-key--text">Paint bucket tool</p>
+                    </div>
+                    <div id="chooseColor-shortcut" class="tool-shortcuts">
+                        <img class="tool-icon" src="./assets/images/icon/choosecolor-icon.png"
+                            alt="Image is not supported">
+                        <div class="tool-key tool-key--picker"></div>
+                        <p class="tool-key--text">Color picker</p>
+                    </div>
+                    <div id="pencil-shortcut" class="tool-shortcuts">
+                        <img class="tool-icon" src="./assets/images/icon/pencil-icon.png" alt="Image is not supported">
+                        <div class="tool-key tool-key--pencil"></div>
+                        <p class="tool-key--text">Pencil tool</p>
+                    </div>
+                    <div id="eraser-shortcut" class="tool-shortcuts">
+                        <img class="tool-icon" src="./assets/images/icon/eraser-icon.png" alt="Image is not supported">
+                        <div class="tool-key tool-key--eraser"></div>
+                        <p class="tool-key--text">Eraser pencil tool</p>
+                    </div>
+                    <div id="stroke-shortcut" class="tool-shortcuts">
+                        <img class="tool-icon" src="./assets/images/icon/stroke-icon.png" alt="Image is not supported">
+                        <div class="tool-key tool-key--stroke"></div>
+                        <p class="tool-key--text">Stroke tool</p>
+                    </div>
+                </div>
+                <div class="keyboard-shortcuts--footer">
+                    <div class="shortcuts-change">
+                        <p>Customize shortcuts?</p>
+                        <div class="shortcuts-change--hints">
+
+                        </div>
+                    </div>
+                    <button class="button">Restore default shortcuts</button>
+                </div>
             </div>
         </div>
     </footer>
     <script src="./index.js"></script>
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-app.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-auth.js"></script>
+
 </body>
 
 </html>

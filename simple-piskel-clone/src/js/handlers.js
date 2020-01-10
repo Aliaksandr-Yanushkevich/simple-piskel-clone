@@ -1,20 +1,19 @@
-import { drawing } from './drawing';
-import { pencil } from './pencil';
-import { chooseColor } from './chooseСolor';
-import { fillBucket } from './fillBucket';
+import { drawing } from './tools/drawing';
+import { pencil } from './tools/pencil';
+import { chooseColor } from './tools/chooseСolor';
+import { fillBucket } from './tools/fillBucket';
 // import {canvas} from './canvas';
-import { primaryColor } from './primaryColor';
-import { secondaryColor } from './secondaryColor';
-import { eraser } from './eraser';
-import { stroke } from './stroke';
-import { canvasSlider } from './canvasSlider';
+import { primaryColor } from './tools/primaryColor';
+import { secondaryColor } from './tools/secondaryColor';
+import { eraser } from './tools/eraser';
+import { stroke } from './tools/stroke';
+import { canvasSlider } from './canvas/canvasSlider';
 import { setPencilSize } from './setPencilSize';
 import { signIn } from './authorization/signIn';
 import { signOut } from './authorization/signOut';
 import { shortcut } from './shortcut/shortcut';
 import { hotkey } from './shortcut/hotkey';
 export function handlers() {
-   // document.querySelector('#canvas').addEventListener('mouseenter', drawing);
    document.querySelector('#fillBucket').addEventListener('click', fillBucket);
    document.querySelector('#chooseColor').addEventListener('click', chooseColor);
    document.querySelector('#pencil').addEventListener('click', pencil);
@@ -27,9 +26,9 @@ export function handlers() {
    document.querySelector('#sign-out').addEventListener('click', signOut);
    document.querySelector('#keyboard').addEventListener('click', shortcut);
    document.querySelector('#shortcuts-close').addEventListener('click', shortcut);
-   document.querySelector('#fillbucket-shortcut').addEventListener('click', hotkey, true);
-
-
+   // document.querySelector('#fillbucket-shortcut').addEventListener('click', hotkey);
+   document.querySelectorAll('.tool-shortcuts').forEach(item => item.addEventListener('click', hotkey))
+  
    const pencilList = document.querySelectorAll('.pencilSize');
    Array.from(pencilList).forEach(item => {
       item.addEventListener('click', (e) => {

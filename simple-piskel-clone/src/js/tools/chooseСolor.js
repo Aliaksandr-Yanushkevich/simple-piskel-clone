@@ -1,7 +1,7 @@
-import {rgbToHex} from './rgbToHex';
-import {setCellSize} from './setCellSize';
+import {rgbToHex} from '../floodFill/rgbToHex';
+import {setCellSize} from '../setCellSize';
 import {drawing} from './drawing';
-import {clickDraw} from './drawing';
+// import {clickDraw} from './drawing';
 export function chooseColor() {
     localStorage.currentTool = 'chooseColor';
     document.querySelectorAll('.tools-button').forEach(item => item.classList.remove('active'));
@@ -35,7 +35,7 @@ export function chooseColor() {
     // };
     // } 
     document.querySelector('#canvas').removeEventListener('mouseenter', drawing);
-    document.querySelector('#canvas').removeEventListener('mousedown', clickDraw);
+    // document.querySelector('#canvas').removeEventListener('mousedown', clickDraw);
     console.log('work!');
     
     // document.querySelector('#canvas').removeEventListener('mouseenter', drawing);

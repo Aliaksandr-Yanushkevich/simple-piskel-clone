@@ -3,16 +3,16 @@ import './scss/cursor.scss';
 import './scss/font.scss';
 import './scss/buttons.scss';
 import './scss/tips.scss';
-import {drawLine} from './js/test2';
-import {penHandler} from './js/floodFill/test3'
+import './scss/modal.scss';
 // import {initheader} from './js/initheader';
-import {initMain} from './js/initMain';
-import {canvas} from './js/canvas';
-import {handlers} from './js/handlers';
-import {initTools} from './js/initTools';
+import { initMain } from './js/initMain';
+import { canvas } from './js/canvas/canvas';
+import { handlers } from './js/handlers';
+import { initTools } from './js/initTools';
 // import './js/floodFill';
-import './js/floodFill/test1';
-
+import './js/floodFill/floodFill';
+import { auth } from './js/authorization/auth';
+import { initShortcutModal } from './js/shortcut/initShortcutModal';
 
 // SETUP BLOCK
 // initheader();
@@ -20,14 +20,15 @@ initTools();
 initMain();
 canvas();
 handlers();
+auth();
+initShortcutModal();
 
-document.getElementById('canvas').addEventListener('mouseenter', () => console.log('work!'))
-
-
-
-    // drawLine(135, 220, 150, 200);
-    drawLine(0, 0, 32, 128, {r:255, g:123, b: 84, a:255})
-
+window.onclick = function (event) {
+    let modal = document.querySelector('.modal-shortcuts');
+    if (event.target == modal) {
+        modal.classList.add('hide');
+    }
+}
 
 document.body.style.cursor = 'url("../assets/images/pencil.png"), auto';
 

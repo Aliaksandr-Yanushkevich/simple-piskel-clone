@@ -1,80 +1,24 @@
 // import {chooseColor} from './chooseСolor';
 // import {rgbToHex} from './rgbToHex';
-import { setCellSize } from './setCellSize';
-import { setPencilSize } from './setPencilSize';
-import { pencilorEraser } from './pencilorEraser';
+import { setCellSize } from '../setCellSize';
+// import { setPencilSize } from '../setPencilSize';
+import { pencilorEraser } from './pencilOrEraser';
 
-
-
-// const canvas = document.getElementById('canvas');
-// const ctx = canvas.getContext('2d');
-
-// export function drawing() {    
-//   canvas.addEventListener('mousedown', clickDraw);
-//   canvas.addEventListener('mousemove', moveDraw);
-//   canvas.addEventListener('mouseup', stopDraw);
-//   // canvas.addEventListener('contextmenu', moveDraw)
-//   canvas.oncontextmenu = function (event) {
-//     event.preventDefault();
-//     const x = Math.floor(event.offsetX / cellSize);
-//     const y = Math.floor(event.offsetY / cellSize);
-//     ctx.fillRect(x, y, pencilSize, pencilSize);
-//     ctx.fill();
-//   }    
-// };
-//   export function clickDraw(event) {
-//     // drawing with left/right click
-//     // event.preventDefault();
-//     if (event.which == 1) { //left click
-//       ctx.fillStyle = localStorage.primaryColor;
-//     } 
-//     if (event.which == 3) { // right click
-//       ctx.fillStyle = localStorage.secondaryColor;
-//     } 
-
-//     const x = Math.round((event.offsetX - 8) / cellSize);
-//     const y = Math.floor((event.offsetY + 8) / cellSize);
-
-//     ctx.fillRect(x, y, pencilSize, pencilSize);
-//     ctx.fill();
-//   }
-
-//   function moveDraw(event) { // drawing with left/right mouse movement
-//     const x = Math.round((event.offsetX - 8) / cellSize);
-//     const y = Math.floor((event.offsetY + 8) / cellSize);
-//     ctx.fillRect(x, y, pencilSize, pencilSize);
-//     ctx.fill();
-//   }
-
-//   function stopDraw() {
-//     canvas.removeEventListener('mousemove', moveDraw);
-//     drawing();
-//     console.log('work!')
-//     const canvasData = canvas.toDataURL(); // save canvas data
-//     localStorage.canvasData = canvasData; 
-//   };
 const canvas = document.querySelector('canvas');
 const ctx = canvas.getContext('2d');
-const pencilSize = parseInt(localStorage.pencilSize);
 let oldX = null;
 let oldY = null;
 const cellSize = setCellSize();
 
 
 export function drawing() {
-    // const cellSize = setCellSize();
-    // const canvas = document.querySelector('canvas');
-    // const ctx = canvas.getContext('2d');
-    // const pencilSize = parseInt(localStorage.pencilSize);
-    // let oldX = null;
-    // let oldY = null;
     canvas.addEventListener('mousemove', pencilDrawing);
     canvas.addEventListener('mouseup', savePic);
     canvas.addEventListener('mousedown', pencilClick);
 }
 
-
 export function pencilDrawing(e) {
+    const pencilSize = parseInt(localStorage.pencilSize);
     ctx.globalCompositeOperation = pencilorEraser(); // switch pencil/eraser
     if (!((e.buttons & 1) || (e.buttons & 10))) {
         oldX = oldY = null;
@@ -90,9 +34,6 @@ export function pencilDrawing(e) {
     }
     const x = Math.floor(event.offsetX / cellSize);
     const y = Math.floor(event.offsetY / cellSize);
-    // ctx.fillRect(x, y, pencilSize, pencilSize);
-    // ctx.fill();
-
 
     if (oldX !== null) {
         getLineCoord({ x, y }, { x: oldX, y: oldY }).forEach(({ x, y }) => {
@@ -139,11 +80,13 @@ function getLineCoord(p0, p1) {
 }
 
 export function savePic() {
+    const pencilSize = parseInt(localStorage.pencilSize);
     const canvasData = canvas.toDataURL(); // save canvas data
     localStorage.canvasData = canvasData;
 };
 
 export function pencilClick(e) {
+    const pencilSize = parseInt(localStorage.pencilSize);
     if (e.buttons & 1) {
         ctx.fillStyle = localStorage.primaryColor;
     }

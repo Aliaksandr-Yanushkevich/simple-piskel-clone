@@ -3,7 +3,7 @@ import { rgbToHex } from './rgbToHex';
 import { hexToRGB } from './hexToRGB';
 import { matchStartColor } from './matchStartColor';
 import { colorPixel } from './colorPixel';
-export function paintBucket(event) {
+export function floodFill(event) {
     const canvas = document.getElementById('canvas');
     const ctx = canvas.getContext('2d');
     let cellSize = setCellSize();
@@ -12,8 +12,14 @@ export function paintBucket(event) {
     const pixelStack = [[startX, startY]];
     const colorLayer = ctx.getImageData(0, 0, canvas.width, canvas.height);
     const startColorRGB = ctx.getImageData(startX, startY, 1, 1).data;
-    const fillColor = hexToRGB(localStorage.primaryColor);
-    if (rgbToHex(startColorRGB[0], startColorRGB[1], startColorRGB[2]) === localStorage.primaryColor) {
+    let fillColor = hexToRGB(localStorage.primaryColor);
+    if (event.buttons & 1) {
+       fillColor = hexToRGB(localStorage.primaryColor);
+    } else if (event.buttons & 10){
+        fillColor = hexToRGB(localStorage.secondaryColor);
+    }
+   
+    if (rgbToHex(startColorRGB[0], startColorRGB[1], startColorRGB[2]) === fillColor) {
         return;
     }
     while (pixelStack.length) {

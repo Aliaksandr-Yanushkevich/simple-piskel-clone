@@ -1,62 +1,31 @@
-.fillBucketTip,
-.chooseColorTip,
-.pencilTip,
-.eraserTip,
-.strokeTip,
-.primaryColorTip,
-.secondaryColorTip  {
+.tools-tip, .color-tip {
     position: absolute;
+    font-size: 0.8rem;
     color: white;
     width: 120px;
     background-color: black;
     text-align: center;
     z-index: 5;
     visibility: hidden;
+    
 }
 
-.fillBucketTip {
-    top: 188px;
-    left: 97px;
+.tools-tip {
+    top: 12px;
+    left: 40px;
 }
 
-.chooseColorTip {
-    top: 180px;
-    left: 142px;
+.color-tip {
+    top: 5px;
+    left: 40px;
 }
 
-.pencilTip {
-    left: 97px;
-    top: 232px;
-}
-
-.eraserTip {
-    left: 142px;
-    top: 232px;
-}
-
-.strokeTip {
-    top: 277px;
-    left: 97px;
-}
-
-.primaryColorTip {
-    top: 359px;
-    left: 97px;
-}
-
-.secondaryColorTip {
-    left: 113px;
-    top: 366px;
-}
-
-
-.fillBucketTip::after,
+.tools-tip::after,
 .chooseColorTip::after,
 .pencilTip::after,
 .eraserTip::after,
 .strokeTip::after,
-.primaryColorTip::after,
-.secondaryColorTip::after {  // левый носик
+.color-tip::after {  // левый носик
     content: "";
     position: absolute;
     top: calc(50% - 7px);
@@ -68,11 +37,11 @@
     width: 0px;
   }
 
-#fillBucket:hover + .fillBucketTip, 
-#chooseColor:hover + .chooseColorTip,
-#pencil:hover + .pencilTip,
-#eraser:hover + .eraserTip,
-#stroke:hover + .strokeTip {
+#fillBucket:hover + .tools-tip, 
+#chooseColor:hover + .tools-tip,
+#pencil:hover + .tools-tip,
+#eraser:hover + .tools-tip,
+#stroke:hover + .tools-tip {
     visibility: visible;
 }
 
@@ -103,7 +72,7 @@
     visibility: visible;
 }
 
-#primaryColorButton:hover + .primaryColorTip,
-#secondaryColorButton:hover + .secondaryColorTip {
+#primaryColorButton:hover + .color-tip,
+#secondaryColorButton:hover + .color-tip {
     visibility: visible;
 }
