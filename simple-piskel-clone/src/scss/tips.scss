@@ -21,7 +21,7 @@
 }
 
 .tools-tip::after,
-.chooseColorTip::after,
+.pickerTip::after,
 .pencilTip::after,
 .eraserTip::after,
 .strokeTip::after,
@@ -37,8 +37,9 @@
     width: 0px;
   }
 
-#fillBucket:hover + .tools-tip, 
-#chooseColor:hover + .tools-tip,
+#fillBucket:hover + .tools-tip,
+#magicBucket:hover + .tools-tip,  
+#picker:hover + .tools-tip,
 #pencil:hover + .tools-tip,
 #eraser:hover + .tools-tip,
 #stroke:hover + .tools-tip {

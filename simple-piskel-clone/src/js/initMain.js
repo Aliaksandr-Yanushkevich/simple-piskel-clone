@@ -1,5 +1,6 @@
 import {eraser} from './tools/eraser';
 import {pencil} from './tools/pencil';
+import {picker} from './tools/picker';
 import {fillBucket} from './tools/fillBucket';
 export function initMain() {
     document.querySelector('#canvasSlider').value = localStorage.canvasSlider;
@@ -9,8 +10,9 @@ export function initMain() {
             document.querySelector(`#pencil`).classList.add('active');
             pencil();
         break;
-        case 'chooseColor':
-            document.querySelector(`#chooseColor`).classList.add('active'); 
+        case 'picker':
+            document.querySelector(`#picker`).classList.add('active');
+            picker();
         break;
         case 'fillBucket':
             document.querySelector(`#fillBucket`).classList.add('active');

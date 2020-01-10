@@ -3,30 +3,16 @@ export function initTools() {
         localStorage.canvasSlider = '1';
     }
     if (localStorage.pencilSize === undefined) {
-        localStorage.pencilSize = '0';
+        localStorage.pencilSize = '1';
     }
     if (localStorage.primaryColor === undefined) {
-        localStorage.primaryColor = 'black';
+        localStorage.primaryColor = '#E1B935';
     }
     if (localStorage.secondaryColor === undefined) {
-        localStorage.secondaryColor = 'blue';
+        localStorage.secondaryColor = '#7573E1';
     }
 
     if (localStorage.currentTool === undefined) {
         localStorage.currentTool = 'pencil';
     }
-    // if (localStorage.chooseColor === undefined) {
-    //     localStorage.chooseColor = 'false';
-    // }
-    // if (localStorage.fillBucket === undefined) {
-    //     localStorage.fillBucket = 'false';
-    // }
-
-    // if (localStorage.eraser === undefined) {
-    //     localStorage.eraser = 'false';
-    // }
-
-    // if (localStorage.stroke === undefined) {
-    //     localStorage.stroke = 'false';
-    // }
 }

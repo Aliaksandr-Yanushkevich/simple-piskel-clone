@@ -1,8 +1,8 @@
 import { drawing } from './tools/drawing';
 import { pencil } from './tools/pencil';
-import { chooseColor } from './tools/chooseСolor';
+import { picker } from './tools/picker';
 import { fillBucket } from './tools/fillBucket';
-// import {canvas} from './canvas';
+import { magicBucket } from './tools/magicBucket';
 import { primaryColor } from './tools/primaryColor';
 import { secondaryColor } from './tools/secondaryColor';
 import { eraser } from './tools/eraser';
@@ -15,7 +15,8 @@ import { shortcut } from './shortcut/shortcut';
 import { hotkey } from './shortcut/hotkey';
 export function handlers() {
    document.querySelector('#fillBucket').addEventListener('click', fillBucket);
-   document.querySelector('#chooseColor').addEventListener('click', chooseColor);
+   document.querySelector('#magicBucket').addEventListener('click', magicBucket);
+   document.querySelector('#picker').addEventListener('click', picker);
    document.querySelector('#pencil').addEventListener('click', pencil);
    document.querySelector('#canvasSlider').addEventListener('change', canvasSlider);
    document.querySelector('#primaryColorButton').addEventListener('click', primaryColor);
@@ -26,7 +27,6 @@ export function handlers() {
    document.querySelector('#sign-out').addEventListener('click', signOut);
    document.querySelector('#keyboard').addEventListener('click', shortcut);
    document.querySelector('#shortcuts-close').addEventListener('click', shortcut);
-   // document.querySelector('#fillbucket-shortcut').addEventListener('click', hotkey);
    document.querySelectorAll('.tool-shortcuts').forEach(item => item.addEventListener('click', hotkey))
   
    const pencilList = document.querySelectorAll('.pencilSize');
@@ -36,11 +36,4 @@ export function handlers() {
          drawing();
       });
    })
-
-
-
-   // const shortcutList = document.querySelectorAll('.tool-shortcuts');
-   // Array.from(shortcutList).forEach(item => item.addEventListener('click', e => {
-   //    hotkey(e.target.id)
-   // }))
 }

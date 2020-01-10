@@ -5,7 +5,7 @@ export function setHotKey(e) {
         case 'fillbucket-shortcut':
             shortCuts.paintBucket = e.key;
         break;
-        case 'chooseColor-shortcut':
+        case 'picker-shortcut':
             shortCuts.picker = e.key;
         break;
         case 'pencil-shortcut':

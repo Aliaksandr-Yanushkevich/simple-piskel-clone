@@ -1,17 +1,20 @@
-// import {chooseColor} from './chooseСolor';
 // import {rgbToHex} from './rgbToHex';
 import { setCellSize } from '../setCellSize';
 // import { setPencilSize } from '../setPencilSize';
 import { pencilorEraser } from './pencilOrEraser';
 
-const canvas = document.querySelector('canvas');
-const ctx = canvas.getContext('2d');
+let canvas;
+let ctx;
 let oldX = null;
 let oldY = null;
-const cellSize = setCellSize();
-
+let cellSize = setCellSize();
 
 export function drawing() {
+    canvas = document.querySelector('canvas');
+    ctx = canvas.getContext('2d');
+    oldX = null;
+    oldY = null;
+    cellSize = setCellSize();
     canvas.addEventListener('mousemove', pencilDrawing);
     canvas.addEventListener('mouseup', savePic);
     canvas.addEventListener('mousedown', pencilClick);
@@ -80,7 +83,7 @@ function getLineCoord(p0, p1) {
 }
 
 export function savePic() {
-    const pencilSize = parseInt(localStorage.pencilSize);
+    const canvas = document.querySelector('canvas');
     const canvasData = canvas.toDataURL(); // save canvas data
     localStorage.canvasData = canvasData;
 };
