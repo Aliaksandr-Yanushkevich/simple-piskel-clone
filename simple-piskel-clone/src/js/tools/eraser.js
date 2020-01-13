@@ -1,6 +1,7 @@
 import { drawing } from './drawing';
 import { floodFill } from '../floodFill/floodFill';
 import { magicFill } from './magicFill';
+import { startCoord } from './strokeDrawing';
 export function eraser() {
     localStorage.currentTool = 'eraser';
     document.querySelectorAll('.tools-button').forEach(item => item.classList.remove('active'));
@@ -9,5 +10,6 @@ export function eraser() {
     canvas.classList.add('eraser');
     canvas.removeEventListener('mousedown', floodFill);
     canvas.removeEventListener('mousedown', magicFill);
+    canvas.removeEventListener('mousedown', startCoord);
     drawing();
 }

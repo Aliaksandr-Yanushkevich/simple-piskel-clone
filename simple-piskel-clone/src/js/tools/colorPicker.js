@@ -1,3 +1,4 @@
+import {ctx} from '../../app';
 import {rgbToHex} from '../floodFill/rgbToHex';
 import {setCellSize} from '../setCellSize';
 
@@ -6,8 +7,8 @@ export function colorPicker(e) {
         return
     }
     const cellSize = setCellSize();
-    const canvas = document.querySelector('canvas');
-    const ctx = canvas.getContext('2d');
+    // const canvas = document.querySelector('canvas');
+    // const ctx = canvas.getContext('2d');
     const x = Math.floor(event.offsetX / cellSize);
     const y = Math.floor(event.offsetY / cellSize);
     const targetColor = ctx.getImageData(x, y, 1, 1).data;

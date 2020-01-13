@@ -13,6 +13,7 @@ import { signIn } from './authorization/signIn';
 import { signOut } from './authorization/signOut';
 import { shortcut } from './shortcut/shortcut';
 import { hotkey } from './shortcut/hotkey';
+import {defaultShortCuts} from './shortcut/defaultShortСuts'
 export function handlers() {
    document.querySelector('#fillBucket').addEventListener('click', fillBucket);
    document.querySelector('#magicBucket').addEventListener('click', magicBucket);
@@ -27,6 +28,7 @@ export function handlers() {
    document.querySelector('#sign-out').addEventListener('click', signOut);
    document.querySelector('#keyboard').addEventListener('click', shortcut);
    document.querySelector('#shortcuts-close').addEventListener('click', shortcut);
+   document.querySelector('#defaultShortcuts').addEventListener('click', defaultShortCuts);
    document.querySelectorAll('.tool-shortcuts').forEach(item => item.addEventListener('click', hotkey))
   
    const pencilList = document.querySelectorAll('.pencilSize');

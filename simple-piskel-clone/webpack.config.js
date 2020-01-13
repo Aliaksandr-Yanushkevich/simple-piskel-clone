@@ -12,12 +12,14 @@ const distPath = path.join(__dirname, '/dist');
 
 const config = {
   entry: {
-    main: './src/app.js'
+    app: './src/app.js'
   },
   output: {
-    filename: 'bundle.js',
-    path: distPath
+    path: path.resolve(__dirname, './dist'),
+    filename: '[name].js',
+    publicPath: 'dist/'
   },
+  devtool: 'source-map',
   module: {
     rules: [{
       test: /favicon.ico$/,
@@ -28,10 +30,11 @@ const config = {
           }
       }
     },
-      {
-      test: /\.html$/,
-      use: 'html-loader'
-    }, {
+    //   {
+    //   test: /\.html$/,
+    //   use: 'html-loader'
+    // }, 
+    {
       test: /\.js$/,
       exclude: /node_modules/,
       use: [{
@@ -88,13 +91,13 @@ const config = {
       filename: '[name].css',
       chunkFilename: '[id].css'
     }),
-    ...glob.sync('./src/*.html')
-      .map(htmlFile => {
-        return new HtmlWebpackPlugin({
-          filename: path.basename(htmlFile),
-          template: htmlFile
-        });
-      }),
+    // ...glob.sync('./src/*.html')
+    //   .map(htmlFile => {
+    //     return new HtmlWebpackPlugin({
+    //       filename: path.basename(htmlFile),
+    //       template: htmlFile
+    //     });
+    //   }),
       new CopyPlugin([
         { from: './src/favicon.ico', to: './favicon.ico' },
       ]),
@@ -112,12 +115,12 @@ const config = {
       }),
     ],
   } : {},
-  devServer: {
-    contentBase: distPath,
-    port: 9000,
-    compress: true,
-    open: true
-  }
+  // devServer: {
+  //   contentBase: distPath,
+  //   port: 9000,
+  //   compress: true,
+  //   open: true
+  // }
 };
 
 module.exports = config;

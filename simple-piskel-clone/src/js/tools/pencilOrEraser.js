@@ -8,6 +8,7 @@ export function pencilorEraser() {
             mode = 'destination-out';
         break;
         default:
+            mode = 'source-over';
         break;
     }
     return mode;

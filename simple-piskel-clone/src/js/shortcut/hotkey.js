@@ -5,6 +5,9 @@ export function hotkey(e) {
         case 'fillbucket-shortcut':
             document.querySelector('.tool-key--bucket').classList.add('blink');
             break;
+        case 'magicbucket-shortcut':
+            document.querySelector('.tool-key--magicBucket').classList.add('blink');
+            break;
         case 'picker-shortcut':
             document.querySelector('.tool-key--picker').classList.add('blink');
             break;

@@ -1,4 +1,6 @@
-export function canvas() {
+import {canvas, ctx} from '../../app';
+export function initCanvas() {
+    // canvasEnv();
     let canvasWidthHeight; // canvas dimension in inner cells
     const primaryColor = localStorage.primaryColor;
     const secondaryColor = localStorage.secondaryColor;
@@ -17,8 +19,8 @@ export function canvas() {
             break;
     }
     const canvasSize = 512; // canvas size in pixels
-    const canvas = document.querySelector('#canvas');
-    const ctx = canvas.getContext('2d');
+    // const canvas = document.querySelector('#canvas');
+    // const ctx = canvas.getContext('2d');
     canvas.addEventListener('contextmenu', e => e.preventDefault());
     canvas.width = canvasWidthHeight;
     canvas.height = canvasWidthHeight;

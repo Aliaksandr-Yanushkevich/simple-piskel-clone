@@ -1,11 +1,12 @@
+import {canvas, ctx} from '../../app';
 import { setCellSize } from '../setCellSize';
 import { rgbToHex } from './rgbToHex';
 import { hexToRGB } from './hexToRGB';
 import { matchStartColor } from './matchStartColor';
 import { colorPixel } from './colorPixel';
 export function floodFill(event) {
-    const canvas = document.getElementById('canvas');
-    const ctx = canvas.getContext('2d');
+    // const canvas = document.getElementById('canvas');
+    // const ctx = canvas.getContext('2d');
     let cellSize = setCellSize();
     const startX = Math.floor((event.offsetX) / cellSize);
     const startY = Math.floor((event.offsetY) / cellSize);

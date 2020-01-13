@@ -1,3 +1,5 @@
+import firebase from 'firebase/app';
+import 'firebase/auth';
 export async function signIn() {
     // sign in/sign out
     var provider = new firebase.auth.GoogleAuthProvider();

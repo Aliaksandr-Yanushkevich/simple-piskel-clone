@@ -1,17 +1,17 @@
-// import {rgbToHex} from './rgbToHex';
+import {canvas, ctx} from '../../app';
 import { setCellSize } from '../setCellSize';
 // import { setPencilSize } from '../setPencilSize';
 import { pencilorEraser } from './pencilOrEraser';
 
-let canvas;
-let ctx;
+// let canvas;
+// let ctx;
 let oldX = null;
 let oldY = null;
 let cellSize = setCellSize();
 
 export function drawing() {
-    canvas = document.querySelector('canvas');
-    ctx = canvas.getContext('2d');
+    // canvas = document.querySelector('canvas');
+    // ctx = canvas.getContext('2d');
     oldX = null;
     oldY = null;
     cellSize = setCellSize();
@@ -83,7 +83,7 @@ function getLineCoord(p0, p1) {
 }
 
 export function savePic() {
-    const canvas = document.querySelector('canvas');
+    // const canvas = document.querySelector('canvas');
     const canvasData = canvas.toDataURL(); // save canvas data
     localStorage.canvasData = canvasData;
 };

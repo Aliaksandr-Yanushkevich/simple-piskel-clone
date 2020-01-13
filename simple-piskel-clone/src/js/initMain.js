@@ -2,6 +2,8 @@ import {eraser} from './tools/eraser';
 import {pencil} from './tools/pencil';
 import {picker} from './tools/picker';
 import {fillBucket} from './tools/fillBucket';
+import {hotkeyInit} from './shortcut/hotkeyInit';
+import {initShortcutModal} from './shortcut/initShortcutModal';
 export function initMain() {
     document.querySelector('#canvasSlider').value = localStorage.canvasSlider;
 
@@ -41,6 +43,6 @@ export function initMain() {
             document.querySelector(`#pencilSize3`).classList.add('pencilSize-active'); 
         break;
     }
-
-    
+    hotkeyInit();
+    initShortcutModal();
 }
