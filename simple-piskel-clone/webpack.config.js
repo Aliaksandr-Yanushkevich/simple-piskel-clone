@@ -12,7 +12,8 @@ const distPath = path.join(__dirname, '/dist');
 
 const config = {
   entry: {
-    app: './src/app.js'
+    app: './src/app.js',
+    index: './src/index.js'
   },
   output: {
     path: path.resolve(__dirname, './dist'),
@@ -91,6 +92,8 @@ const config = {
       filename: '[name].css',
       chunkFilename: '[id].css'
     }),
+    new HtmlWebpackPlugin({
+      favicon: './src/favicon.ico'}),
     // ...glob.sync('./src/*.html')
     //   .map(htmlFile => {
     //     return new HtmlWebpackPlugin({

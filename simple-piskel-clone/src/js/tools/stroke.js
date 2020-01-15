@@ -16,10 +16,8 @@ export function stroke() {
     canvas.removeEventListener('mousedown', floodFill);
     canvas.removeEventListener('mousedown', magicFill);
     canvas.removeEventListener('mousedown', colorPicker);
-
     
     canvas.addEventListener('mousedown', pencilClick);
-
     canvas.addEventListener('mousedown', startCoord);
     
 }

@@ -3,6 +3,7 @@ import { fillBucket } from "../tools/fillBucket";
 import { magicBucket } from "../tools/magicBucket";
 import { eraser } from "../tools/eraser";
 import { picker } from "../tools/picker";
+import { stroke } from "../tools/stroke";
 export function hotkeyhandler(e) {
     const keyShortcuts =JSON.parse(localStorage.shortCuts);
     const keysInUse = Object.values(keyShortcuts);
@@ -23,7 +24,7 @@ export function hotkeyhandler(e) {
                 eraser();
             break;
             case '4':
-                console.log('stroke has been still deploying');
+                stroke();
             break;
             case '5':
                 picker();

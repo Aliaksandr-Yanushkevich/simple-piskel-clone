@@ -4,11 +4,77 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-app.js"></script>
-    <title>Document</title>
+    <!-- <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-app.js"></script> -->
+    <title>Piskel-clone</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css">
+    <link href="https://fonts.googleapis.com/css?family=Carrois+Gothic+SC&display=swap" rel="stylesheet">
+    <!-- <link rel="shortcut icon" type="image/png" href="./dist/favicon.ico"/> -->
 </head>
 <body>
-    <a class="fish" href="./piskel.html">Шпротик</a>
-    <script src="./dist/app.js"></script>
+    <header>
+        <div class="header">
+            <div class="header-title">
+                <a class="header-link" href="#">
+                    <h1 class="header-link--text">Piskel-clone</h1>
+                    <img class="header-link--img" src="./src/assets/images/logo_transparent_small_compact.png"
+                        alt="Image is not supported">
+                </a>
+            </div>
+            <a class="sprite" href="./piskel.html">Create Sprite</a>
+        </div>
+    </header>
+    <section class="main-title">
+        <div class="main-title-container">
+            <div class="title-text">
+                <h2>Piskel clone</h2>
+                <p>is the simple graphics editor for creating animations in your browser.</p> 
+                <a class="sprite sprite-title" href="./piskel.html">Create Sprite</a>
+            </div>
+            <div class="title-example">
+               <img class="title-example--img" src="./src/assets/images/screenshot1.png" alt="">
+            </div>
+        </div>
+    </section>
+    <section class="example-sprite">
+        <h2>Example sprites</h2>
+        <div class="sprites-galery">
+            <img class="sprite-image" src="./src/assets/images/homepage/examples/mod1.gif" alt="">
+            <img class="sprite-image" src="./src/assets/images/homepage/examples/mod2.gif" alt="">
+            <img class="sprite-image" src="./src/assets/images/homepage/examples/mod3.gif" alt="">
+            <img class="sprite-image" src="./src/assets/images/homepage/examples/mod4.gif" alt="">
+            <img class="sprite-image" src="./src/assets/images/homepage/examples/mod5.gif" alt="">
+            <img class="sprite-image" src="./src/assets/images/homepage/examples/mod6.gif" alt="">
+            <img class="sprite-image" src="./src/assets/images/homepage/examples/mod7.gif" alt="">
+            <img class="sprite-image" src="./src/assets/images/homepage/examples/mod8.gif" alt="">
+        </div>
+    </section>
+    <section class="functionality">
+        <h2>Implemented functionality</h2>
+        <div class="functionality-gallery">
+            <img class="sprite-image" src="./src/assets/images/homepage/examples/mod1.gif" alt="">
+            <img class="sprite-image" src="./src/assets/images/homepage/examples/mod1.gif" alt="">
+            <img class="sprite-image" src="./src/assets/images/homepage/examples/mod1.gif" alt="">
+            <img class="sprite-image" src="./src/assets/images/homepage/examples/mod1.gif" alt="">
+            <img class="sprite-image" src="./src/assets/images/homepage/examples/mod1.gif" alt="">
+            <img class="sprite-image" src="./src/assets/images/homepage/examples/mod1.gif" alt="">
+            <img class="sprite-image" src="./src/assets/images/homepage/examples/mod1.gif" alt="">
+            <img class="sprite-image" src="./src/assets/images/homepage/examples/mod1.gif" alt="">
+        </div>
+    </section>
+    <section class="about-author">
+        <div class="author-container">
+            <div class="author-photo">
+                <img class="title-example--img" src="./src/assets/images/screenshot1.png" alt="">
+             </div>
+            <div class="author-info">
+                <h2>Aliaksandr Yanushkevich</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus maiores, incidunt magni nisi tenetur dolorum harum odio aperiam? Velit facere est tenetur esse obcaecati? Nobis, a esse. Ducimus, iusto deserunt.</p>
+            </div>
+        </div>
+    </section>
+    <footer>
+        <p>RS School 2019</p>
+    </footer>
+    <script src="./dist/index.js"></script> 
 </body>
 </html>

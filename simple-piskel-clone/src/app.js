@@ -4,7 +4,7 @@ import './scss/font.scss';
 import './scss/buttons.scss';
 import './scss/tips.scss';
 import './scss/modal.scss';
-import './scss/home.scss';
+import '../src/favicon.ico';
 // import {initheader} from './js/initheader';
 import { initMain } from './js/initMain';
 import { initCanvas } from './js/canvas/initCanvas';
