@@ -17,8 +17,6 @@ $border-hover: 2px #888888 solid;
     width: 40px;
     height: 40px;
     border: $border;
-    // color: white;
-    // font-family: $font-family;
     display: flex;
     border: $border;
     align-items: center;
@@ -30,7 +28,6 @@ $border-hover: 2px #888888 solid;
 }
 
 .button-sign {
-    // width: 100px;
     height: 24px;
     border: none;
     background-color: yellow;
@@ -84,7 +81,6 @@ $border-hover: 2px #888888 solid;
 }
 
 .pencilSize {
-    // border: $border;
     display: flex;
     height: 100%;
     justify-content: center;
@@ -143,7 +139,6 @@ $border-hover: 2px #888888 solid;
 }
 
 #secondaryColorButton {
-    // position: absolute;
     top: 0;
     left: 0;
     position: relative;
@@ -151,7 +146,9 @@ $border-hover: 2px #888888 solid;
 }
 
 #keyboard {
-    background: url(../assets/images/keyboard.svg) no-repeat;
+    color: yellow;
+    font-size: 2.5rem;
+    background: none;
     width: 60px;
     height: 50px;
     background-position: center center;

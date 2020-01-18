@@ -2,16 +2,16 @@ export function setCellSize() {
     let cellSize;
     switch (localStorage.canvasSlider) {
         case '0':
-          cellSize = 16;
-        break;
+            cellSize = 16;
+            break;
         case '1':
-          cellSize = 8;
-        break;
+            cellSize = 8;
+            break;
         case '2':
-          cellSize = 4;
-        break;
+            cellSize = 4;
+            break;
         default:
-        break;
-      }
-      return cellSize;
+            break;
+    }
+    return cellSize;
 }

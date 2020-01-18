@@ -1,6 +1,7 @@
-import {setHotKey} from './setHotKey';
+import { setHotKey } from './setHotKey';
+
 export function hotkey(e) {
-    document.querySelectorAll('.tool-key').forEach(item => item.classList.remove('blink'));
+    document.querySelectorAll('.tool-key').forEach((item) => item.classList.remove('blink'));
     switch (e.currentTarget.id) {
         case 'fillbucket-shortcut':
             document.querySelector('.tool-key--bucket').classList.add('blink');
@@ -19,6 +20,8 @@ export function hotkey(e) {
             break;
         case 'stroke-shortcut':
             document.querySelector('.tool-key--stroke').classList.add('blink');
+            break;
+        default:
             break;
     }
     window.addEventListener('keyup', setHotKey);

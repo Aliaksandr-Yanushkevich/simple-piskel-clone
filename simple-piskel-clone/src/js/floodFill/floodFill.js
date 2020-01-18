@@ -1,13 +1,12 @@
-import {canvas, ctx} from '../../app';
+import { canvas, ctx } from '../canvas/canvasEnv';
 import { setCellSize } from '../setCellSize';
 import { rgbToHex } from './rgbToHex';
 import { hexToRGB } from './hexToRGB';
 import { matchStartColor } from './matchStartColor';
 import { colorPixel } from './colorPixel';
+
 export function floodFill(event) {
-    // const canvas = document.getElementById('canvas');
-    // const ctx = canvas.getContext('2d');
-    let cellSize = setCellSize();
+    const cellSize = setCellSize();
     const startX = Math.floor((event.offsetX) / cellSize);
     const startY = Math.floor((event.offsetY) / cellSize);
     const pixelStack = [[startX, startY]];
@@ -15,11 +14,11 @@ export function floodFill(event) {
     const startColorRGB = ctx.getImageData(startX, startY, 1, 1).data;
     let fillColor = hexToRGB(localStorage.primaryColor);
     if (event.buttons & 1) {
-       fillColor = hexToRGB(localStorage.primaryColor);
-    } else if (event.buttons & 10){
+        fillColor = hexToRGB(localStorage.primaryColor);
+    } else if (event.buttons & 10) {
         fillColor = hexToRGB(localStorage.secondaryColor);
     }
-   
+
     if (rgbToHex(startColorRGB[0], startColorRGB[1], startColorRGB[2]) === fillColor) {
         return;
     }

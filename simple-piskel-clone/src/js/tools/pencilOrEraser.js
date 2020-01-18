@@ -3,13 +3,13 @@ export function pencilorEraser() {
     switch (localStorage.currentTool) {
         case 'pencil':
             mode = 'source-over';
-        break;
+            break;
         case 'eraser':
             mode = 'destination-out';
-        break;
+            break;
         default:
             mode = 'source-over';
-        break;
+            break;
     }
     return mode;
 }

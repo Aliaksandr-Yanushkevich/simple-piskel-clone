@@ -1,17 +1,12 @@
-import {canvas, ctx} from '../../app';
+import { canvas, ctx } from '../canvas/canvasEnv';
 import { setCellSize } from '../setCellSize';
-// import { setPencilSize } from '../setPencilSize';
 import { pencilorEraser } from './pencilOrEraser';
 
-// let canvas;
-// let ctx;
 let oldX = null;
 let oldY = null;
 let cellSize = setCellSize();
 
 export function drawing() {
-    // canvas = document.querySelector('canvas');
-    // ctx = canvas.getContext('2d');
     oldX = null;
     oldY = null;
     cellSize = setCellSize();
@@ -21,10 +16,11 @@ export function drawing() {
 }
 
 export function pencilDrawing(e) {
-    const pencilSize = parseInt(localStorage.pencilSize);
+    const pencilSize = parseInt(localStorage.pencilSize, 0);
     ctx.globalCompositeOperation = pencilorEraser(); // switch pencil/eraser
     if (!((e.buttons & 1) || (e.buttons & 10))) {
-        oldX = oldY = null;
+        oldX = null;
+        oldY = null;
         return;
     }
 
@@ -35,8 +31,8 @@ export function pencilDrawing(e) {
     if (e.buttons & 10) {
         ctx.fillStyle = localStorage.secondaryColor;
     }
-    const x = Math.floor(event.offsetX / cellSize);
-    const y = Math.floor(event.offsetY / cellSize);
+    const x = Math.floor(e.offsetX / cellSize);
+    const y = Math.floor(e.offsetY / cellSize);
 
     if (oldX !== null) {
         getLineCoord({ x, y }, { x: oldX, y: oldY }).forEach(({ x, y }) => {
@@ -53,13 +49,13 @@ export function pencilDrawing(e) {
 
 function getLineCoord(p0, p1) {
     let
-        { x, y } = p0,
-        dx = Math.abs(x - p1.x),
-        dy = Math.abs(y - p1.y),
-        sx = (x < p1.x) ? 1 : -1,
-        sy = (y < p1.y) ? 1 : -1,
-        error = dx - dy,
-        coord = [];
+        { x, y } = p0;
+    const dx = Math.abs(x - p1.x);
+    const dy = Math.abs(y - p1.y);
+    const sx = (x < p1.x) ? 1 : -1;
+    const sy = (y < p1.y) ? 1 : -1;
+    let error = dx - dy;
+    const coord = [];
 
     while (true) {
         coord.push({ x, y });
@@ -83,13 +79,12 @@ function getLineCoord(p0, p1) {
 }
 
 export function savePic() {
-    // const canvas = document.querySelector('canvas');
     const canvasData = canvas.toDataURL(); // save canvas data
     localStorage.canvasData = canvasData;
-};
+}
 
 export function pencilClick(e) {
-    const pencilSize = parseInt(localStorage.pencilSize);
+    const pencilSize = parseInt(localStorage.pencilSize, 0);
     if (e.buttons & 1) {
         ctx.fillStyle = localStorage.primaryColor;
     }
@@ -97,8 +92,8 @@ export function pencilClick(e) {
     if (e.buttons & 10) {
         ctx.fillStyle = localStorage.secondaryColor;
     }
-    const x = Math.floor(event.offsetX / cellSize);
-    const y = Math.floor(event.offsetY / cellSize);
+    const x = Math.floor(e.offsetX / cellSize);
+    const y = Math.floor(e.offsetY / cellSize);
     ctx.fillRect(x, y, pencilSize, pencilSize);
     ctx.fill();
 }

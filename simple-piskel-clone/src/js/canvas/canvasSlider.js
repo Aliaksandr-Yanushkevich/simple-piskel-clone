@@ -1,10 +1,10 @@
-import { initCanvas } from "./initCanvas";
-import { pencil } from "../tools/pencil";
-import { fillBucket } from "../tools/fillBucket";
-import { magicBucket } from "../tools/magicBucket";
-import { picker } from "../tools/picker";
-import { eraser } from "../tools/eraser";
-import { stroke } from "../tools/stroke";
+import { initCanvas } from './initCanvas';
+import { pencil } from '../tools/pencil';
+import { fillBucket } from '../tools/fillBucket';
+import { magicBucket } from '../tools/magicBucket';
+import { picker } from '../tools/picker';
+import { eraser } from '../tools/eraser';
+import { stroke } from '../tools/stroke';
 
 export function canvasSlider() {
     localStorage.canvasSlider = document.querySelector('#canvasSlider').value;
@@ -12,25 +12,25 @@ export function canvasSlider() {
     switch (localStorage.currentTool) {
         case 'pencil':
             pencil();
-        break;
+            break;
 
         case 'fillBucket':
             fillBucket();
-        break;
+            break;
         case 'magicBucket':
             magicBucket();
-        break;
+            break;
         case 'picker':
             picker();
-        break;
+            break;
         case 'eraser':
             eraser();
-        break;
+            break;
         case 'stroke':
             stroke();
-        break;
+            break;
         default:
-        break;
+            break;
     }
-   
+
 }

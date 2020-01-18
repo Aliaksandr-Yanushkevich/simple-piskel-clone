@@ -1,3 +1,6 @@
+h2 {
+    margin: 0;
+}
 .modal-shortcuts {
     // display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
@@ -27,6 +30,7 @@
     justify-content: space-between;
     padding: 0 20px;
     background-color: yellow;
+    min-height: 50px;
 }
 
 #shortcuts-close {
@@ -75,6 +79,11 @@
 
 .tool-key--text {
     margin-left: 10px;
+}
+
+.info-msg {
+    color: red;
+    font-weight: 900;
 }
 
 .blink {

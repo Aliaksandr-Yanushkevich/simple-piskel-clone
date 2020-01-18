@@ -1,12 +1,13 @@
-import {setCellSize} from '../setCellSize';
 import { pencilDrawing, pencilClick, savePic } from './drawing';
 import { floodFill } from '../floodFill/floodFill';
 import { colorPicker } from './colorPicker';
-import { magicFill } from '../tools/magicFill';
+import { magicFill } from './magicFill';
+import { canvas } from '../canvas/canvasEnv';
+
 export function picker() {
     localStorage.currentTool = 'picker';
-    document.querySelectorAll('.tools-button').forEach(item => item.classList.remove('active'));
-    
+    document.querySelectorAll('.tools-button').forEach((item) => item.classList.remove('active'));
+
     document.querySelector('#picker').classList.add('active');
     canvas.className = '';
     canvas.classList.add('picker');
@@ -19,5 +20,3 @@ export function picker() {
 
     canvas.addEventListener('mousedown', colorPicker);
 }
-
-

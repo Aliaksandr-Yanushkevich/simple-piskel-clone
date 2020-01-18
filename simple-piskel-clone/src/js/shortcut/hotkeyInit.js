@@ -1,4 +1,5 @@
-import {defaultShortCuts} from './defaultShortСuts';
+import { defaultShortCuts } from './defaultShortСuts';
+
 export function hotkeyInit() {
     if (localStorage.shortCuts === undefined) {
         defaultShortCuts();

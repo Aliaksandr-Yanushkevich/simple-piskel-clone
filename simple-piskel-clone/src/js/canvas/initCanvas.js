@@ -1,4 +1,5 @@
-import {canvas, ctx} from '../../app';
+import { canvas, ctx } from './canvasEnv';
+
 export function initCanvas() {
     // canvasEnv();
     let canvasWidthHeight; // canvas dimension in inner cells
@@ -17,17 +18,17 @@ export function initCanvas() {
             canvasWidthHeight = 128;
             localStorage.canvasSlider = 2;
             break;
+        default:
+            break;
     }
     const canvasSize = 512; // canvas size in pixels
-    // const canvas = document.querySelector('#canvas');
-    // const ctx = canvas.getContext('2d');
-    canvas.addEventListener('contextmenu', e => e.preventDefault());
+    canvas.addEventListener('contextmenu', (e) => e.preventDefault());
     canvas.width = canvasWidthHeight;
     canvas.height = canvasWidthHeight;
     canvas.style.width = `${canvasSize}px`;
     canvas.style.height = `${canvasSize}px`;
 
-    const SavedImage = new Image(); // drawing canvas from localStorage 
+    const SavedImage = new Image(); // drawing canvas from localStorage
     SavedImage.src = localStorage.canvasData;
     SavedImage.onload = function () {
         ctx.drawImage(SavedImage, 0, 0);
