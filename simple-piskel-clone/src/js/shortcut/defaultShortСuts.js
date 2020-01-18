@@ -11,6 +11,18 @@ export function defaultShortCuts() {
         picker: 'o',
     };
     localStorage.shortCuts = JSON.stringify(defaultShortCuts);
+
+    document.querySelector('.paintBucket-hotkey').textContent = '(b)';
+
+    document.querySelector('.magicBucket-hotkey').textContent = '(a)';
+
+    document.querySelector('.picker-hotkey').textContent = '(o)';
+
+    document.querySelector('.pencil-hotkey').textContent = '(p)';
+
+    document.querySelector('.eraser-hotkey').textContent = '(e)';
+
+    document.querySelector('.stroke-hotkey').textContent = '(l)';
     document.querySelectorAll('.tool-key').forEach((item) => item.classList.remove('blink'));
     document.querySelector('.info-msg').textContent = '';
     initShortcutModal(); // rerender window

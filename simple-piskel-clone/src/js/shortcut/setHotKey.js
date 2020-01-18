@@ -15,21 +15,27 @@ export function setHotKey(e) {
     switch (document.querySelector('.blink').parentNode.id) {
         case 'fillbucket-shortcut':
             shortCuts.paintBucket = e.key;
+            document.querySelector('.paintBucket-hotkey').textContent = `(${e.key})`;
             break;
         case 'magicbucket-shortcut':
             shortCuts.magicBucket = e.key;
+            document.querySelector('.magicBucket-hotkey').textContent = `(${e.key})`;
             break;
         case 'picker-shortcut':
             shortCuts.picker = e.key;
+            document.querySelector('.picker-hotkey').textContent = `(${e.key})`;
             break;
         case 'pencil-shortcut':
             shortCuts.pencil = e.key;
+            document.querySelector('.pencil-hotkey').textContent = `(${e.key})`;
             break;
         case 'eraser-shortcut':
             shortCuts.eraser = e.key;
+            document.querySelector('.eraser-hotkey').textContent = `(${e.key})`;
             break;
         case 'stroke-shortcut':
             shortCuts.stroke = e.key;
+            document.querySelector('.stroke-hotkey').textContent = `(${e.key})`;
             break;
         default:
             break;
