@@ -1,20 +1,20 @@
 ### Description
-Simple web page to show weather forecast around the world. After first start application shows you forecast in your city (your location is calculated with IP). If you want to know the forecast in other place - type city in search field or use voice search. You have ability to choose language (EN, BE, RU) and switch temperature units (celsius or fahrenheit). Background of application is changing after each searching or refreshing the page (I use your search query, the time of year and time of day for more relevant getting of background)  In addition, voice commands are available (currently this feature doesn't works perfectly but I have been working on it):
+Simple piskel clone is a web application to drawing image within your browser. Six tools are available:
+- fillbucket (fills restricted area with choosed color);
+- magicbucket (fills whole canvas with choosed color);
+- color picker (chooses color for using it with other tools);
+- pencil tool (main tool for drawing);
+- eraser (removes data from canvas);
+- stroke (drawes straight line)
 
-- to change background: 'cмени фон', 'змяні фон', 'change background';
-- to choose ENG language: 'английский язык', 'английская мова', 'english language';
-- to choose BE language: 'белорусский язык', 'беларуская мова', 'belarusian language';
-- to choose RU language: 'русский язык', 'русская мова', 'russian language';
-- to show temperature in celsius: 'градусы цельсия', 'градусы цельсия', 'degrees celsius';
-- to show temperature in fahrenheit: 'градусы фаренгейта', 'градусы фарэнгейта', 'degrees fahrenheit'
-
+Currently, I have been implementing of creating animation and exporting images.
 Feel free to get in touch with me for additional information aliaksandr.yanushkevich@gmail.com
 
-Application is available [here](https://clever-kilby-1a1bec.netlify.com/)
+Application is available [here](https://inspiring-gates-550d56.netlify.com/)
 
 
 ### Install
-- git clone https://github.com/rolling-scopes-school/aliaksandr-yanushkevich-RS2019Q3/tree/fancy-weather
-- go to the fancy-weather folder
+- git clone https://github.com/rolling-scopes-school/aliaksandr-yanushkevich-RS2019Q3/tree/simple-piskel-clone
+- go to the simple-piskel-clone folder
 - npm install or npm i
 - npm run dev to start project
