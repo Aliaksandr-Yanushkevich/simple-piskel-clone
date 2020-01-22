@@ -1,7 +1,6 @@
 import { canvas, ctx } from './canvasEnv';
 
 export function initCanvas() {
-    // canvasEnv();
     let canvasWidthHeight; // canvas dimension in inner cells
     const primaryColor = localStorage.primaryColor;
     const secondaryColor = localStorage.secondaryColor;

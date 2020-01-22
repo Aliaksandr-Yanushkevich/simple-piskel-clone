@@ -1,6 +1,7 @@
 const path = require('path');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
-let conf = {
+let config = {
   entry: {
     index: './src/index.js',
     app: './src/app.js'
@@ -20,15 +21,11 @@ let conf = {
       {
         test: /\.js$/,
         exclude: /node_modules/,
-        loader: 'eslint-loader',
-        options: {
-          cache: true,
-          fix: true
-        },
+        loader: 'eslint-loader'
       },
       {
-        test: /\.css|scss$/,
-        use: ['style-loader', 'css-loader','sass-loader']
+        test: /\.scss$/,
+        use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader']
       },
       {
         test: /\.(woff|woff2|eot|ttf)$/,
@@ -47,12 +44,17 @@ let conf = {
         }
       }
     ]
-  }
+  },
+  plugins: [
+    new MiniCssExtractPlugin({
+      filename: '[name].css'
+    })
+  ]
 };
 
 module.exports = (env, argv) => {
   if (argv.mode === 'development') {
-    conf.devtool = 'source-map';
+    config.devtool = 'source-map';
   }
-  return conf;
+  return config;
 };

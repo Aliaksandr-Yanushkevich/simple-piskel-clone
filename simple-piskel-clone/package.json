@@ -7,7 +7,8 @@
     "lint": "eslint ./src/index.js",
     "fixlint": "eslint ./src/index.js --fix",
     "dev": "webpack-dev-server --mode development --open",
-    "build": "webpack --mode production"
+    "build": "webpack --mode production",
+    "test": "jest --coverage --watch"
   },
   "author": "Aliaksandr Yanushkevich",
   "license": "MIT",
@@ -30,6 +31,8 @@
     "file-loader": "^5.0.2",
     "firebase": "^7.6.1",
     "firebaseui": "^4.4.0",
+    "jest": "^24.9.0",
+    "mini-css-extract-plugin": "^0.9.0",
     "mocha": "^6.2.2",
     "node-sass": "^4.13.0",
     "path": "^0.12.7",

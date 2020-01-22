@@ -8,5 +8,5 @@ export function rgbToHex(R, G, B) {
     if (blue.length === 1) blue = `0${blue}`;
 
 
-    return `#${R}${G}${B}`;
+    return `#${red}${green}${blue}`;
 }
