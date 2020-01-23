@@ -10,6 +10,6 @@ describe("rgb to hex", function() {
   });
 
   it("convert rgb blue to hex", function() {
-    expect(rgbToHex(64, 224, 208)).toBe("#40e0d0");
+    expect(rgbToHex(9, 163, 222)).toBe("#09a3de");
   });
 });
