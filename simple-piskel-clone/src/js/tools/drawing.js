@@ -1,5 +1,5 @@
 import { canvas, ctx } from '../canvas/canvasEnv';
-import { setCellSize } from '../setCellSize';
+import { setCellSize } from './setCellSize';
 import { pencilorEraser } from './pencilOrEraser';
 
 let oldX = null;

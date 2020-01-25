@@ -1,5 +1,5 @@
-import { drawing } from './tools/drawing';
-import { eraser } from './tools/eraser';
+import { drawing } from './drawing';
+import { eraser } from './eraser';
 
 export function setPencilSize(id) {
     document.querySelectorAll('.pencilSize').forEach((item) => item.classList.remove('pencilSize-active'));

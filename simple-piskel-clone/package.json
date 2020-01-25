@@ -4,8 +4,6 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "lint": "eslint ./src/index.js",
-    "fixlint": "eslint ./src/index.js --fix",
     "dev": "webpack-dev-server --mode development --open",
     "build": "webpack --mode production",
     "test": "jest --coverage --collectCoverageFrom=./src/**/*.js --watchAll"

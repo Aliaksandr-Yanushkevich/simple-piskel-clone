@@ -1,4 +1,4 @@
-import { setCellSize } from '../setCellSize';
+import { setCellSize } from './setCellSize';
 import { canvas, ctx } from '../canvas/canvasEnv';
 import { pencilorEraser } from './pencilOrEraser';
 

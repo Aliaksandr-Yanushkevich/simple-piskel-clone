@@ -1,6 +1,6 @@
 import { ctx } from '../canvas/canvasEnv';
 import { rgbToHex } from '../floodFill/rgbToHex';
-import { setCellSize } from '../setCellSize';
+import { setCellSize } from './setCellSize';
 
 export function colorPicker(e) {
     if (!((e.buttons & 1) || (e.buttons & 10))) {

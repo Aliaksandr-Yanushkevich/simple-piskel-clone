@@ -1,5 +1,5 @@
 import { canvas, ctx } from '../canvas/canvasEnv';
-import { setCellSize } from '../setCellSize';
+import { setCellSize } from '../tools/setCellSize';
 import { rgbToHex } from './rgbToHex';
 import { hexToRGB } from './hexToRGB';
 import { matchStartColor } from './matchStartColor';
