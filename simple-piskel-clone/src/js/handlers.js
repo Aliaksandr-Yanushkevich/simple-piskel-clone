@@ -17,40 +17,40 @@ import { defaultShortCuts } from './shortcut/defaultShortСuts';
 import { createFrame } from './frames/createFrame';
 
 export function handlers() {
-    document.querySelector('#fillBucket').addEventListener('click', fillBucket);
-    document.querySelector('#magicBucket').addEventListener('click', magicBucket);
-    document.querySelector('#picker').addEventListener('click', picker);
-    document.querySelector('#pencil').addEventListener('click', pencil);
-    document
-        .querySelector('#canvasSlider')
-        .addEventListener('change', canvasSlider);
-    document
-        .querySelector('#primaryColorButton')
-        .addEventListener('click', primaryColor);
-    document
-        .querySelector('#secondaryColorButton')
-        .addEventListener('click', secondaryColor);
-    document.querySelector('#eraser').addEventListener('click', eraser);
-    document.querySelector('#stroke').addEventListener('click', stroke);
-    document.querySelector('#sign-in').addEventListener('click', signIn);
-    document.querySelector('#sign-out').addEventListener('click', signOut);
-    document.querySelector('#keyboard').addEventListener('click', shortcut);
-    document
-        .querySelector('#shortcuts-close')
-        .addEventListener('click', shortcut);
-    document
-        .querySelector('#defaultShortcuts')
-        .addEventListener('click', defaultShortCuts);
-    document.querySelector('#newFrame').addEventListener('click', createFrame);
-    document
-        .querySelectorAll('.tool-shortcuts')
-        .forEach((item) => item.addEventListener('click', hotkey));
+  document.querySelector('#fillBucket').addEventListener('click', fillBucket);
+  document.querySelector('#magicBucket').addEventListener('click', magicBucket);
+  document.querySelector('#picker').addEventListener('click', picker);
+  document.querySelector('#pencil').addEventListener('click', pencil);
+  document
+    .querySelector('#canvasSlider')
+    .addEventListener('change', canvasSlider);
+  document
+    .querySelector('#primaryColorButton')
+    .addEventListener('click', primaryColor);
+  document
+    .querySelector('#secondaryColorButton')
+    .addEventListener('click', secondaryColor);
+  document.querySelector('#eraser').addEventListener('click', eraser);
+  document.querySelector('#stroke').addEventListener('click', stroke);
+  document.querySelector('#sign-in').addEventListener('click', signIn);
+  document.querySelector('#sign-out').addEventListener('click', signOut);
+  document.querySelector('#keyboard').addEventListener('click', shortcut);
+  document
+    .querySelector('#shortcuts-close')
+    .addEventListener('click', shortcut);
+  document
+    .querySelector('#defaultShortcuts')
+    .addEventListener('click', defaultShortCuts);
+  document.querySelector('#newFrame').addEventListener('click', createFrame);
+  document
+    .querySelectorAll('.tool-shortcuts')
+    .forEach((item) => item.addEventListener('click', hotkey));
 
-    const pencilList = document.querySelectorAll('.pencilSize');
-    Array.from(pencilList).forEach((item) => {
-        item.addEventListener('click', (e) => {
-            setPencilSize(e.target.id);
-            drawing();
-        });
+  const pencilList = document.querySelectorAll('.pencilSize');
+  Array.from(pencilList).forEach((item) => {
+    item.addEventListener('click', (e) => {
+      setPencilSize(e.target.id);
+      drawing();
     });
+  });
 }

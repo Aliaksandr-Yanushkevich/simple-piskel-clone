@@ -5,18 +5,18 @@ import { magicFill } from './magicFill';
 import { canvas } from '../canvas/canvasEnv';
 
 export function picker() {
-    localStorage.currentTool = 'picker';
-    document.querySelectorAll('.tools-button').forEach((item) => item.classList.remove('active'));
+  localStorage.currentTool = 'picker';
+  document.querySelectorAll('.tools-button').forEach((item) => item.classList.remove('active'));
 
-    document.querySelector('#picker').classList.add('active');
-    canvas.className = '';
-    canvas.classList.add('picker');
+  document.querySelector('#picker').classList.add('active');
+  canvas.className = '';
+  canvas.classList.add('picker');
 
-    canvas.removeEventListener('mousemove', pencilDrawing);
-    canvas.removeEventListener('mousedown', pencilClick);
-    canvas.removeEventListener('mousedown', floodFill);
-    canvas.removeEventListener('mousedown', magicFill);
-    canvas.removeEventListener('mouseup', savePic);
+  canvas.removeEventListener('mousemove', pencilDrawing);
+  canvas.removeEventListener('mousedown', pencilClick);
+  canvas.removeEventListener('mousedown', floodFill);
+  canvas.removeEventListener('mousedown', magicFill);
+  canvas.removeEventListener('mouseup', savePic);
 
-    canvas.addEventListener('mousedown', colorPicker);
+  canvas.addEventListener('mousedown', colorPicker);
 }

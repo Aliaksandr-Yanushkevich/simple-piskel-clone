@@ -28,7 +28,6 @@ module.exports = {
     "arrow-body-style": "off",
     "no-shadow": "off",
     "object-curly-newline": "off",
-    "indent": ["error", 4, { "SwitchCase": 1 }],
     "global-require": "warn",
     "func-names": "off",
     "no-underscore-dangle": "off",

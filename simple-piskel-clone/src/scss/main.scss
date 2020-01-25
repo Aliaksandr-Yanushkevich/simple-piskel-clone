@@ -75,10 +75,12 @@ body {
 
 #canvas {
     border: dotted 1px white;
-    image-rendering: pixelated;
     min-width: 512px;
-    background-image: url('../assets/images/canvasbackground.jpg');
-   
+    image-rendering: pixelated;
+}
+
+.canvas {
+    image-rendering: pixelated;
 }
 
 input[type=range] {

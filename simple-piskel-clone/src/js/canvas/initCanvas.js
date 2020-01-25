@@ -1,38 +1,38 @@
 import { canvas, ctx } from './canvasEnv';
 
 export function initCanvas() {
-    let canvasWidthHeight; // canvas dimension in inner cells
-    const primaryColor = localStorage.primaryColor;
-    const secondaryColor = localStorage.secondaryColor;
-    switch (localStorage.canvasSlider) { // setup canvas dimension
-        case '0':
-            canvasWidthHeight = 32;
-            localStorage.canvasSlider = 0;
-            break;
-        case '1':
-            canvasWidthHeight = 64;
-            localStorage.canvasSlider = 1;
-            break;
-        case '2':
-            canvasWidthHeight = 128;
-            localStorage.canvasSlider = 2;
-            break;
-        default:
-            break;
-    }
-    const canvasSize = 512; // canvas size in pixels
-    canvas.addEventListener('contextmenu', (e) => e.preventDefault());
-    canvas.width = canvasWidthHeight;
-    canvas.height = canvasWidthHeight;
-    canvas.style.width = `${canvasSize}px`;
-    canvas.style.height = `${canvasSize}px`;
+  let canvasWidthHeight; // canvas dimension in inner cells
+  const primaryColor = localStorage.primaryColor;
+  const secondaryColor = localStorage.secondaryColor;
+  switch (localStorage.canvasSlider) { // setup canvas dimension
+    case '0':
+      canvasWidthHeight = 32;
+      localStorage.canvasSlider = 0;
+      break;
+    case '1':
+      canvasWidthHeight = 64;
+      localStorage.canvasSlider = 1;
+      break;
+    case '2':
+      canvasWidthHeight = 128;
+      localStorage.canvasSlider = 2;
+      break;
+    default:
+      break;
+  }
+  const canvasSize = 512; // canvas size in pixels
+  canvas.addEventListener('contextmenu', (e) => e.preventDefault());
+  canvas.width = canvasWidthHeight;
+  canvas.height = canvasWidthHeight;
+  canvas.style.width = `${canvasSize}px`;
+  canvas.style.height = `${canvasSize}px`;
 
-    const SavedImage = new Image(); // drawing canvas from localStorage
-    SavedImage.src = localStorage.canvasData;
-    SavedImage.onload = function () {
-        ctx.drawImage(SavedImage, 0, 0);
-    };
+  const SavedImage = new Image(); // drawing canvas from localStorage
+  SavedImage.src = localStorage.frame1;
+  SavedImage.onload = function () {
+    ctx.drawImage(SavedImage, 0, 0);
+  };
 
-    document.querySelector('#primaryColorPalette').style.backgroundColor = primaryColor;
-    document.querySelector('#secondaryColorPalette').style.backgroundColor = secondaryColor;
+  document.querySelector('#primaryColorPalette').style.backgroundColor = primaryColor;
+  document.querySelector('#secondaryColorPalette').style.backgroundColor = secondaryColor;
 }
