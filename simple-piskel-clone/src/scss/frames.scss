@@ -1,0 +1,48 @@
+.frameContainer {
+    width: 138px;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.frame {
+    width: 138px;
+    height: 138px;
+    display: flex;
+    border: 2px yellowgreen solid;
+    color: yellowgreen;
+    margin: 5px 0;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.frameMove, .frameDelete, .frameCopy, .frameNumber {
+    width: 32px;
+    height: 32px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+}
+
+.frameNumber {
+    left: 0;
+    top: 0;
+} 
+
+.frameMove {
+    left: 0;
+    bottom: 0;
+} 
+
+.frameDelete {
+    right: 0;
+    top: 0;
+} 
+
+.frameCopy {
+    right: 0;
+    bottom: 0;
+}
