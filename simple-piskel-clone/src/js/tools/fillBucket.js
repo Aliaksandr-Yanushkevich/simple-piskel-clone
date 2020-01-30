@@ -1,6 +1,7 @@
 import { floodFill } from '../floodFill/floodFill';
-import { pencilDrawing, pencilClick, savePic } from './drawing';
+import { pencilDrawing, pencilClick } from './drawing';
 import { canvas } from '../canvas/canvasEnv';
+import { saveFrame } from '../frames/saveFrame';
 
 export function fillBucket() {
   localStorage.currentTool = 'fillBucket';
@@ -12,5 +13,6 @@ export function fillBucket() {
   canvas.removeEventListener('mousemove', pencilDrawing);
   canvas.removeEventListener('mousedown', pencilClick);
   canvas.addEventListener('mousedown', floodFill);
-  canvas.addEventListener('mouseup', savePic);
+  canvas.addEventListener('mouseup', saveFrame);
+
 }

@@ -10,17 +10,17 @@ import { handlers } from './js/handlers';
 import { initTools } from './js/init/initTools';
 import { auth } from './js/authorization/auth';
 import { hotkeyhandler } from './js/shortcut/hotkeyhandler';
-import { canvasDefault } from './js/canvas/canvasDefault';
+import { defaultFrame } from './js/frames/defaultFrame';
 import { initFrameContainer } from './js/init/initFrameContainer';
-import { createFrame, createFirstFrame } from './js/frames/createFrame';
+import { initFrames } from './js/init/initFrames';
 // SETUP BLOCK
 
 initTools();
 initMain();
-canvasDefault();
-initCanvas();
 initFrameContainer();
-createFirstFrame();
+defaultFrame();
+initCanvas();
+initFrames();
 handlers();
 auth();
 

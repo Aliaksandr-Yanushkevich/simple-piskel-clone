@@ -1,4 +1,4 @@
-import { setCellSize } from "../src/js/setCellSize";
+import { setCellSize } from "../src/js/tools/setCellSize";
 describe("set canvas cell size", function() {
   it("set size of cell value = 16", function() {
     localStorage.canvasSlider = "0";

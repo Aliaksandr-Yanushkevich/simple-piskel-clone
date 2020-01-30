@@ -1,15 +1,22 @@
 export function initFrameContainer() {
   // create frameContainer
   const mainToolbox = document.querySelector('.main-toolbox');
+  const frames = document.createElement('div');
   const frameContainer = document.createElement('div');
+  frames.classList.add('frames');
   frameContainer.classList.add('frameContainer');
-  mainToolbox.after(frameContainer);
+  frames.append(frameContainer);
+  mainToolbox.after(frames);
+
 
   // create button for adding frame
-  const newFrame = document.createElement('button');
-  newFrame.id = 'newFrame';
-  newFrame.className = 'button newFrame';
-  frameContainer.append(newFrame);
+  const addNewFrameWrapper = document.createElement('div');
+  const addNewFrame = document.createElement('button');
+  addNewFrameWrapper.className = 'addNewFrameWrapper';
+  addNewFrame.id = 'addNewFrame';
+  addNewFrame.className = 'button addNewFrame';
+  addNewFrameWrapper.append(addNewFrame);
+  frames.append(addNewFrameWrapper);
 
   // style button
   const newFramePlus = document.createElement('p');
@@ -18,6 +25,6 @@ export function initFrameContainer() {
   newFrameTitle.textContent = 'Add new frame';
   newFramePlus.className = 'button-newFramePlus';
   newFrameTitle.className = 'button-newFrameTitle';
-  newFrame.append(newFramePlus);
-  newFrame.append(newFrameTitle);
+  addNewFrame.append(newFramePlus);
+  addNewFrame.append(newFrameTitle);
 }

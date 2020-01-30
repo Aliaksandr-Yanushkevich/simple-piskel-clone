@@ -15,6 +15,7 @@ import { shortcut } from './shortcut/shortcut';
 import { hotkey } from './shortcut/hotkey';
 import { defaultShortCuts } from './shortcut/defaultShortСuts';
 import { createFrame } from './frames/createFrame';
+import { frameHandler } from './frames/frameHandler';
 
 export function handlers() {
   document.querySelector('#fillBucket').addEventListener('click', fillBucket);
@@ -41,10 +42,11 @@ export function handlers() {
   document
     .querySelector('#defaultShortcuts')
     .addEventListener('click', defaultShortCuts);
-  document.querySelector('#newFrame').addEventListener('click', createFrame);
+  document.querySelector('#addNewFrame').addEventListener('click', createFrame);
   document
     .querySelectorAll('.tool-shortcuts')
     .forEach((item) => item.addEventListener('click', hotkey));
+  document.querySelector('.frameContainer').addEventListener('click', frameHandler);
 
   const pencilList = document.querySelectorAll('.pencilSize');
   Array.from(pencilList).forEach((item) => {

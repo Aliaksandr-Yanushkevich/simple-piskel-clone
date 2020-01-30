@@ -1,8 +1,9 @@
-import { pencilDrawing, pencilClick, savePic } from './drawing';
+import { pencilDrawing, pencilClick } from './drawing';
 import { floodFill } from '../floodFill/floodFill';
 import { colorPicker } from './colorPicker';
 import { magicFill } from './magicFill';
 import { canvas } from '../canvas/canvasEnv';
+import { saveFrame } from '../frames/saveFrame';
 
 export function picker() {
   localStorage.currentTool = 'picker';
@@ -16,7 +17,8 @@ export function picker() {
   canvas.removeEventListener('mousedown', pencilClick);
   canvas.removeEventListener('mousedown', floodFill);
   canvas.removeEventListener('mousedown', magicFill);
-  canvas.removeEventListener('mouseup', savePic);
+  canvas.removeEventListener('mouseup', saveFrame);
+
 
   canvas.addEventListener('mousedown', colorPicker);
 }

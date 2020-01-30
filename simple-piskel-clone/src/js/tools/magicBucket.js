@@ -1,7 +1,8 @@
 import { floodFill } from '../floodFill/floodFill';
-import { pencilDrawing, pencilClick, savePic } from './drawing';
+import { pencilDrawing, pencilClick } from './drawing';
 import { magicFill } from './magicFill';
 import { canvas } from '../canvas/canvasEnv';
+import { saveFrame } from '../frames/saveFrame';
 
 export function magicBucket() {
   localStorage.currentTool = 'magicBucket';
@@ -14,6 +15,6 @@ export function magicBucket() {
   canvas.removeEventListener('mousedown', pencilClick);
   canvas.removeEventListener('mousedown', floodFill);
 
-  canvas.addEventListener('mouseup', savePic);
+  canvas.addEventListener('mouseup', saveFrame);
   canvas.addEventListener('mousedown', magicFill);
 }

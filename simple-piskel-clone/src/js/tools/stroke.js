@@ -1,9 +1,10 @@
 import { startCoord } from './strokeDrawing';
-import { pencilDrawing, savePic, pencilClick } from './drawing';
+import { pencilDrawing, pencilClick } from './drawing';
 import { floodFill } from '../floodFill/floodFill';
 import { magicFill } from './magicFill';
 import { colorPicker } from './colorPicker';
 import { canvas } from '../canvas/canvasEnv';
+import { saveFrame } from '../frames/saveFrame';
 
 export function stroke() {
   localStorage.currentTool = 'stroke';
@@ -11,9 +12,8 @@ export function stroke() {
   document.querySelector('#stroke').classList.add('active');
   canvas.className = '';
   canvas.classList.add('stroke');
-
   canvas.removeEventListener('mousemove', pencilDrawing);
-  canvas.removeEventListener('mouseup', savePic);
+  canvas.removeEventListener('mouseup', saveFrame);
   canvas.removeEventListener('mousedown', floodFill);
   canvas.removeEventListener('mousedown', magicFill);
   canvas.removeEventListener('mousedown', colorPicker);

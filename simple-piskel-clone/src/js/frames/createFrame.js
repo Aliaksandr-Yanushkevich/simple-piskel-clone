@@ -1,48 +1,44 @@
-export function createFrame() {
-  const newFrame = document.querySelector('#newFrame');
+export function createFrame(data) {
+  const frameContainer = document.querySelector('.frameContainer');
   // create div
   const frame = document.createElement('div');
   frame.className = 'frame';
   const frameAmount = document.querySelectorAll('.frame').length + 1;
   // add buttons into frame
   const frameNumber = document.createElement('div');
-  frameNumber.className = 'frameNumber';
+  frameNumber.className = 'frameNumber visibleFrame';
   frameNumber.textContent = frameAmount;
   const frameDelete = document.createElement('div');
   frameDelete.className = 'frameDelete';
   frameDelete.innerHTML = '<i class="fas fa-trash-alt"></i>';
-  const frameCopy = document.createElement('div');
-  frameCopy.className = 'frameCopy';
-  frameCopy.innerHTML = '<i class="far fa-clone"></i>';
+  const copyFrame = document.createElement('div');
+  copyFrame.className = 'copyFrame';
+  copyFrame.innerHTML = '<i class="far fa-clone"></i>';
   const frameMove = document.createElement('div');
   frameMove.className = 'frameMove';
   frameMove.innerHTML = '<i class="fas fa-arrows-alt"></i>';
   frame.append(frameNumber);
   frame.append(frameDelete);
-  frame.append(frameCopy);
+  frame.append(copyFrame);
   frame.append(frameMove);
 
   // add canvas into frame
   const canvas = document.createElement('canvas');
-
+  const ctx = canvas.getContext('2d');
   let canvasWidthHeight;
-
-  canvas.id = `canvas${frameAmount}`;
+  const frames = JSON.parse(localStorage.frames);
   canvas.className = 'canvas';
   switch (
     localStorage.canvasSlider // setup canvas dimension
   ) {
     case '0':
       canvasWidthHeight = 32;
-      // localStorage.canvasSlider = 0;
       break;
     case '1':
       canvasWidthHeight = 64;
-      // localStorage.canvasSlider = 1;
       break;
     case '2':
       canvasWidthHeight = 128;
-      // localStorage.canvasSlider = 2;
       break;
     default:
       break;
@@ -51,27 +47,23 @@ export function createFrame() {
   canvas.height = canvasWidthHeight;
   canvas.style.width = '128px';
   canvas.style.height = '128px';
-  if (canvas.id !== 'canvas1') {
-    localStorage.setItem(`frame${frameAmount}`, '');
-    const mainCanvas = document.querySelector('#canvas');
-    const mainContext = mainCanvas.getContext('2d');
-    mainContext.clearRect(0, 0, mainCanvas.width, mainCanvas.height);
+  if (typeof data === 'string') {
+    const SavedImage = new Image();
+    SavedImage.src = data;
+    SavedImage.onload = function () {
+      ctx.drawImage(SavedImage, 0, 0);
+    };
+  } else {
+    frames.push('');
   }
 
+  localStorage.frames = JSON.stringify(frames);
+  const mainCanvas = document.querySelector('#canvas');
+  const mainContext = mainCanvas.getContext('2d');
+  mainContext.clearRect(0, 0, mainCanvas.width, mainCanvas.height);
+
   frame.append(canvas);
-
-  newFrame.before(frame);
+  frameContainer.append(frame);
+  document.querySelectorAll('.frame').forEach((element) => element.classList.remove('frameActive'));
+  frame.classList.add('frameActive');
 }
-
-export function createFirstFrame() {
-  createFrame();
-  const canvas = document.querySelector('#canvas1');
-  const ctx = canvas.getContext('2d');
-  const SavedImage = new Image();
-  SavedImage.src = localStorage.frame1;
-  SavedImage.onload = function () {
-    ctx.drawImage(SavedImage, 0, 0);
-  };
-}
-
-export function updateMainCanvas() { }

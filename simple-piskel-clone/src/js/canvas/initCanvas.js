@@ -4,6 +4,7 @@ export function initCanvas() {
   let canvasWidthHeight; // canvas dimension in inner cells
   const primaryColor = localStorage.primaryColor;
   const secondaryColor = localStorage.secondaryColor;
+  const frames = JSON.parse(localStorage.frames);
   switch (localStorage.canvasSlider) { // setup canvas dimension
     case '0':
       canvasWidthHeight = 32;
@@ -27,11 +28,11 @@ export function initCanvas() {
   canvas.style.width = `${canvasSize}px`;
   canvas.style.height = `${canvasSize}px`;
 
-  const SavedImage = new Image(); // drawing canvas from localStorage
-  SavedImage.src = localStorage.frame1;
-  SavedImage.onload = function () {
-    ctx.drawImage(SavedImage, 0, 0);
-  };
+  // const SavedImage = new Image(); // drawing canvas from localStorage
+  // SavedImage.src = frames[0];
+  // SavedImage.onload = function () {
+  //   ctx.drawImage(SavedImage, 0, 0);
+  // };
 
   document.querySelector('#primaryColorPalette').style.backgroundColor = primaryColor;
   document.querySelector('#secondaryColorPalette').style.backgroundColor = secondaryColor;

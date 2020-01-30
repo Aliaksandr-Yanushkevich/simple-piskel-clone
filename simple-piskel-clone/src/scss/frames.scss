@@ -9,19 +9,24 @@
     width: 138px;
     height: 138px;
     display: flex;
-    border: 2px yellowgreen solid;
-    color: yellowgreen;
+    border: 2px #3A3A3A solid;
+    color: #FFFFFF;
     margin: 5px 0;
     position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
+    &:hover {
+        .frameMove, .frameDelete, .copyFrame, .frameNumber {
+            display: flex;
+        }
+    }
 }
 
-.frameMove, .frameDelete, .frameCopy, .frameNumber {
+.frameMove, .frameDelete, .copyFrame, .frameNumber {
     width: 32px;
     height: 32px;
-    display: flex;
+    display: none;
     justify-content: center;
     align-items: center;
     position: absolute;
@@ -42,7 +47,21 @@
     top: 0;
 } 
 
-.frameCopy {
+.copyFrame {
     right: 0;
     bottom: 0;
+}
+
+.visibleFrame {
+    background-color: yellow;
+    color: black;
+    font-weight: bold;
+}
+.hiddenFrame {
+    background-color:  #3A3A3A;
+    color: white;
+}
+
+.frameActive {
+    border: 2px #F9D80C solid;
 }

@@ -44,5 +44,6 @@ module.exports = {
     "no-restricted-syntax": ["error", "DebuggerStatement", "ForInStatement", "LabeledStatement", "WithStatement"],
     "dot-notation": "off",
     "class-methods-use-this": "off",
+    "no-case-declarations": "off"
   },
 };

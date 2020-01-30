@@ -1,6 +1,8 @@
 import { canvas, ctx } from '../canvas/canvasEnv';
 import { setCellSize } from './setCellSize';
 import { pencilorEraser } from './pencilOrEraser';
+import { canvasToFrame } from '../frames/canvasToFrame';
+import { saveFrame } from '../frames/saveFrame';
 
 let oldX = null;
 let oldY = null;
@@ -11,7 +13,7 @@ export function drawing() {
   oldY = null;
   cellSize = setCellSize();
   canvas.addEventListener('mousemove', pencilDrawing);
-  canvas.addEventListener('mouseup', savePic);
+  canvas.addEventListener('mouseup', saveFrame);
   canvas.addEventListener('mousedown', pencilClick);
 }
 
@@ -78,10 +80,11 @@ function getLineCoord(p0, p1) {
   return coord;
 }
 
-export function savePic() {
-  const canvasData = canvas.toDataURL(); // save canvas data
-  localStorage.frame1 = canvasData;
-}
+// export function savePic() {
+//   const canvasData = canvas.toDataURL(); // save canvas data
+//   localStorage.frame1 = canvasData;
+//   canvasToFrame();
+// }
 
 export function pencilClick(e) {
   const pencilSize = parseInt(localStorage.pencilSize, 0);
