@@ -47,7 +47,7 @@ export function createFrame(data) {
   canvas.height = canvasWidthHeight;
   canvas.style.width = '128px';
   canvas.style.height = '128px';
-  if (typeof data === 'string') {
+  if (typeof data === 'string') { // if frame is created with add new frame button => data is MouseEvent
     const SavedImage = new Image();
     SavedImage.src = data;
     SavedImage.onload = function () {

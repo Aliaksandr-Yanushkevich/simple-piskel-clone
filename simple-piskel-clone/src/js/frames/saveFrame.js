@@ -1,4 +1,4 @@
-import { canvas, ctx } from '../canvas/canvasEnv';
+import { canvas } from '../canvas/canvasEnv';
 import { canvasToFrame } from './canvasToFrame';
 
 export function saveFrame() {
