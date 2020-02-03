@@ -26,7 +26,6 @@ export function drawAnimation() {
 
   start();
   function start() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
     const image = new Image();
     image.src = frames[count % frames.length][0];
     image.onload = function () {

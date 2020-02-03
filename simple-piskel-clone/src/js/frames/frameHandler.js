@@ -32,6 +32,7 @@ export function frameHandler(e) {
       document.querySelectorAll('.frame').forEach((element) => element.classList.remove('frameActive'));
       currentFrame.classList.add('frameActive');
       frameToCanvas();
+      drawAnimation();
       break;
     default:
       break;
