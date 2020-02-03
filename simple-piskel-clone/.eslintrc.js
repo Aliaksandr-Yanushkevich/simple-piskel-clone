@@ -16,7 +16,7 @@ module.exports = {
     sourceType: 'module',
   },
   rules: {
-    "prefer-destructuring": ["error", {"object": false, "array": false}],
+    "prefer-destructuring": ["error", { "object": false, "array": false }],
     "linebreak-style": "off",
     "no-unused-vars": ["error", { vars: "local", args: "none" }],
     "no-await-in-loop": "warn",
@@ -44,6 +44,7 @@ module.exports = {
     "no-restricted-syntax": ["error", "DebuggerStatement", "ForInStatement", "LabeledStatement", "WithStatement"],
     "dot-notation": "off",
     "class-methods-use-this": "off",
-    "no-case-declarations": "off"
+    "no-case-declarations": "off",
+    "valid-typeof": "off"
   },
 };

@@ -5,10 +5,15 @@ import { magicBucket } from '../tools/magicBucket';
 import { picker } from '../tools/picker';
 import { eraser } from '../tools/eraser';
 import { stroke } from '../tools/stroke';
+import { updateFrameImage } from '../frames/updateFrameImage';
+import { drawAnimation } from '../animation/drawAnimation';
 
 export function canvasSlider() {
   localStorage.canvasSlider = document.querySelector('#canvasSlider').value;
   initCanvas();
+  updateFrameImage();
+  drawAnimation();
+
   switch (localStorage.currentTool) {
     case 'pencil':
       pencil();

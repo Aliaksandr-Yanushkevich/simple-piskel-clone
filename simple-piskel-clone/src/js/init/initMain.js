@@ -7,6 +7,10 @@ import { initShortcutModal } from '../shortcut/initShortcutModal';
 
 export function initMain() {
   document.querySelector('#canvasSlider').value = localStorage.canvasSlider;
+  const FPS = localStorage.FPS;
+  document.querySelector('#animationFPS').value = FPS;
+  const showFPS = document.querySelector('.animation-frequency p');
+  showFPS.textContent = `${FPS} FPS`;
 
   switch (localStorage.currentTool) {
     case 'pencil':

@@ -11,7 +11,7 @@ export function initFrames() {
   DOMframes[0].classList.add('frameActive');
   // drawing first frame on main canvas
   const image = new Image();
-  image.src = frames[0];
+  image.src = frames[0][0];
   image.onload = function () {
     mainContext.drawImage(image, 0, 0);
   };

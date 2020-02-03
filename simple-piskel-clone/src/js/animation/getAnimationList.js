@@ -1,11 +1,11 @@
 export function getAnimationList() {
   const frameList = [];
-  document.querySelectorAll('.visibleFrame').forEach((el) => {
-    const canvas = el.parentNode.querySelector('canvas');
-    const ctx = canvas.getContext('2d');
-    const image = ctx.getImageData(0, 0, canvas.width, canvas.height);
-    frameList.push(image);
+  const frameSource = JSON.parse(localStorage.frames);
+  frameSource.map((el) => {
+    if (el[1] === true) {
+      frameList.push(el);
+    }
+    return frameList;
   });
-  //   console.log(frameList[0]);
   return frameList;
 }

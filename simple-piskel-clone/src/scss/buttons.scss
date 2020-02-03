@@ -158,3 +158,13 @@ $border-hover: 2px #888888 solid;
         opacity: 1;
     }
 }
+
+#addNewFrame {
+    width: 100%;
+    border: 2px #3A3A3A solid;
+    background-color: #1D1D1D;
+    color: #FFFFFF;
+    &:hover {
+        border: solid 2px yellow;
+    }
+}

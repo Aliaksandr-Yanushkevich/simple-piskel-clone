@@ -24,6 +24,7 @@ initFrameContainer();
 defaultFrame();
 initCanvas();
 initFrames();
+drawAnimation();
 handlers();
 auth();
 
@@ -33,8 +34,4 @@ window.onclick = function (event) {
   if (event.target === modal) {
     modal.classList.add('hide');
   }
-};
-
-window.onload = function () {
-  drawAnimation();
 };

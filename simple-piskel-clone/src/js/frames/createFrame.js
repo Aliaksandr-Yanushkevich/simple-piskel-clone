@@ -8,7 +8,12 @@ export function createFrame(data) {
   const frameAmount = document.querySelectorAll('.frame').length + 1;
   // add buttons into frame
   const frameNumber = document.createElement('div');
-  frameNumber.className = 'frameNumber visibleFrame';
+  if (data[1] === true) {
+    frameNumber.className = 'frameNumber visibleFrame';
+  } else {
+    frameNumber.className = 'frameNumber hiddenFrame';
+  }
+
   frameNumber.textContent = frameAmount;
   const frameDelete = document.createElement('div');
   frameDelete.className = 'frameDelete';
@@ -34,14 +39,15 @@ export function createFrame(data) {
   canvas.height = canvasWidthHeight;
   canvas.style.width = '128px';
   canvas.style.height = '128px';
-  if (typeof data === 'string') { // if frame is created with add new frame button => data is MouseEvent
+  if (Array.isArray(data)) { // if frame is created with add new frame button => data is object
     const SavedImage = new Image();
-    SavedImage.src = data;
+    SavedImage.src = data[0];
     SavedImage.onload = function () {
       ctx.drawImage(SavedImage, 0, 0);
     };
+
   } else {
-    frames.push('');
+    frames.push(['', true]);
   }
 
   localStorage.frames = JSON.stringify(frames);

@@ -15,7 +15,6 @@
 .animationProp {
     display: flex;
     flex-direction: row;
-    border: 1px red solid;
     justify-content: space-between;
 }
 
@@ -44,4 +43,8 @@
     background: white;
     cursor: pointer;
     -webkit-appearance: none;
+  }
+
+  .animation-frequency {
+    color: #ffffff;
   }
