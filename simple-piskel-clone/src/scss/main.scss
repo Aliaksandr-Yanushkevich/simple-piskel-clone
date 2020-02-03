@@ -85,7 +85,7 @@ body {
 
 input[type=range] {
     -webkit-appearance: none;
-    margin-top: 43px;
+    margin-top: 10px;
     width: 100%;
     border-radius: 10px;
   }
@@ -177,6 +177,10 @@ input[type=range] {
     width: 85px;
     justify-content: space-between;
 
+}
+
+.canvasSize {
+    color: #FFFFFF;
 }
 
 .hide {

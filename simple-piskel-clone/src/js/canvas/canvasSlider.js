@@ -7,12 +7,16 @@ import { eraser } from '../tools/eraser';
 import { stroke } from '../tools/stroke';
 import { updateFrameImage } from '../frames/updateFrameImage';
 import { drawAnimation } from '../animation/drawAnimation';
+import { getCanvasSize } from './getCanvasSize';
 
 export function canvasSlider() {
-  localStorage.canvasSlider = document.querySelector('#canvasSlider').value;
+  const canvasSlider = document.querySelector('#canvasSlider').value;
+  localStorage.canvasSlider = canvasSlider;
   initCanvas();
+  getCanvasSize();
   updateFrameImage();
   drawAnimation();
+
 
   switch (localStorage.currentTool) {
     case 'pencil':

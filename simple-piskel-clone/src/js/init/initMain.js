@@ -4,13 +4,15 @@ import { picker } from '../tools/picker';
 import { fillBucket } from '../tools/fillBucket';
 import { hotkeyInit } from '../shortcut/hotkeyInit';
 import { initShortcutModal } from '../shortcut/initShortcutModal';
+import { getCanvasSize } from '../canvas/getCanvasSize';
 
 export function initMain() {
-  document.querySelector('#canvasSlider').value = localStorage.canvasSlider;
   const FPS = localStorage.FPS;
-  document.querySelector('#animationFPS').value = FPS;
   const showFPS = document.querySelector('.animation-frequency p');
+  document.querySelector('#canvasSlider').value = localStorage.canvasSlider;
+  document.querySelector('#animationFPS').value = FPS;
   showFPS.textContent = `${FPS} FPS`;
+  getCanvasSize();
 
   switch (localStorage.currentTool) {
     case 'pencil':
