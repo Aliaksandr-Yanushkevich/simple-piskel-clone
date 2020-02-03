@@ -89,6 +89,10 @@ input[type=range] {
     width: 100%;
     border-radius: 10px;
   }
+
+  input[type=range]:focus {
+    outline: none; /* Removes the blue border. You should probably do some kind of focus styling for accessibility reasons though. */
+  }
   
   input[type=range]::-webkit-slider-runnable-track {
     cursor: pointer;
@@ -130,12 +134,6 @@ input[type=range] {
 
 #primaryColor,  #secondaryColor{
     display: none;
-}
-
-.additional-tool {
-    display: flex;
-    flex-direction: row;
-    margin-right: 100px;
 }
 
 .searching-form {

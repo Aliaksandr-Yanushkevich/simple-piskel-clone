@@ -10,7 +10,7 @@
     <link href="https://fonts.googleapis.com/css?family=Carrois+Gothic+SC&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
     <link rel="stylesheet" href="./dist/app.css">
-    <link rel="shortcut icon" type="image/png" href="./dist/favicon.ico"/>
+    <link rel="shortcut icon" type="image/png" href="./dist/favicon.ico" />
 </head>
 
 <body>
@@ -59,13 +59,15 @@
                         <button id="fillBucket" class="button tools-button">
                             <img src="./src/assets/images/icon/fillbucket-icon.png" alt="Image is not supported">
                         </button>
-                        <div class="tools-tip">Paint bucket tool <span class="tool-tip--hotkey paintBucket-hotkey"></span></div>
+                        <div class="tools-tip">Paint bucket tool <span
+                                class="tool-tip--hotkey paintBucket-hotkey"></span></div>
                     </div>
                     <div class="tools tools-magicBucket">
                         <button id="magicBucket" class="button tools-button">
                             <img src="./src/assets/images/icon/magicBucket-icon.png" alt="Image is not supported">
                         </button>
-                        <div class="tools-tip">Magic bucket tool <span class="tool-tip--hotkey magicBucket-hotkey"></span></div>
+                        <div class="tools-tip">Magic bucket tool <span
+                                class="tool-tip--hotkey magicBucket-hotkey"></span></div>
                     </div>
                     <div class="tools tools-picker">
                         <button id="picker" class="button tools-button">
@@ -116,7 +118,18 @@
                     <input id="canvasSlider" type='range' min='0' max='2' step='1'></input>
                 </div>
             </div>
-            <div class="additional-tool">
+            <div class="animation-tool">
+                <div class="animation-player">
+                    <canvas id="canvasAnimation" width="128" height="128"></canvas>
+                    <div class="animationProp">
+                        <div class="animation-frequency">
+                            <p>24 FPS</p>
+                        </div>
+                        <div class="animationSlider">
+                            <input id="animationFPS" type='range' min='0' max='24' step='1'></input>
+                        </div>
+                    </div>
+                </div>
             </div>
 
         </div>
@@ -156,17 +169,20 @@
                         <p class="tool-key--text">Color picker</p>
                     </div>
                     <div id="pencil-shortcut" class="tool-shortcuts">
-                        <img class="tool-icon" src="./src/assets/images/icon/pencil-icon.png" alt="Image is not supported">
+                        <img class="tool-icon" src="./src/assets/images/icon/pencil-icon.png"
+                            alt="Image is not supported">
                         <div class="tool-key tool-key--pencil"></div>
                         <p class="tool-key--text">Pencil tool</p>
                     </div>
                     <div id="eraser-shortcut" class="tool-shortcuts">
-                        <img class="tool-icon" src="./src/assets/images/icon/eraser-icon.png" alt="Image is not supported">
+                        <img class="tool-icon" src="./src/assets/images/icon/eraser-icon.png"
+                            alt="Image is not supported">
                         <div class="tool-key tool-key--eraser"></div>
                         <p class="tool-key--text">Eraser</p>
                     </div>
                     <div id="stroke-shortcut" class="tool-shortcuts">
-                        <img class="tool-icon" src="./src/assets/images/icon/stroke-icon.png" alt="Image is not supported">
+                        <img class="tool-icon" src="./src/assets/images/icon/stroke-icon.png"
+                            alt="Image is not supported">
                         <div class="tool-key tool-key--stroke"></div>
                         <p class="tool-key--text">Stroke tool</p>
                     </div>
@@ -184,7 +200,7 @@
         </div>
     </footer>
     <script src="./dist/app.js"></script>
-    
+
 </body>
 
 </html>

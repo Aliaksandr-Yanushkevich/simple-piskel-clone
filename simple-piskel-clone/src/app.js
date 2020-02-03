@@ -4,6 +4,7 @@ import './scss/buttons.scss';
 import './scss/tips.scss';
 import './scss/modal.scss';
 import './scss/frames.scss';
+import './scss/animation.scss';
 import { initMain } from './js/init/initMain';
 import { initCanvas } from './js/canvas/initCanvas';
 import { handlers } from './js/handlers';
@@ -13,6 +14,8 @@ import { hotkeyhandler } from './js/shortcut/hotkeyhandler';
 import { defaultFrame } from './js/frames/defaultFrame';
 import { initFrameContainer } from './js/init/initFrameContainer';
 import { initFrames } from './js/init/initFrames';
+import { getAnimationList } from './js/animation/getAnimationList';
+import { drawAnimation } from './js/animation/drawAnimation';
 // SETUP BLOCK
 
 initTools();
@@ -24,11 +27,14 @@ initFrames();
 handlers();
 auth();
 
-
 window.addEventListener('keydown', hotkeyhandler);
 window.onclick = function (event) {
   const modal = document.querySelector('.modal-shortcuts');
   if (event.target === modal) {
     modal.classList.add('hide');
   }
+};
+
+window.onload = function () {
+  drawAnimation();
 };

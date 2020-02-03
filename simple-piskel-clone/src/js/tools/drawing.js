@@ -80,12 +80,6 @@ function getLineCoord(p0, p1) {
   return coord;
 }
 
-// export function savePic() {
-//   const canvasData = canvas.toDataURL(); // save canvas data
-//   localStorage.frame1 = canvasData;
-//   canvasToFrame();
-// }
-
 export function pencilClick(e) {
   const pencilSize = parseInt(localStorage.pencilSize, 0);
   if (e.buttons & 1) {

@@ -1,0 +1,47 @@
+.animation-tool {
+    display: flex;
+    // flex-direction: row;
+    margin-right: 100px;
+    padding-right: 50px;
+}
+
+#canvasAnimation {
+    width: 200px;
+    height: 200px;
+    border: dotted 1px white;
+    image-rendering: pixelated;
+}
+
+.animationProp {
+    display: flex;
+    flex-direction: row;
+    border: 1px red solid;
+    justify-content: space-between;
+}
+
+.animationSlider {
+    width: 60%;
+}
+
+.animationSlider input[type=range] {
+    -webkit-appearance: none;
+    margin-top: 16px;
+    width: 100%;
+    border-radius: 10px;
+  }
+
+.animationSlider input[type=range]::-webkit-slider-runnable-track {
+    cursor: pointer;
+    background: #424241;
+    border-radius: 10px;
+    border: none;
+  }
+  
+  .animationSlider input[type=range]::-webkit-slider-thumb {
+    height: 15px;
+    width: 15px;
+    border-radius: 10px;
+    background: white;
+    cursor: pointer;
+    -webkit-appearance: none;
+  }

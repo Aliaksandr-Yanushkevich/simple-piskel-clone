@@ -1,25 +1,11 @@
-import { canvas, ctx } from './canvasEnv';
+import { canvas } from './canvasEnv';
+import { setCanvasSize } from './setCanvasSize';
 
 export function initCanvas() {
-  let canvasWidthHeight; // canvas dimension in inner cells
+  const canvasWidthHeight = setCanvasSize(); // canvas dimension in inner cells
   const primaryColor = localStorage.primaryColor;
   const secondaryColor = localStorage.secondaryColor;
-  switch (localStorage.canvasSlider) { // setup canvas dimension
-    case '0':
-      canvasWidthHeight = 32;
-      localStorage.canvasSlider = 0;
-      break;
-    case '1':
-      canvasWidthHeight = 64;
-      localStorage.canvasSlider = 1;
-      break;
-    case '2':
-      canvasWidthHeight = 128;
-      localStorage.canvasSlider = 2;
-      break;
-    default:
-      break;
-  }
+
   const canvasSize = 512; // canvas size in pixels
   canvas.addEventListener('contextmenu', (e) => e.preventDefault());
   canvas.width = canvasWidthHeight;

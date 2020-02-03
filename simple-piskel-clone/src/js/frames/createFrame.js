@@ -1,3 +1,5 @@
+import { setCanvasSize } from '../canvas/setCanvasSize';
+
 export function createFrame(data) {
   const frameContainer = document.querySelector('.frameContainer');
   // create div
@@ -25,24 +27,9 @@ export function createFrame(data) {
   // add canvas into frame
   const canvas = document.createElement('canvas');
   const ctx = canvas.getContext('2d');
-  let canvasWidthHeight;
+  const canvasWidthHeight = setCanvasSize();
   const frames = JSON.parse(localStorage.frames);
   canvas.className = 'canvas';
-  switch (
-    localStorage.canvasSlider // setup canvas dimension
-  ) {
-    case '0':
-      canvasWidthHeight = 32;
-      break;
-    case '1':
-      canvasWidthHeight = 64;
-      break;
-    case '2':
-      canvasWidthHeight = 128;
-      break;
-    default:
-      break;
-  }
   canvas.width = canvasWidthHeight;
   canvas.height = canvasWidthHeight;
   canvas.style.width = '128px';
