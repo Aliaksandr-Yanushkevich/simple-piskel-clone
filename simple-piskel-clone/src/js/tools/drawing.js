@@ -1,7 +1,6 @@
 import { canvas, ctx } from '../canvas/canvasEnv';
 import { setCellSize } from './setCellSize';
 import { pencilorEraser } from './pencilOrEraser';
-import { canvasToFrame } from '../frames/canvasToFrame';
 import { saveFrame } from '../frames/saveFrame';
 
 let oldX = null;
