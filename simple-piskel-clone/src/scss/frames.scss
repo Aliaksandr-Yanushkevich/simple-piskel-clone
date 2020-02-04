@@ -1,75 +1,88 @@
 .frameContainer {
-    width: 138px;
-    align-items: center;
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 138px;
 }
 
 .frame {
-    width: 138px;
-    height: 138px;
-    display: flex;
-    border: 2px #3A3A3A solid;
-    color: #FFFFFF;
-    margin: 5px 0;
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    &:hover {
-        .frameMove, .frameDelete, .copyFrame, .frameNumber {
-            display: flex;
-        }
+  position: relative;
+
+  display: flex;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 138px;
+  height: 138px;
+  margin: 5px 0;
+
+  color: #ffffff;
+
+  border: 2px #3a3a3a solid;
+  &:hover {
+    .frameMove,
+    .frameDelete,
+    .copyFrame,
+    .frameNumber {
+      display: flex;
     }
+  }
 }
 
-.frameMove, .frameDelete, .copyFrame, .frameNumber {
-    width: 32px;
-    height: 32px;
-    display: none;
-    justify-content: center;
-    align-items: center;
-    position: absolute;
+.frameMove,
+.frameDelete,
+.copyFrame,
+.frameNumber {
+  position: absolute;
+
+  display: none;
+  justify-content: center;
+  align-items: center;
+  width: 32px;
+  height: 32px;
 }
 
 .frameNumber {
-    left: 0;
-    top: 0;
+  top: 0;
+  left: 0;
 } 
 
 .frameMove {
-    left: 0;
-    bottom: 0;
+  bottom: 0;
+  left: 0;
 } 
 
 .frameDelete {
-    right: 0;
-    top: 0;
+  top: 0;
+  right: 0;
 } 
 
 .copyFrame {
-    right: 0;
-    bottom: 0;
+  right: 0;
+  bottom: 0;
 }
 
 .visibleFrame {
-    background-color: yellow;
-    color: black;
-    font-weight: bold;
+  font-weight: bold;
+  color: black;
+
+  background-color: yellow;
 }
 .hiddenFrame {
-    background-color:  #3A3A3A;
-    color: white;
+  color: white;
+
+  background-color: #3a3a3a;
 }
 
 .frameActive {
-    border: 2px #F9D80C solid;
+  border: 2px #f9d80c solid;
 }
 
 .onlyFrame {
-    &:hover {
-        .frameMove, .frameDelete {
-            display: none;
-        }
+  &:hover {
+    .frameMove,
+    .frameDelete {
+      display: none;
     }
+  }
 }

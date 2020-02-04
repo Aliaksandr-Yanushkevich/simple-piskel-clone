@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "webpack-dev-server --mode development --open",
     "build": "webpack --mode production",
-    "test": "jest --coverage --collectCoverageFrom=./src/**/*.js --watchAll"
+    "test": "jest --coverage --collectCoverageFrom=./src/**/*.js --watchAll",
+    "comb": "csscomb src/scss/"
   },
   "author": "Aliaksandr Yanushkevich",
   "license": "MIT",
@@ -19,6 +20,7 @@
     "babel-preset-env": "^1.7.0",
     "babel-preset-stage-3": "^6.24.1",
     "css-loader": "^3.4.0",
+    "csscomb": "^4.3.0",
     "eslint": "^6.1.0",
     "eslint-config-airbnb": "^18.0.1",
     "eslint-loader": "^3.0.3",

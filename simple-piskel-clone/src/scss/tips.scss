@@ -1,28 +1,32 @@
-.tools-tip, .color-tip, .pencilPropTip {
-    position: absolute;
-    font-size: 0.8rem;
-    color: white;
-    width: 150px;
-    background-color: black;
-    text-align: center;
-    z-index: 5;
-    visibility: hidden;
-    
+.tools-tip,
+.color-tip,
+.pencilPropTip {
+  position: absolute;
+  z-index: 5;
+
+  width: 150px;
+
+  font-size: 0.8rem;
+  text-align: center;
+  color: white;
+
+  background-color: black;
+  visibility: hidden;
 }
 
 .tools-tip {
-    top: 12px;
-    left: 40px;
+  top: 12px;
+  left: 40px;
 }
 
 .tool-tip--hotkey {
-    color: yellow;
-    text-transform: uppercase;
+  color: yellow;
+  text-transform: uppercase;
 }
 
 .color-tip {
-    top: 5px;
-    left: 40px;
+  top: 5px;
+  left: 40px;
 }
 
 .tools-tip::after,
@@ -31,42 +35,44 @@
 .eraserTip::after,
 .strokeTip::after,
 .color-tip::after,
-.pencilPropTip::after {  // левый носик
-    content: "";
-    position: absolute;
-    top: calc(50% - 7px);
-    left: -7px;   
-    border-color: transparent black transparent transparent;
-    border-style: solid;
-    border-width: 7px 7px 7px 0;
-    height: 0px;
-    width: 0px;
-  }
+.pencilPropTip::after {
+  // левый носик
+  content: "";
+  position: absolute;
+  top: calc(50% - 7px);
+  left: -7px;
+
+  width: 0;
+  height: 0;
+
+  border-width: 7px 7px 7px 0;
+  border-style: solid;
+  border-color: transparent black transparent transparent;
+}
 
 #fillBucket:hover + .tools-tip,
-#magicBucket:hover + .tools-tip,  
+#magicBucket:hover + .tools-tip,
 #picker:hover + .tools-tip,
 #pencil:hover + .tools-tip,
 #eraser:hover + .tools-tip,
 #stroke:hover + .tools-tip {
-    visibility: visible;
+  visibility: visible;
 }
 
 .pencilProp {
-    position: relative;
+  position: relative;
 }
 
-.pencilPropTip  {
-
-    top: 3px;
-    left: 92px;
+.pencilPropTip {
+  top: 3px;
+  left: 92px;
 }
 
 .pencilProp:hover > .pencilPropTip {
-    visibility: visible;
+  visibility: visible;
 }
 
 #primaryColorButton:hover + .color-tip,
 #secondaryColorButton:hover + .color-tip {
-    visibility: visible;
+  visibility: visible;
 }
