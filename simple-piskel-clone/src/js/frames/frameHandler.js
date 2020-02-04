@@ -2,8 +2,8 @@ import { updateFrameNumber } from './updateFrameNumber';
 import { copyFrame } from './copyFrame';
 import { frameToCanvas } from './frameToCanvas';
 import { deleteFrame } from './deleteFrame';
-import { getAnimationList } from '../animation/getAnimationList';
 import { drawAnimation } from '../animation/drawAnimation';
+// import { onlyFrame } from './onlyFrame';
 
 export function frameHandler(e) {
   const currentFrame = e.target.closest('.frame');

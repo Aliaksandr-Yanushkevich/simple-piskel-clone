@@ -17,6 +17,7 @@ import { defaultShortCuts } from './shortcut/defaultShortСuts';
 import { createFrame } from './frames/createFrame';
 import { frameHandler } from './frames/frameHandler';
 import { setAnimationFPS } from './animation/setAnimationFPS';
+import { onlyFrame } from './frames/onlyFrame';
 
 export function handlers() {
   document.querySelector('#fillBucket').addEventListener('click', fillBucket);
@@ -48,6 +49,8 @@ export function handlers() {
     .querySelectorAll('.tool-shortcuts')
     .forEach((item) => item.addEventListener('click', hotkey));
   document.querySelector('.frameContainer').addEventListener('click', frameHandler);
+  document.querySelector('.frame ').addEventListener('mouseenter', onlyFrame);
+  document.querySelector('.frame ').addEventListener('mouseleave', onlyFrame);
   document.querySelector('#animationFPS').addEventListener('change', setAnimationFPS);
 
   const pencilList = document.querySelectorAll('.pencilSize');

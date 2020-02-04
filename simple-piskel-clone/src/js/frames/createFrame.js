@@ -8,10 +8,10 @@ export function createFrame(data) {
   const frameAmount = document.querySelectorAll('.frame').length + 1;
   // add buttons into frame
   const frameNumber = document.createElement('div');
-  if (data[1] === true) {
-    frameNumber.className = 'frameNumber visibleFrame';
+  if (data && data[1] === false) {
+    frameNumber.className = 'frameNumber hiddenFrame'; // 'frameNumber visibleFrame'
   } else {
-    frameNumber.className = 'frameNumber hiddenFrame';
+    frameNumber.className = 'frameNumber visibleFrame';
   }
 
   frameNumber.textContent = frameAmount;

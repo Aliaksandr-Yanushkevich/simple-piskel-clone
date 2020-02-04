@@ -65,3 +65,11 @@
 .frameActive {
     border: 2px #F9D80C solid;
 }
+
+.onlyFrame {
+    &:hover {
+        .frameMove, .frameDelete {
+            display: none;
+        }
+    }
+}
