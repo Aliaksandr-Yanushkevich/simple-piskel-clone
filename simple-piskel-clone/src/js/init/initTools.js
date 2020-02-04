@@ -15,4 +15,8 @@ export function initTools() {
   if (localStorage.currentTool === undefined) {
     localStorage.currentTool = 'pencil';
   }
+
+  if (localStorage.FPS === undefined) {
+    localStorage.FPS = '12';
+  }
 }

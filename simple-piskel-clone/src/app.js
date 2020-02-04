@@ -14,7 +14,6 @@ import { hotkeyhandler } from './js/shortcut/hotkeyhandler';
 import { defaultFrame } from './js/frames/defaultFrame';
 import { initFrameContainer } from './js/init/initFrameContainer';
 import { initFrames } from './js/init/initFrames';
-import { getAnimationList } from './js/animation/getAnimationList';
 import { drawAnimation } from './js/animation/drawAnimation';
 // SETUP BLOCK
 
