@@ -11,9 +11,12 @@ export function frameHandler(e) {
   const frameNumber = [...currentFrame.parentElement.children].indexOf(currentFrame);
   switch (e.target.closest('div').classList[0]) {
     case ('frameNumber'):
-      animationArray[frameNumber][1] = !animationArray[frameNumber][1];
-      localStorage.frames = JSON.stringify(animationArray);
-      drawAnimation();
+
+      if (animationArray.length > 1) {
+        animationArray[frameNumber][1] = !animationArray[frameNumber][1];
+        localStorage.frames = JSON.stringify(animationArray);
+        drawAnimation();
+      }
       e.target.classList.toggle('visibleFrame');
       e.target.classList.toggle('hiddenFrame');
       break;
